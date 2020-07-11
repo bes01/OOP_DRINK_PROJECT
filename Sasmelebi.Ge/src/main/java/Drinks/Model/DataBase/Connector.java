@@ -14,6 +14,8 @@ public class Connector {
     }
 
     public ResultSet executeQuery(PreparedStatement statement){
+
+    	
         return null;
     }
 
