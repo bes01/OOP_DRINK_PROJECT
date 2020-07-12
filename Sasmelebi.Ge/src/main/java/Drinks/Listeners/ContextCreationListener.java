@@ -10,7 +10,7 @@ import javax.servlet.annotation.WebListener;
 public class ContextCreationListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-        servletContextEvent.getServletContext().setAttribute("connector", new Connector());
+        servletContextEvent.getServletContext().setAttribute("connector", Connector.getInstance());
     }
 
     @Override
