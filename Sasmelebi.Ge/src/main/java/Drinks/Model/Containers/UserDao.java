@@ -21,7 +21,7 @@ interface UserDao {
 
     public double getRank();
 
-    public ArrayList<Drink> getMyDinks();
+    public ArrayList<Drink> getMyDrinks();
 
     public ArrayList<Drink> getFavourites();
 }

@@ -75,7 +75,7 @@ public class User implements UserDao {
     }
 
     @Override
-    public ArrayList<Drink> getMyDinks() {
+    public ArrayList<Drink> getMyDrinks() {
         return myDrinks;
     }
 
