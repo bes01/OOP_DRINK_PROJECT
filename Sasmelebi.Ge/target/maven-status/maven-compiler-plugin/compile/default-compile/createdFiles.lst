@@ -1,2 +1,9 @@
 Drinks\Constants\Constants.class
+Drinks\Listeners\ContextCreationListener.class
+Drinks\Model\Containers\User.class
+Drinks\Model\Containers\Ingredient.class
+Drinks\Model\Containers\DrinkDao.class
+Drinks\Model\Containers\UserDao.class
+Drinks\Model\Containers\Drink.class
+Drinks\Model\Containers\IngredientDao.class
 Drinks\Model\DataBase\Connector.class
