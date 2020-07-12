@@ -8,15 +8,17 @@ public class Drink implements DrinkDao {
     private String imagePath;
     private String instruction;
     private int parentId;
+    private int authorId;
     private ArrayList<Ingredient> myIngredients;
 
     public Drink(int drinkId, String drinkName, String imagePath, String instruction,
-                 int parentId, ArrayList<Ingredient> myIngredients) {
+                 int parentId, int authorId, ArrayList<Ingredient> myIngredients) {
         this.drinkId = drinkId;
         this.drinkName = drinkName;
         this.imagePath = imagePath;
         this.instruction = instruction;
         this.parentId = parentId;
+        this.authorId = authorId;
         this.myIngredients = myIngredients;
     }
 
@@ -43,6 +45,11 @@ public class Drink implements DrinkDao {
     @Override
     public int getParentId() {
         return parentId;
+    }
+
+    @Override
+    public int getAuthorId(){
+        return authorId;
     }
 
     @Override
