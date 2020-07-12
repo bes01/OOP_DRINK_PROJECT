@@ -13,5 +13,7 @@ public interface DrinkDao {
 
     public int getParentId();
 
+    public int getAuthorId();
+
     public ArrayList<Ingredient> getMyIngredients();
 }
