@@ -1,23 +1,44 @@
 package Drinks.Model.DataBase;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import Drinks.Constants.Constants;
 
-//singleton
+import java.sql.*;
+
 public class Connector {
-    public Connector(){
+    private Connection connection;
+    private static Connector connector = null;
 
+    public Connector() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+                    Constants.dataUser,
+                    Constants.dataPassword);
+        } catch (Exception e) {
+            throw new RuntimeException("Cant connect to the database.");
+        }
     }
 
-    public PreparedStatement getStatement(){
-        return null;
+    public static Connector getInstance() {
+        if (connector == null) {
+            synchronized (Connector.class) {
+                if (connector == null)
+                    connector = new Connector();
+            }
+        }
+        return connector;
     }
 
-    public ResultSet executeQuery(PreparedStatement statement){
-        return null;
+    public PreparedStatement getStatement(String query) throws SQLException {
+        return connection.prepareStatement(query);
     }
 
-    public void execute(PreparedStatement statement){
+    public ResultSet executeQuery(PreparedStatement statement) throws SQLException {
+        return statement.executeQuery();
+    }
 
+    public void execute(PreparedStatement statement) throws SQLException {
+        statement.execute();
     }
 }
