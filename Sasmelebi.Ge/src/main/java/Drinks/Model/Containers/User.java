@@ -11,12 +11,12 @@ public class User implements UserDao {
     private int age;
     private String mail;
     private String password;
-    private int rank;
+    private double rank;
     private ArrayList<Drink> myDrinks;
     private ArrayList<Drink> favourites;
 
     public User(int userId, String firstName, String lastName, String nickName, String sex,
-                int age, String mail, String password, int rank, ArrayList<Drink> myDrinks, ArrayList<Drink> favourites) {
+                int age, String mail, String password, double rank, ArrayList<Drink> myDrinks, ArrayList<Drink> favourites) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -70,7 +70,7 @@ public class User implements UserDao {
     }
 
     @Override
-    public int getRank() {
+    public double getRank() {
         return rank;
     }
 

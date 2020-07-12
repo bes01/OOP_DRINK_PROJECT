@@ -19,7 +19,7 @@ interface UserDao {
 
     public String getPassword();
 
-    public int getRank();
+    public double getRank();
 
     public ArrayList<Drink> getMyDinks();
 
