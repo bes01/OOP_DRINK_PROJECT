@@ -12,7 +12,7 @@ public class ContextCreationListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         servletContextEvent.getServletContext().setAttribute("connector", Connector.getInstance());
-        servletContextEvent.getServletContext().setAttribute("userData", new UserData(Connector.getInstance()));
+        servletContextEvent.getServletContext().setAttribute("userData", new UserData());
     }
 
     @Override

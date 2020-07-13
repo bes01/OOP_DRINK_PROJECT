@@ -12,9 +12,9 @@ public class UserData {
     private Connector connector;
     private DrinkData drinkData;
 
-    public UserData(Connector connector) {
-        this.connector = connector;
-        drinkData = new DrinkData(this.connector);
+    public UserData() {
+        this.connector = Connector.getInstance();
+        drinkData = new DrinkData();
     }
 
     public User searchUserById(int user_id) throws SQLException {

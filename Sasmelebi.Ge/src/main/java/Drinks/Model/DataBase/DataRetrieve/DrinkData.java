@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class DrinkData {
     private Connector connector;
 
-    public DrinkData(Connector connector) {
-        this.connector = connector;
+    public DrinkData() {
+        this.connector = Connector.getInstance();
     }
 
     public ArrayList<Drink> favourites(int user_id) throws SQLException {
