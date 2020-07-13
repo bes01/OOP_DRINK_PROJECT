@@ -11,8 +11,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class DrinkData {
-    public static ArrayList<Drink> favourites(int user_id) throws SQLException {
-        Connector connector = Connector.getInstance();
+    private Connector connector;
+
+    public DrinkData(Connector connector) {
+        this.connector = connector;
+    }
+
+    public ArrayList<Drink> favourites(int user_id) throws SQLException {
         PreparedStatement statement = connector.getStatement(
                 "select * from " + Constants.schema +
                         ".favourites " +
@@ -22,14 +27,13 @@ public class DrinkData {
         return getDrinks(user_id, connector, statement);
     }
 
-    public static ArrayList<Drink> userDrinks(int user_id) throws SQLException {
-        Connector connector = Connector.getInstance();
+    public ArrayList<Drink> userDrinks(int user_id) throws SQLException {
         PreparedStatement statement = connector.getStatement("select * from " + Constants.schema + ".drinks " +
                 "where author = ?");
         return getDrinks(user_id, connector, statement);
     }
 
-    private static ArrayList<Drink> getDrinks(int user_id, Connector connector, PreparedStatement statement) throws SQLException {
+    private ArrayList<Drink> getDrinks(int user_id, Connector connector, PreparedStatement statement) throws SQLException {
         ArrayList<Drink> drinks = new ArrayList<>();
         statement.setInt(1, user_id);
         ResultSet set = connector.executeQuery(statement);
@@ -40,8 +44,7 @@ public class DrinkData {
         return drinks;
     }
 
-    public static ArrayList<Ingredient> getIngredients(int drink_id) throws SQLException {
-        Connector connector = Connector.getInstance();
+    public ArrayList<Ingredient> getIngredients(int drink_id) throws SQLException {
         PreparedStatement statement = connector.getStatement("select * from " + Constants.schema +
                 ".drinks_ingredients join " + Constants.schema + ".ingredients on " +
                 Constants.schema + ".drinks_ingredients.ingredient_id = " + Constants.schema + ".ingredients.ingredient_id " +
