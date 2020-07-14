@@ -58,7 +58,4 @@ public class Drink implements DrinkDao {
     }
 
 
-    public int getAuthorId() {
-        return authorId;
-    }
 }
