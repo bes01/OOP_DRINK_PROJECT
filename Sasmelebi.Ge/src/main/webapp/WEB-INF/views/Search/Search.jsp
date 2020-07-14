@@ -33,7 +33,7 @@
             <a href="/Favourites">Favourites</a>
         </div>
         <div style="position: absolute; top: 0; right: 180px; width: 100px; text-align:right;">
-            <a href="/Search">Search</a>
+            <a href="/HomePage">Home Page</a>
         </div>
         <form action="/Search" method="get">
             <div id="inputs">
