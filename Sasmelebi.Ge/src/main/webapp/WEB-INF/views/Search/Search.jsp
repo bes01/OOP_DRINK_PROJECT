@@ -12,7 +12,7 @@
             opt.value ="A";
             opt.text ="A";
 
-            new_select.setAttribute("name","ingredient[]");
+            new_select.setAttribute("name","ingredient");
             new_select.appendChild(opt);
             container.appendChild(break_line);
 
@@ -20,6 +20,12 @@
 
         }
     </script>
+    <style>
+    A{
+        text-decoration: none;
+
+    }
+    </style>
     <head>
         <title>Sasmelebi.ge </title>
     </head>
@@ -38,14 +44,26 @@
         <form action="/Search" method="get">
             <div id="inputs">
             <label> Drink Name : </label>
-            <input type="text" name="drink_name"> <br>
+            <input type="text" name="drink_name" , value="${last_search_name}"> <br>
             <label> Ingredients :  </label> <br>
-            <Select  name="ingredient[]"> <br>
-                <option value="A">A</option>
-            </Select>
+            <c:if test ="${last_ingredients == null}">
+            <br>
+                <Select  name="ingredient">
+                    <option value="A">A</option>
+             </Select>
+            </c:if>
+            <c:if test ="${last_ingredients != null}">
+                <c:forEach items="${last_ingredients}" var = "current_ingredient">
+                <br>
+                <Select  name="ingredient" >
+                    <option value="A">A</option>
+                </Select>
+                </c:forEach>
+            </c:if>
+
 
             </div>
-            <input type="submit" , value = "Search"> <br>
+           <br> <input type="submit" , value = "Search"> <br>
           </form>
          <button onclick="add()">Add Ingredient</button>
     </body>
