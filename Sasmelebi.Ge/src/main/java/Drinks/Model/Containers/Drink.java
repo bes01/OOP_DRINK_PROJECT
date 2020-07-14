@@ -56,4 +56,9 @@ public class Drink implements DrinkDao {
     public ArrayList<Ingredient> getMyIngredients() {
         return myIngredients;
     }
+
+
+    public int getAuthorId() {
+        return authorId;
+    }
 }
