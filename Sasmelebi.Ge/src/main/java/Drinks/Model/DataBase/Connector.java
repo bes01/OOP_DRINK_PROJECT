@@ -12,7 +12,7 @@ public class Connector {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/oop_project",
+                    "jdbc:mysql://localhost:3306/?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
                     Constants.dataUser,
                     Constants.dataPassword);
         } catch (Exception e) {

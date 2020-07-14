@@ -48,15 +48,9 @@ public class Drink implements DrinkDao {
     }
 
     @Override
-    public int getAuthorId(){
-        return authorId;
-    }
-
-    @Override
     public ArrayList<Ingredient> getMyIngredients() {
         return myIngredients;
     }
-
 
     public int getAuthorId() {
         return authorId;
