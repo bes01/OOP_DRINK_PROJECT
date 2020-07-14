@@ -11,11 +11,11 @@ public class Ingredient implements IngredientDao {
 
     @Override
     public int getIngredientId() {
-        return 0;
+        return ingredientId;
     }
 
     @Override
     public String getIngredientName() {
-        return null;
+        return ingredientName;
     }
 }
