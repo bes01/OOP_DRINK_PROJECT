@@ -1,8 +1,13 @@
+Drinks\Model\DataBase\IngredientDao\IngredientData.class
 Drinks\Constants\Constants.class
-Drinks\Listeners\ContextCreationListener.class
 Drinks\Model\Containers\User.class
 Drinks\Model\Containers\Ingredient.class
+Drinks\Controllers\Recipe\MultipartConfigure$MyConfig.class
+Drinks\Model\DataBase\RecipeDao\RecipeAddition.class
+Drinks\Controllers\Recipe\AddRecipeController.class
+Drinks\Listeners\ContextCreationListener.class
 Drinks\Model\Containers\DrinkDao.class
+Drinks\Controllers\Recipe\MultipartConfigure.class
 Drinks\Model\Containers\UserDao.class
 Drinks\Model\Containers\Drink.class
 Drinks\Model\Containers\IngredientDao.class

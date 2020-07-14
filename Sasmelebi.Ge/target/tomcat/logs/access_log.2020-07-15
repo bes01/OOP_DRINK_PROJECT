@@ -1,0 +1,2 @@
+0:0:0:0:0:0:0:1 - - [15/Jul/2020:00:26:25 +0400] "GET /user/add_recipe HTTP/1.1" 200 2199 http-bio-8080-exec-1 1420
+0:0:0:0:0:0:0:1 - - [15/Jul/2020:00:26:25 +0400] "GET /resources/photos/no_photo.png HTTP/1.1" 200 19995 http-bio-8080-exec-3 122
