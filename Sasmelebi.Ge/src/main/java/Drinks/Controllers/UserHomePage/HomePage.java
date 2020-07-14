@@ -17,10 +17,10 @@ public class HomePage {
     @GetMapping("/HomePage")
     public ModelAndView renderHomePage(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         //sturuas skriptebs tu gaushvebt bazaze komenti moxsenit amas da wamoighebs sturuas users
-//                request.getSession().setAttribute("user_id", 1);
+                request.getSession().setAttribute("user_id", 3);
         if (request.getSession().getAttribute("user_id") == null)
             response.sendRedirect("/Login");
-        UserData data = (UserData) request.getServletContext().getAttribute("userData");
+        UserData data = new UserData();
         User user = data.searchUserById((int) request.getSession().getAttribute("user_id"));
         ModelAndView mav = new ModelAndView("/UserHomePage/homePage");
         mav.addObject("user", user);
