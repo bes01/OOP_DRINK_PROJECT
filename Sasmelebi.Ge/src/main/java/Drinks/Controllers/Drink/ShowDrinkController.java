@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.sql.SQLException;
 
 @Controller
 public class ShowDrinkController {
 
     @GetMapping(value = "/Drink")
-    public ModelAndView getDrinkPage(HttpServletRequest request){
+    public ModelAndView getDrinkPage(HttpServletRequest request) throws SQLException {
         String drinkId = request.getParameter("drinkId");
         ModelAndView mw = new ModelAndView("/Drink");
         TheDrinkData dt = new TheDrinkData();
