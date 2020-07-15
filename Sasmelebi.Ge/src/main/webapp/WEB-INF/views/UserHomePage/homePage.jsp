@@ -10,10 +10,9 @@
 <html>
 <head>
     <title>HomePage</title>
+    <link rel="stylesheet" href="/resources/css/text.css">
+    <link rel="stylesheet" href="/resources/css/links.css">
 </head>
-<STYLE>A {
-    text-decoration: none;
-} </STYLE>
 <body>
 
 
@@ -29,8 +28,8 @@
     </div>
 
     <div>
-        <font size="+3"><p style="font-family:'Courier New">Welcome, ${user.firstName} ${user.lastName}!</p></font>
-        <font size="+2"><p style="font-family:'Courier New">Wanna drink? Don't hesitate, just do it!</p></font>
+        <Welcome >Welcome, ${user.firstName} ${user.lastName}!<br></Welcome>
+        <doIt ><br>Wanna drink? Don't hesitate, just do it!<br></doIt>
     </div>
 
     <div>
@@ -42,12 +41,13 @@
     </div>
 
     <div>
-        <a href="/addDrink">Wanna add a new drink? Click here!<br></a>
+        <a href="/user/add_recipe">Wanna add a new drink? Click here!<br></a>
+    </div>
+    <div>
         <font size="+1"><b><br>My drinks:</b></font>
         <c:forEach items="${user.myDrinks}" var="drink">
             <ul>
-                <li><a href="/drink"><font size="+3"
-                                           style="font-family: 'French Script MT'">${drink.drinkName}</font></a></li>
+                <li><a href="/drink"><font class="DrinkLabels">${drink.drinkName}</font></a></li>
             </ul>
         </c:forEach>
     </div>
