@@ -1,6 +1,7 @@
 package Drinks.Listeners;
 
 import Drinks.Model.DataBase.Connector;
+import Drinks.Model.DataBase.DataRetrieve.IngredientData;
 import Drinks.Model.DataBase.DataRetrieve.UserData;
 
 import javax.servlet.ServletContextEvent;
@@ -13,6 +14,7 @@ public class ContextCreationListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         servletContextEvent.getServletContext().setAttribute("connector", Connector.getInstance());
         servletContextEvent.getServletContext().setAttribute("userData", new UserData());
+        servletContextEvent.getServletContext().setAttribute("ingredientData", new IngredientData());
     }
 
     @Override
