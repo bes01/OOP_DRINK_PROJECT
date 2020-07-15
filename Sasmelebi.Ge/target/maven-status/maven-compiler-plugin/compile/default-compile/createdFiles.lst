@@ -2,6 +2,8 @@ Drinks\Model\DataBase\IngredientDao\IngredientData.class
 Drinks\Constants\Constants.class
 Drinks\Model\Containers\User.class
 Drinks\Model\Containers\Ingredient.class
+Drinks\Model\DataBase\DrinkDao\TheDrinkData.class
+Drinks\Controllers\Drink\ShowDrinkController.class
 Drinks\Controllers\UserHomePage\Favourites.class
 Drinks\Controllers\Recipe\MultipartConfigure$MyConfig.class
 Drinks\Model\DataBase\RecipeDao\RecipeAddition.class
@@ -12,6 +14,7 @@ Drinks\Controllers\Search\SearchController.class
 Drinks\Model\Containers\DrinkDao.class
 Drinks\Model\DataBase\DataRetrieve\IngredientData.class
 Drinks\Model\DataBase\RecipeDao\ExistenceChecker.class
+
 Drinks\Controllers\Recipe\MultipartConfigure.class
 Drinks\Model\Containers\UserDao.class
 Drinks\Model\DataBase\DataRemove\DrinkRemoval.class
