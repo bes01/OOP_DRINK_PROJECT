@@ -19,12 +19,13 @@ public class DrinkController {
         ModelAndView mw = new ModelAndView("/Drink/showDrink");
         TheDrinkData dt = new TheDrinkData();
         Drink dr = dt.getDrink(Integer.valueOf(drinkId));
-        mw.addObject("drink");
+        mw.addObject("drink", dr);
         return mw;
     }
 
     @PostMapping(value = "/Drink")
     public ModelAndView postDrinkPage(HttpServletRequest request){
+
         return null;
     }
 }
