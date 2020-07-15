@@ -6,17 +6,12 @@
     <script>
         function add(){
             var container = document.getElementById("inputs");
-            var new_select = document.createElement("Select");
-            var opt = document.createElement('option');
+            var element = document.getElementById("select");
             var break_line = document.createElement("br");
-            opt.value ="A";
-            opt.text ="A";
-
-            new_select.setAttribute("name","ingredient");
-            new_select.appendChild(opt);
+            var i;
+            var cln = element.cloneNode(true);
             container.appendChild(break_line);
-
-            container.appendChild(new_select);
+            container.appendChild(cln);
 
         }
     </script>
@@ -48,15 +43,25 @@
             <label> Ingredients :  </label> <br>
             <c:if test ="${last_ingredients == null}">
             <br>
-                <Select  name="ingredient">
-                    <option value="A">A</option>
+             <Select  name="ingredient" id ="select">
+                    <c:forEach items="${all_ingredients}"  var = "current_ingredient">
+                        <option value="${current_ingredient.getIngredientId()}">"${current_ingredient.getIngredientName()}"</option>
+                    </c:forEach>
              </Select>
             </c:if>
             <c:if test ="${last_ingredients != null}">
-                <c:forEach items="${last_ingredients}" var = "current_ingredient">
+                <c:forEach items="${last_ingredients}" var = "current_selected">
                 <br>
-                <Select  name="ingredient" >
-                    <option value="A">A</option>
+                <Select  name="ingredient" id="select">
+                    <c:forEach items="${all_ingredients}"  var = "current_ingredient">
+                    <c:if test ='${current_ingredient.getIngredientId() != current_selected}'>
+                        <option value="${current_ingredient.getIngredientId()}">"${current_ingredient.getIngredientName()}"</option>
+                    </c:if>
+
+                    <c:if test ='${current_ingredient.getIngredientId() == current_selected}'>
+                        <option value="${current_ingredient.getIngredientId()}" selected >"${current_ingredient.getIngredientName()}"</option>
+                    </c:if>
+                    </c:forEach>
                 </Select>
                 </c:forEach>
             </c:if>
