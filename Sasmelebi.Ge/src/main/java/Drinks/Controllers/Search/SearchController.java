@@ -1,5 +1,6 @@
 package Drinks.Controllers.Search;
 
+
 import Drinks.Model.Containers.Ingredient;
 import Drinks.Model.DataBase.DataRetrieve.IngredientData;
 import org.springframework.stereotype.Controller;
