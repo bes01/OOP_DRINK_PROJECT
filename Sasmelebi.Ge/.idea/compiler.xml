@@ -9,5 +9,8 @@
         <module name="Sasmelebi.Ge" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Sasmelebi.Ge" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
