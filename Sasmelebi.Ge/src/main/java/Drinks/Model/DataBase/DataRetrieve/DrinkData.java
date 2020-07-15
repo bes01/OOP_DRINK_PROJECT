@@ -5,6 +5,7 @@ import Drinks.Model.Containers.Drink;
 import Drinks.Model.Containers.Ingredient;
 import Drinks.Model.DataBase.Connector;
 
+import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,6 +43,19 @@ public class DrinkData {
                     "", set.getString("instruction"), set.getInt("parent_id"),
                     set.getInt("author"), getIngredients(set.getInt("drink_id"))));
         return drinks;
+    }
+
+    public ArrayList<Drink> getDrinksByNameAndIngredients(String name, int[] ingredientIds){
+            ArrayList<Drink> drinks = new ArrayList<>();
+            String query = getQuery(name,ingredientIds);
+
+            return drinks;
+
+    }
+
+    private String getQuery(String name, int[] ingredientIds) {
+        String query = "Select * from drinks ";
+        return "";
     }
 
     public ArrayList<Ingredient> getIngredients(int drink_id) throws SQLException {

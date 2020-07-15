@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
 
+
 @Controller
 public class SearchController {
 
@@ -22,7 +23,6 @@ public class SearchController {
         String drinkName = request.getParameter("drink_name");
         String[] ingredientIdsTemp = request.getParameterValues("ingredient");
         int[] ingredientIds = getIngredientIds(ingredientIdsTemp);
-
         IngredientData db = (IngredientData) request.getServletContext().getAttribute("ingredientData");
         ArrayList<Ingredient> ingredients = db.getAllIngredients();
 
@@ -32,7 +32,8 @@ public class SearchController {
 
         return ret;
     }
-    private int[] getIngredientIds(String[] parameters ){
+
+    private int[] getIngredientIds(String[] parameters) {
         int[] ingredientIds = null;
         if (parameters != null) {
             ingredientIds = new int[parameters.length];
