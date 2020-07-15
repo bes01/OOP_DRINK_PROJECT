@@ -12,6 +12,9 @@ Drinks\Listeners\ContextCreationListener.class
 Drinks\Controllers\UserHomePage\HomePage.class
 Drinks\Controllers\Search\SearchController.class
 Drinks\Model\Containers\DrinkDao.class
+Drinks\Model\DataBase\DataRetrieve\IngredientData.class
+Drinks\Model\DataBase\RecipeDao\ExistenceChecker.class
+
 Drinks\Controllers\Recipe\MultipartConfigure.class
 Drinks\Model\Containers\UserDao.class
 Drinks\Model\DataBase\DataRemove\DrinkRemoval.class
