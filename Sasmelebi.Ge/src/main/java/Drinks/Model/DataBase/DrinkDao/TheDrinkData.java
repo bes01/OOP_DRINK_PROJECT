@@ -12,6 +12,12 @@ import java.util.ArrayList;
 
 public class TheDrinkData {
 
+    Connector connector;
+
+    public TheDrinkData(){
+        connector = Connector.getInstance();
+    }
+
     public Drink getDrink(int drinkId) throws SQLException {
         Connector connector = Connector.getInstance();
         PreparedStatement st = connector.getStatement(FROM_DRINKS);
@@ -25,7 +31,6 @@ public class TheDrinkData {
     }
 
     public ArrayList<Ingredient> getIngredients(int drinkId) throws SQLException {
-        Connector connector = Connector.getInstance();
         PreparedStatement st = connector.getStatement(FROM_INGREDIENTS);
         st.setString(1, Constants.schema + ".drinks_ingredients");
         st.setString(2, Constants.schema + ".ingredients");
@@ -40,10 +45,17 @@ public class TheDrinkData {
         return ingredients;
     }
 
-    public boolean isRated(int drinkId){
-        return false;
+    public boolean isRated(int drinkId) throws SQLException {
+        Drink drink = getDrink(drinkId);
+        PreparedStatement st = connector.getStatement(FROM_RANKING);
+        st.setString(1, Constants.schema + ".ranking");
+        st.setInt(2, drink.getDrinkId());
+        st.setInt(3, drink.getAuthorId());
+        ResultSet res = connector.executeQuery(st);
+        return res.next();
     }
     public static final String FROM_DRINKS = "SELECT * FROM ? WHERE drink_id = ?";
     public static final String FROM_INGREDIENTS = "SELECT * FROM ? " +
             " JOIN ? ON ? = ? " + " WHERE drink_id = ?";
+    public static final String FROM_RANKING = "SELECT * FROM ? WHERE drink_id = ? AND  user_id = ?";
 }
