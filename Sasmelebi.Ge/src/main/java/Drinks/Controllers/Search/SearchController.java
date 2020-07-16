@@ -1,7 +1,9 @@
 package Drinks.Controllers.Search;
 
 
+import Drinks.Model.Containers.Drink;
 import Drinks.Model.Containers.Ingredient;
+import Drinks.Model.DataBase.DataRetrieve.DrinkData;
 import Drinks.Model.DataBase.DataRetrieve.IngredientData;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +26,13 @@ public class SearchController {
         String drinkName = request.getParameter("drink_name");
         String[] ingredientIdsTemp = request.getParameterValues("ingredient");
         int[] ingredientIds = getIngredientIds(ingredientIdsTemp);
-        IngredientData db = (IngredientData) request.getServletContext().getAttribute("ingredientData");
-        ArrayList<Ingredient> ingredients = db.getAllIngredients();
+        IngredientData ingredientDB = (IngredientData) request.getServletContext().getAttribute("ingredientData");
+        ArrayList<Ingredient> ingredients = ingredientDB.getAllIngredients();
+        if(drinkName != null) {
+            DrinkData drinkDb = (DrinkData) request.getServletContext().getAttribute("drinkData");
+            ArrayList<Drink> drinks = drinkDb.getDrinksByNameAndIngredients(drinkName,ingredientIds);
+            ret.addObject("drinks", drinks);
+        }
 
         ret.addObject("last_search_name", drinkName);
         ret.addObject("last_ingredients", ingredientIds);
