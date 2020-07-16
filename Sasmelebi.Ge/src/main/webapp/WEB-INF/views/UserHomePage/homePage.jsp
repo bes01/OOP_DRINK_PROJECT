@@ -10,26 +10,26 @@
 <html>
 <head>
     <title>HomePage</title>
-    <link rel="stylesheet" href="/resources/css/text.css">
-    <link rel="stylesheet" href="/resources/css/links.css">
+    <link rel="stylesheet" href="/resources/css/textLabels.css">
+    <link rel="stylesheet" href="/resources/css/hype.css">
     <link rel="stylesheet" href="/resources/css/profile.css">
-    <link rel="stylesheet" href="/resources/css/background.css">
-    <link rel="stylesheet" href="/resources/css/button.css">
+    <link rel="stylesheet" href="/resources/css/butts.css">
+    <link rel="stylesheet" href="/resources/css/wallColour.css">
+    <link rel="stylesheet" href="/resources/css/listItem.css">
 </head>
 <body>
-
-<div style="position: relative;   width: ${window.width()} px;">
+<div style="position: relative;  width: ${window.width()} px;">
     <div style="position: absolute; top: 0; right: 0; width: 100px; text-align:right;">
-        <a href="/Login">
+        <a href="/Login" class="featureLinks">
             <logout>Logout</logout>
         </a>
     </div>
-    <div style="position: absolute; top: 0; right: 70px; width: 100px; text-align:right;">
+    <div style="position: absolute; top: 0; right: 70px; width: 100px; text-align:right;" class="featureLinks">
         <a href="/Discover">
             <Discover>Discover</Discover>
         </a>
     </div>
-    <div style="position: absolute; top: 0; right: 160px; width: 100px; text-align:right;">
+    <div style="position: absolute; top: 0; right: 160px; width: 100px; text-align:right;" class="featureLinks">
         <a href="/Search">
             <search>Search</search>
         </a>
@@ -40,40 +40,47 @@
         <doIt><br>Wanna drink? Don't hesitate, just do it!<br></doIt>
     </div>
 
-    <div class="card">
-        <p class="title">Nickname: ${user.nickName}</p>
-        <p>eMail: ${user.mail}</p>
-        <p>Sex: ${user.sex}</p>
-        <p>Age: ${user.age}</p>
-        <p>Current Rank: ${user.rank}</p>
-    </div>
-
-    <div>
-        <a href="/user/add_recipe">Wanna add a new drink? Click here!<br></a>
+    <div class="card" style="margin-top: 35px">
+        <p><font size="+1"><b>Nickname: ${user.nickName}</b></font> </p>
+        <p><b>eMail: ${user.mail}</b></p>
+        <p><b>Sex: ${user.sex}</b></p>
+        <p><b>Age: ${user.age}</b></p>
+        <p><b>Current Rank: ${user.rank}</b></p>
     </div>
     <div>
-        <p><font size="+2" style="font-family: sans-serif"> <b>My Drinks:</b></font></p>
+        <p>
+            <listHeader><b><br>My Drinks:</b></ListHeader>
+        </p>
         <c:forEach items="${user.myDrinks}" var="drink">
             <ul>
-                <li style="margin-top:20px"><a href="/drink"><font class="DrinkLabels">${drink.drinkName}</font></a></li>
+                <li><a href="/drink"><font size="+3" class="list"
+                                           style="font-family: 'French Script MT'">${drink.drinkName}</font></a>
+                </li>
             </ul>
         </c:forEach>
     </div>
-    <div style="position: absolute; left: 260px; top: 303px">
-        <p><font size="+2" style="font-family: sans-serif"> <b>Favourites:</b></font></p>
+    <div style="position: absolute; left: 350px; top: 334px">
+        <p>
+            <listHeader><b>Favourites:</b></ListHeader>
+        </p>
         <ul>
             <c:forEach items="${favourites}" var="drink">
                 <li style="margin-top: 20px;">
-                    <a href="/Drink?drink_id=${drink.drinkId}"><font size="+3"
-                                                                     style="font-family: 'French Script MT'">${drink.drinkName}</font></a>
+                    <a href="/Drink?drink_id=${drink.drinkId}" class="list"><font size="+3"
+                                                                                  style="font-family: 'French Script MT'">${drink.drinkName}</font></a>
                     <a href="/removeFavourite?drink_id=${drink.drinkId}" class="remFavButton">Remove</a>
                 </li>
             </c:forEach>
         </ul>
     </div>
 
-    <img style="position: absolute; left: 58%; top:40%" src="/resources/materials/vodka.png" width="550" ; height="250"
-         ;>
+    <div style="position: absolute; left: 60%; top:35%;">
+        <img src="/resources/materials/drinks.png" width=450; height=225;>
+        <mixthings><p>Let's Mix Things Up!</p></mixthings>
+        <a href="/addDrink">
+            <button class="addDrink">Add Drink</button>
+        </a>
+    </div>
 </div>
 </body>
 </html>
