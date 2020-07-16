@@ -8,11 +8,24 @@
             var container = document.getElementById("inputs");
             var element = document.getElementById("select");
             var break_line = document.createElement("br");
-            var i;
             var cln = element.cloneNode(true);
             container.appendChild(break_line);
             container.appendChild(cln);
 
+        }
+        function remove(){
+            var elements = document.getElementsByClassName("select");
+            if(elements.length <= 1)
+                alert("You cant delete more Ingredients");
+            else{
+                var length = elements.length;
+                var lastElem = elements[length-1]
+                lastElem.parentNode.removeChild(lastElem);
+                var br_lines = document.getElementById("inputs").getElementsByTagName("br");
+                var br_lines_length = br_lines.length;
+                var rem_br_line = br_lines[br_lines_length-1];
+                rem_br_line.parentNode.removeChild(rem_br_line);
+            }
         }
     </script>
     <style>
@@ -38,12 +51,14 @@
         </div>
         <form action="/Search" method="get">
             <div id="inputs">
-            <label> Drink Name : </label>
+
+             <label> Drink Name : </label>
+
             <input type="text" name="drink_name" , value="${last_search_name}"> <br>
             <label> Ingredients :  </label> <br>
             <c:if test ="${last_ingredients == null}">
             <br>
-             <Select  name="ingredient" id ="select">
+             <Select  name="ingredient" class ="select" id="select">
                     <c:forEach items="${all_ingredients}"  var = "current_ingredient">
                         <option value="${current_ingredient.getIngredientId()}">"${current_ingredient.getIngredientName()}"</option>
                     </c:forEach>
@@ -52,7 +67,7 @@
             <c:if test ="${last_ingredients != null}">
                 <c:forEach items="${last_ingredients}" var = "current_selected">
                 <br>
-                <Select  name="ingredient" id="select">
+                <Select  name="ingredient" class="select" id="select">
                     <c:forEach items="${all_ingredients}"  var = "current_ingredient">
                     <c:if test ='${current_ingredient.getIngredientId() != current_selected}'>
                         <option value="${current_ingredient.getIngredientId()}">"${current_ingredient.getIngredientName()}"</option>
@@ -71,5 +86,11 @@
            <br> <input type="submit" , value = "Search"> <br>
           </form>
          <button onclick="add()">Add Ingredient</button>
+         <button onclick="remove()">Remove Ingredient</button>
+         <hr>
+         <c:forEach items="${drinks}" var="current_drink">
+            <a href="/Drinks/drink_id=${current_drink.getDrinkId()}"> "${current_drink.getDrinkName()}" </a>
+            <br>
+         </c:forEach>
     </body>
 </html>
