@@ -18,15 +18,14 @@ public class HomePage {
 
     @GetMapping("/HomePage")
     public ModelAndView renderHomePage(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-        //sturuas skriptebs tu gaushvebt bazaze komenti moxsenit amas da wamoighebs sturuas users
-        request.getSession().setAttribute("user_id", 3);
-        if (request.getSession().getAttribute("user_id") == null)
-            response.sendRedirect("/Login");
-        UserData data = new UserData();
-        User user = data.searchUserById((int) request.getSession().getAttribute("user_id"));
+        if (request.getSession().getAttribute("user") == null) {
+            response.sendRedirect("/");
+            return null;
+        }
         ModelAndView mav = new ModelAndView("/UserHomePage/homePage");
+        User user = (User) request.getSession().getAttribute("user");
         mav.addObject("user", user);
-        mav.addObject("favourites",user.getFavourites());
+        mav.addObject("favourites", user.getFavourites());
         return mav;
     }
 
@@ -35,14 +34,15 @@ public class HomePage {
         int drink_id = Integer.parseInt(request.getParameter("drink_id"));
         int user_id = (int) request.getSession().getAttribute("user_id");
         DrinkRemoval drinkRemoval = new DrinkRemoval();
-        drinkRemoval.removeFromFavourites(drink_id,user_id);
+        drinkRemoval.removeFromFavourites(drink_id, user_id);
         response.sendRedirect("/HomePage");
     }
 
     @GetMapping("/logout")
     public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        if (request.getSession().getAttribute("user_id") != null)
-            request.getSession().removeAttribute("user_id");
-        response.sendRedirect("/Login");
+        if (request.getSession().getAttribute("user") != null)
+            request.getSession().removeAttribute("user");
+        System.out.println(request.getSession().getAttribute("user"));
+        response.sendRedirect("/");
     }
 }

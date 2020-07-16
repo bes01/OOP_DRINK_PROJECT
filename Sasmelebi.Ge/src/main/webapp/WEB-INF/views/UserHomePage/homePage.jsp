@@ -20,7 +20,7 @@
 <body>
 <div style="position: relative;  width: ${window.width()} px;">
     <div style="position: absolute; top: 0; right: 0; width: 100px; text-align:right;">
-        <a href="/Login" class="featureLinks">
+        <a href="/logout" class="featureLinks">
             <logout>Logout</logout>
         </a>
     </div>
