@@ -79,8 +79,7 @@ public class RecipeAddition {
                 preparedStatement.setInt(5,user.getAuthorId());
             }
             ResultSet resultSet=connector.executeQuery(preparedStatement);
-            resultSet.next();
-            res=resultSet.getInt(1);
+            while(resultSet.next())res=resultSet.getInt(1);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
