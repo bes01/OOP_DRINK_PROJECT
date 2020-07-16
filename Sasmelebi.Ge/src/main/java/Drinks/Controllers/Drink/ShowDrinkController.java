@@ -18,7 +18,7 @@ public class ShowDrinkController {
         String drinkId = request.getParameter("drinkId");
         ModelAndView mw = new ModelAndView("/Drink");
         TheDrinkData dt = new TheDrinkData();
-        Drink dr = dt.getDrink(drinkId);
+        Drink dr = dt.getDrink(Integer.parseInt(drinkId));
         mw.addObject("drink");
         return mw;
     }
