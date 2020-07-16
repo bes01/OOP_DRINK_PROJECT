@@ -42,18 +42,28 @@ public class TheDrinkData {
         return ingredients;
     }
 
-    public boolean isRated(int drinkId) throws SQLException {
-        Drink drink = getDrink(drinkId);
+    public int sumRated(int drink_id) throws SQLException {
         PreparedStatement st = connector.getStatement(FROM_RANKING);
-        st.setString(1, "ranking");
-        st.setInt(2, drink.getDrinkId());
-        st.setInt(3, drink.getAuthorId());
+        st.setInt(1, drink_id);
         ResultSet res = connector.executeQuery(st);
-        return res.next();
+        res.next();
+        return res.getInt("SUM");
     }
+
+    public int userRated(int drink_id, int user_id) throws SQLException {
+        PreparedStatement st = connector.getStatement(FROM_RANKING_USER);
+        st.setInt(1, drink_id);
+        st.setInt(2, user_id);
+        ResultSet res = connector.executeQuery(st);
+        res.next();
+        return res.getInt("SUM");
+    }
+
     public static final String FROM_DRINKS = "SELECT * FROM drinks WHERE drink_id = ?";
     public static final String FROM_INGREDIENTS = "SELECT * FROM drinks_ingredients " +
             " JOIN ingredients ON drinks_ingredients.ingredient_id = ingredients.ingredient_id " +
             " WHERE drink_id = ?";
-    public static final String FROM_RANKING = "SELECT * FROM ? WHERE drink_id = ? AND  user_id = ?";
+    public static final String FROM_RANKING = "SELECT SUM(rank_score) as SUM FROM ranking WHERE drink_id = ?";
+    public static final String FROM_RANKING_USER = "SELECT SUM(rank_score) as SUM " +
+            "FROM ranking WHERE drink_id = ? AND user_id = ?";
 }
