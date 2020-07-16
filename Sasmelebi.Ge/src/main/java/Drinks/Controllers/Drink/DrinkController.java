@@ -21,16 +21,18 @@ public class DrinkController {
         ModelAndView mw = new ModelAndView("/Drink/showDrink");
         TheDrinkData dt = new TheDrinkData();
         Drink dr = dt.getDrink(Integer.valueOf(drinkId));
+        mw.addObject("drink", dr);
+        String ranking = request.getParameter("ranking_sc");
+        System.out.println(ranking);
+        if(ranking != null) dt.justRated(dr.getDrinkId(), 1, Integer.valueOf(ranking));
         DrinkFull drFull = new DrinkFull(dr.getDrinkId(), 1);
         // request.getSession().getAttribute("masterUser").getCurrentUserId();
-        mw.addObject("drink", dr);
         mw.addObject("wrappedDrinkInfo", drFull);
         return mw;
     }
 
     @PostMapping(value = "/Drink")
-    public ModelAndView postDrinkPage(HttpServletRequest request){
-
+    public ModelAndView postDrinkPage(HttpServletRequest request) throws SQLException {
         return null;
     }
 }
