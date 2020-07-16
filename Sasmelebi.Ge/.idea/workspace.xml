@@ -16,35 +16,16 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:Ilia's-branch" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af709a7b-75f7-4d47-86c7-e02fab519a1c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Sasmelebi.Ge.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Drinks/Constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Drinks/Constants/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Drinks/Controllers/Drink/ShowDrinkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Drinks/Controllers/Drink/ShowDrinkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Drinks/Controllers/UserHomePage/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Drinks/Controllers/UserHomePage/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Drinks/Model/DataBase/DataRetrieve/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Drinks/Model/DataBase/DataRetrieve/UserData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Drinks/Constants/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Drinks/Constants/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Drinks/Controllers/Drink/ShowDrinkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Drinks/Controllers/Drink/ShowDrinkController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Drinks/Controllers/Recipe/AddRecipeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Drinks/Controllers/Recipe/AddRecipeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Drinks/Controllers/Search/SearchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Drinks/Controllers/Search/SearchController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Drinks/Controllers/UserHomePage/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Drinks/Controllers/UserHomePage/HomePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Drinks/Listeners/ContextCreationListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Drinks/Listeners/ContextCreationListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Drinks/Model/DataBase/DataRetrieve/UserData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Drinks/Model/DataBase/DataRetrieve/UserData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Drinks/Model/DataBase/DrinkDao/TheDrinkData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Drinks/Model/DataBase/DrinkDao/TheDrinkData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Drinks/Model/DataBase/RecipeDao/RecipeAddition.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Drinks/Model/DataBase/RecipeDao/RecipeAddition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/conf/logging.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/conf/logging.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/conf/tomcat-users.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/conf/tomcat-users.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/conf/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/conf/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-07-15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/WEB_002dINF/views/AddRecipe/AddRecipe_jsp.java" beforeDir="false" />
-    </list>
+    <list default="true" id="af709a7b-75f7-4d47-86c7-e02fab519a1c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,7 +112,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Ilia's-branch" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
