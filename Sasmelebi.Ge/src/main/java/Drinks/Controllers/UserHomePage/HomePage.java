@@ -14,7 +14,7 @@ import java.sql.SQLException;
 @Controller
 public class HomePage {
 
-    @GetMapping("/HomePage")
+/*    @GetMapping("/HomePage")
     public ModelAndView renderHomePage(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         //sturuas skriptebs tu gaushvebt bazaze komenti moxsenit amas da wamoighebs sturuas users
                 request.getSession().setAttribute("user_id", 3);
@@ -22,6 +22,16 @@ public class HomePage {
             response.sendRedirect("/Login");
         UserData data = new UserData();
         User user = data.searchUserById((int) request.getSession().getAttribute("user_id"));
+        ModelAndView mav = new ModelAndView("/UserHomePage/homePage");
+        mav.addObject("user", user);
+        return mav;
+    }  */
+
+    @GetMapping("/HomePage")
+    public ModelAndView renderHomePage(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+        User user = (User) request.getSession().getAttribute("user");
+        if (user == null)
+            response.sendRedirect("/");
         ModelAndView mav = new ModelAndView("/UserHomePage/homePage");
         mav.addObject("user", user);
         return mav;
