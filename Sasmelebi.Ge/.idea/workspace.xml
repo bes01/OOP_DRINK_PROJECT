@@ -25,9 +25,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="676ee5b3-0cb6-4fdb-a783-0eb7e49cb3a1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sasmelebi.Ge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Sasmelebi.Ge.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Drinks/Controllers/Drink/ShowDrinkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Drinks/Controllers/Drink/ShowDrinkController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1594807599560</updated>
       <workItem from="1594807608999" duration="4328000" />
+      <workItem from="1594931148768" duration="871000" />
     </task>
     <servers />
   </component>
