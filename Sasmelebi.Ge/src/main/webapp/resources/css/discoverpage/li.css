@@ -1,4 +1,4 @@
-li{
+item{
     margin-top:20px;
     list-style-type: none;
     transition: .3s;
@@ -7,17 +7,7 @@ li{
     color: black;
 }
 
-li:hover {
+item:hover {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
-}
-
-.featureLinks {
-    display: inline-block;
-    transition: .3s;
-    text-decoration: none;
-}
-.featureLinks:hover {
-    transform: rotate(15deg);
-    color: green;
 }

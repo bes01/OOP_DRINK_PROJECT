@@ -67,7 +67,7 @@
         </ul>
     </div>
 
-    <div style="position: absolute; left: 60%; top:35%;">
+    <div style="position: absolute; left: 60%; top:190px;">
         <img src="/resources/materials/drinks.png" width=450; height=225;>
         <mixthings><p>Let's Mix Things Up!</p></mixthings>
         <a href="/addDrink">
