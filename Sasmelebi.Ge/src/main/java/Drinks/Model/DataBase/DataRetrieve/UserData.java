@@ -44,12 +44,12 @@ public class UserData {
     }
 
     public double getRank(int user_id) throws SQLException {
-        Double sum = (double) selectFromRank(user_id, "sum(rank_score)");
-        Double quantity = (double) selectFromRank(user_id, "count(*)");
+        Double sum = (double) getRankHelper(user_id, "sum(rank_score)");
+        Double quantity = (double) getRankHelper(user_id, "count(*)");
         return (quantity == 0) ? 0 : sum / quantity;
     }
 
-    private int selectFromRank(int user_id, String select) throws SQLException {
+    private int getRankHelper(int user_id, String select) throws SQLException {
         Connector connector = Connector.getInstance();
         PreparedStatement statement = connector.getStatement("select " + select + " from " + Constants.schema +
                 ".ranking where user_id = ?");
