@@ -26,11 +26,11 @@
                     <img name="myimage" src="${path}" width=200 height=250/>
                 </c:otherwise>
             </c:choose>
-            <form method="POST" enctype="multipart/form-data" action="/user/add_recipe" >
+            <form method="POST" enctype="multipart/form-data" action="/addDrink" >
             				<input type="file" name="file" />
             				<input  type="submit" value="Upload" />
             </form>
-            <form method="POST" enctype="multipart/form-data" action="/user/add_recipe/submit" >
+            <form method="POST" enctype="multipart/form-data" action="/addDrink/submit" >
             <br></br>
                 <label>Enter Name Of The Drink</label>
             <input id="name" type="text" name="name"/>

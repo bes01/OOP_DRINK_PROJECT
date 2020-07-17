@@ -18,12 +18,12 @@
                 <a href="/Search">Search</a>
             </div>
                     <img name="myimage" src="${path}" name="photo" width=200 height=250/>
-            <form method="POST" enctype="multipart/form-data" action="/user/add_recipe" >
+            <form method="POST" enctype="multipart/form-data" action="/addDrink" >
             				<input type="file" name="file" />
             				<input  type="submit" value="Upload" />
             </form>
             <br></br>
-            <form method="POST" enctype="multipart/form-data" action="/user/add_recipe/photo/submit?image=${path}" >
+            <form method="POST" enctype="multipart/form-data" action="/addDrink/photo/submit?image=${path}" >
                 <label>Enter Name Of The Drink</label>
             <input id="name" type="text" name="name"/>
             <br></br>

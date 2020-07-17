@@ -2,6 +2,7 @@ package Drinks.Controllers.Recipe;
 
 import Drinks.Model.Containers.Drink;
 import Drinks.Model.Containers.Ingredient;
+import Drinks.Model.Containers.User;
 import Drinks.Model.DataBase.IngredientDao.IngredientData;
 import Drinks.Model.DataBase.RecipeDao.ExistenceChecker;
 import Drinks.Model.DataBase.RecipeDao.RecipeAddition;
@@ -31,36 +32,36 @@ public class AddRecipeController {
         checkExistence=new ExistenceChecker();
         attributeHandler = new AttributeHandler();
     }
-    @GetMapping(value = "/user/add_recipe")
+    @GetMapping(value = "/addDrink")
     public ModelAndView getMainJsp(HttpServletRequest request) throws IOException {
         ModelAndView modelAndView=new ModelAndView("/AddRecipe/AddRecipe");
         return attributeHandler.determineExistence(request, modelAndView);
     }
 
     // roca foto ar avtvirte da ise davasubmite
-    @PostMapping(value = "/user/add_recipe/submit")
+    @PostMapping(value = "/addDrink/submit")
     public void  handleSubmit(HttpServletRequest request, HttpServletResponse httpServletResponse) throws IOException, ServletException {
         handleSubmitUrl(request, httpServletResponse, "/resources/photos/no_photo.png");
     }
 
 
-    @PostMapping(value = "/user/add_recipe")
+    @PostMapping(value = "/addDrink")
     public void handleFileUpload(@RequestParam("file") MultipartFile part,
                                  HttpSession session,HttpServletRequest request,
                                  HttpServletResponse httpServletResponse) throws IOException {
         String path=attributeHandler.handlePhotoUploadInProject(part);
         if (!path.equals(""))httpServletResponse.sendRedirect("/user/add_recipe/photo?image="+path);
-        else httpServletResponse.sendRedirect("/user/add_recipe");
+        else httpServletResponse.sendRedirect("/addDrink");
 
     }
 
-    @GetMapping (value = "/user/add_recipe/photo{image}")
+    @GetMapping (value = "/addDrink/photo{image}")
     public ModelAndView getMainJspWithPhoto(@RequestParam("image") String image, HttpServletRequest request) throws IOException {
         ModelAndView modelAndView=new ModelAndView("/AddRecipe/AddRecipePhoto");
         modelAndView.addObject("path","/resources/photos/"+image);
         return modelAndView;
     }
-    @PostMapping(value = "/user/add_recipe/photo/submit{image}")
+    @PostMapping(value = "/addDrink/photo/submit{image}")
     public void  handleSubmitWithPhoto(@RequestParam String image, HttpServletRequest request, HttpServletResponse httpServletResponse) throws IOException, ServletException {
         System.out.println(image);
         handleSubmitUrl(request, httpServletResponse, image);
@@ -71,22 +72,22 @@ public class AddRecipeController {
         ArrayList<Ingredient> ingredients = new ArrayList<>();
         String name = request.getParameter("name");
         String instruction = request.getParameter("instruction");
-        int authorId = 1;
         //aq redirec unda tu daloginebuli araa
-//        int authorId= (int) request.getSession().getAttribute("user");
+        User user= (User) request.getSession().getAttribute("user");
         int parentId = -1;
         String path = s;
-        if (checkExistence.checkExistance(enumeration, name, path, instruction, parentId, authorId)) {
+        if (checkExistence.checkExistance(enumeration, name, path, instruction, parentId, user.getUserId())) {
             request.getSession().setAttribute("exists", true);
-            httpServletResponse.sendRedirect("/user/add_recipe");
+            httpServletResponse.sendRedirect("/addDrink");
         } else {
             request.setAttribute("exists", false);
-            handleRecipeAddition(request, httpServletResponse, enumeration, ingredients, name, path, instruction);
+            handleRecipeAddition(request, httpServletResponse, enumeration, ingredients, name, path, instruction,user.getUserId());
             httpServletResponse.sendRedirect("/homePage");
         }
     }
 
-    private void handleRecipeAddition(HttpServletRequest request, HttpServletResponse httpServletResponse, String[] enumeration, ArrayList<Ingredient> ingredients, String name, String path, String instruction) {
+    private void handleRecipeAddition(HttpServletRequest request, HttpServletResponse httpServletResponse, String[] enumeration, ArrayList<Ingredient> ingredients,
+                                      String name, String path, String instruction,int user_id) {
         for (int i = 0; i < enumeration.length; i++) {
             if (!enumeration[i].equals("")) {
                 Ingredient curIngredient = ingredientData.getIngredient(enumeration[i]);
@@ -98,7 +99,6 @@ public class AddRecipeController {
                 }
             }
         }
-//      recipeAddition.addDrink(new Drink(-1,name,path,instruction,-1,(Integer) request.getSession().getAttribute("user_id"), ingredients ));
-        recipeAddition.addDrink(new Drink(-1, name, path, instruction, -1, 1, ingredients));
+      recipeAddition.addDrink(new Drink(-1,name,path,instruction,-1,user_id, ingredients));
     }
 }
