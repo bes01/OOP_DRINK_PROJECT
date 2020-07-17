@@ -35,7 +35,7 @@ public class ExistenceChecker {
             preparedStatement.setString(2,path);
             preparedStatement.setString(3,instruction);
             preparedStatement.setInt(4,authorId);
-            if (parentId!=-1) preparedStatement.setInt(5,authorId);
+            if (parentId!=-1) preparedStatement.setInt(5,parentId);
             ResultSet resultSet=connector.executeQuery(preparedStatement);
 
             while (resultSet.next()){
