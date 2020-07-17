@@ -1,6 +1,7 @@
 package Drinks.Model.Containers;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Drink implements DrinkDao {
     private int drinkId;
@@ -9,6 +10,7 @@ public class Drink implements DrinkDao {
     private String instruction;
     private int parentId;
     private int authorId;
+    private Date additionTime;
     private ArrayList<Ingredient> myIngredients;
 
     public Drink(int drinkId, String drinkName, String imagePath, String instruction,
@@ -19,6 +21,19 @@ public class Drink implements DrinkDao {
         this.instruction = instruction;
         this.parentId = parentId;
         this.authorId = authorId;
+        this.additionTime = null;
+        this.myIngredients = myIngredients;
+    }
+
+    public Drink(int drinkId, String drinkName, String imagePath, String instruction,
+                 int parentId, int authorId, Date additionTime, ArrayList<Ingredient> myIngredients) {
+        this.drinkId = drinkId;
+        this.drinkName = drinkName;
+        this.imagePath = imagePath;
+        this.instruction = instruction;
+        this.parentId = parentId;
+        this.authorId = authorId;
+        this.additionTime = additionTime;
         this.myIngredients = myIngredients;
     }
 
@@ -54,5 +69,10 @@ public class Drink implements DrinkDao {
 
     public int getAuthorId() {
         return authorId;
+    }
+
+    @Override
+    public Date getAdditionTime() {
+        return additionTime;
     }
 }

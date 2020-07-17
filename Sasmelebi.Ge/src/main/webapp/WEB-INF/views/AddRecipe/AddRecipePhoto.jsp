@@ -17,21 +17,13 @@
             <div style="position: absolute; top: 0; right: 180px; width: 100px; text-align:right;">
                 <a href="/Search">Search</a>
             </div>
-
-            <c:choose>
-                <c:when test="${path==null}">
-                    <img src="/resources/photos/no_photo.png" width=200 height=250/>
-                </c:when>
-                <c:otherwise>
-                    <img name="myimage" src="${path}" width=200 height=250/>
-                </c:otherwise>
-            </c:choose>
+                    <img name="myimage" src="${path}" name="photo" width=200 height=250/>
             <form method="POST" enctype="multipart/form-data" action="/addDrink" >
             				<input type="file" name="file" />
             				<input  type="submit" value="Upload" />
             </form>
-            <form method="POST" enctype="multipart/form-data" action="/addDrink/submit" >
             <br></br>
+            <form method="POST" enctype="multipart/form-data" action="/addDrink/photo/submit?image=${path}" >
                 <label>Enter Name Of The Drink</label>
             <input id="name" type="text" name="name"/>
             <br></br>
@@ -43,11 +35,6 @@
             <input name="instruction" type="text"/>
             <br></br>
             <input  type="submit" value="Add Recipe"  />
-             <c:choose>
-                <c:when test="${exists==true}">
-                   <label>Such Drink Already Exists</label>
-                </c:when>
-             </c:choose>
                     <script type="text/javascript">
                         function GetDynamicTextBox(value){
                             return '<input name = "DynamicTextBox" type="text" value = "' + value + '" />' +
@@ -61,19 +48,7 @@
                         function RemoveTextBox(div) {
                             document.getElementById("TextBoxContainer").removeChild(div.parentNode);
                         }
-                        function RecreateDynamicTextboxes() {
-                            var values = eval(${Values});
-                            if (values != null) {
-                                var html = "";
-                                for (var i = 0; i < values.length; i++) {
-                                    html += "<div>" + GetDynamicTextBox(values[i]) + "</div>";
-                                }
-                                document.getElementById("TextBoxContainer").innerHTML = html;
-                            }
-                        }
-                        window.onload = RecreateDynamicTextboxes;
                     </script>
-
             </form>
         </body>
 <html>

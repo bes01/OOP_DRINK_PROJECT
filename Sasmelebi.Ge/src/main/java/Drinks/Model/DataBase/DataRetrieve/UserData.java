@@ -17,6 +17,20 @@ public class UserData {
         drinkData = new DrinkData();
     }
 
+    public User searchUserByNickname(String nickname) throws SQLException {
+        Connector connector = Connector.getInstance();
+        PreparedStatement statement = connector.getStatement("select * from " + Constants.schema +
+                ".users where nickname = ?");
+        statement.setString(1, nickname);
+        ResultSet set = connector.executeQuery(statement);
+        if (!set.next()) return null;
+
+        int user_id = set.getInt("user_id");
+        return new User(user_id, set.getString("first_name"), set.getString("last_name"),
+                set.getString("nickname"), set.getString("sex"), set.getInt("age"),
+                set.getString("mail"), set.getString("password"), getRank(user_id), drinkData.userDrinks(user_id), drinkData.favourites(user_id));
+    }
+
     public User searchUserById(int user_id) throws SQLException {
         Connector connector = Connector.getInstance();
         PreparedStatement statement = connector.getStatement("select * from " + Constants.schema +
@@ -30,12 +44,12 @@ public class UserData {
     }
 
     public double getRank(int user_id) throws SQLException {
-        Double sum = (double) selectFromRank(user_id, "sum(rank_score)");
-        Double quantity = (double) selectFromRank(user_id, "count(*)");
+        Double sum = (double) getRankHelper(user_id, "sum(rank_score)");
+        Double quantity = (double) getRankHelper(user_id, "count(*)");
         return (quantity == 0) ? 0 : sum / quantity;
     }
 
-    private int selectFromRank(int user_id, String select) throws SQLException {
+    private int getRankHelper(int user_id, String select) throws SQLException {
         Connector connector = Connector.getInstance();
         PreparedStatement statement = connector.getStatement("select " + select + " from " + Constants.schema +
                 ".ranking where user_id = ?");
@@ -44,4 +58,5 @@ public class UserData {
         set.next();
         return set.getInt(1);
     }
+
 }

@@ -1,55 +1,78 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 7/12/2020
-  Time: 7:42 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>HomePage</title>
+    <link rel="stylesheet" href="/resources/css/homepage/forLabels.css">
+    <link rel="stylesheet" href="/resources/css/homepage/hype.css">
+    <link rel="stylesheet" href="/resources/css/homepage/profile.css">
+    <link rel="stylesheet" href="/resources/css/homepage/butts.css">
+    <link rel="stylesheet" href="/resources/css/homepage/wallColour.css">
+    <link rel="stylesheet" href="/resources/css/homepage/listItem.css">
 </head>
-<STYLE>A {
-    text-decoration: none;
-} </STYLE>
 <body>
-
-
-<div style="position: relative; width: ${window.width()} px;">
+<div style="position: relative;  width: ${window.width()} px;">
     <div style="position: absolute; top: 0; right: 0; width: 100px; text-align:right;">
-        <a href="/Login">Logout</a>
+        <a href="/logout" class="featureLinks">
+            <logout>Logout</logout>
+        </a>
     </div>
-    <div style="position: absolute; top: 0; right: 70px; width: 100px; text-align:right;">
-        <a href="/Favourites">Favourites</a>
+    <div style="position: absolute; top: 0; right: 70px; width: 100px; text-align:right;" class="featureLinks">
+        <a href="/Discover">
+            <Discover>Discover</Discover>
+        </a>
     </div>
-    <div style="position: absolute; top: 0; right: 180px; width: 100px; text-align:right;">
-        <a href="/Search">Search</a>
-    </div>
-
-    <div>
-        <font size="+3"><p style="font-family:'Courier New">Welcome, ${user.firstName} ${user.lastName}!</p></font>
-        <font size="+2"><p style="font-family:'Courier New">Wanna drink? Don't hesitate, just do it!</p></font>
-    </div>
-
-    <div>
-        <p>Nickname: ${user.nickName}</p>
-        <p>Sex: ${user.sex}</p>
-        <p>Age: ${user.age}</p>
-        <p>eMail: ${user.mail}</p>
-        <p>Current Rank: ${user.rank}</p>
+    <div style="position: absolute; top: 0; right: 160px; width: 100px; text-align:right;" class="featureLinks">
+        <a href="/Search">
+            <search>Search</search>
+        </a>
     </div>
 
     <div>
-        <a href="/addDrink">Wanna add a new drink? Click here!<br></a>
-        <font size="+1"><b><br>My drinks:</b></font>
+        <Welcome><b>Welcome, ${user.firstName} ${user.lastName}!</b><br></Welcome>
+        <doIt><br>Wanna drink? Don't hesitate, just do it!<br></doIt>
+    </div>
+
+    <div class="card" style="margin-top: 35px">
+        <p><font size="+1"><b>Nickname: ${user.nickName}</b></font> </p>
+        <p><b>eMail: ${user.mail}</b></p>
+        <p><b>Sex: ${user.sex}</b></p>
+        <p><b>Age: ${user.age}</b></p>
+        <p><b>Current Rank: ${user.rank}</b></p>
+    </div>
+    <div>
+        <p>
+            <listHeader><b><br>My Drinks:</b></ListHeader>
+        </p>
         <c:forEach items="${user.myDrinks}" var="drink">
             <ul>
-                <li><a href="/drink"><font size="+3"
-                                           style="font-family: 'French Script MT'">${drink.drinkName}</font></a></li>
+                <li><a href="/drink"><font size="+3" class="list"
+                                           style="font-family: 'French Script MT'">${drink.drinkName}</font></a>
+                </li>
             </ul>
         </c:forEach>
+    </div>
+    <div style="position: absolute; left: 350px; top: 334px">
+        <p>
+            <listHeader><b>Favourites:</b></ListHeader>
+        </p>
+        <ul>
+            <c:forEach items="${favourites}" var="drink">
+                <li style="margin-top: 20px;">
+                    <a href="/Drink?drink_id=${drink.drinkId}" class="list"><font size="+3"
+                                                                                  style="font-family: 'French Script MT'">${drink.drinkName}</font></a>
+                    <a href="/removeFavourite?drink_id=${drink.drinkId}" class="remFavButton">Remove</a>
+                </li>
+            </c:forEach>
+        </ul>
+    </div>
+
+    <div style="position: absolute; left: 60%; top:35%;">
+        <img src="/resources/materials/drinks.png" width=450; height=225;>
+        <mixthings><p>Let's Mix Things Up!</p></mixthings>
+        <a href="/addDrink">
+            <button class="addDrink">Add Drink</button>
+        </a>
     </div>
 </div>
 </body>
