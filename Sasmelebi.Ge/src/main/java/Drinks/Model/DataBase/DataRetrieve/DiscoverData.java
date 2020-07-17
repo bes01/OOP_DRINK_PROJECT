@@ -26,7 +26,7 @@ public class DiscoverData {
     public ArrayList<Drink> recentlyAdded() throws SQLException {
         PreparedStatement statement = connector.getStatement("select * from " + Constants.schema + ".drinks " +
                 "order by addition_time desc");
-        return drinkData.getDrinksArray(statement, 5);
+        return drinkData.getDrinksArray(statement, Constants.discoverPageItemPerRow);
     }
 
     public ArrayList<Drink> topDrinks() throws SQLException {
@@ -36,7 +36,7 @@ public class DiscoverData {
                 "from " + Constants.schema + ".ranking join " + Constants.schema + ".drinks " +
                 "on " + Constants.schema + ".ranking.drink_id = " + Constants.schema + ".drinks.drink_id " +
                 "group by " + Constants.schema + ".ranking.drink_id order by ranks desc");
-        return drinkData.getDrinksArray(statement, 5);
+        return drinkData.getDrinksArray(statement, Constants.discoverPageItemPerRow);
     }
 
     public ArrayList<Drink> randomDrinks() throws SQLException {
@@ -49,13 +49,13 @@ public class DiscoverData {
         Random random = new Random();
         String query = "select * from " + Constants.schema + ".drinks where "
                 + Constants.schema + ".drinks.drink_id in (";
-        while (randomIds.size() != 5) {
+        while (randomIds.size() != Constants.discoverPageItemPerRow) {
             int randomId = random.nextInt(maxId) + 1;
             if (randomIds.add(new Integer(randomId)))
                 query += randomId + ",";
         }
         query = query.substring(0, query.length() - 1) + ")";
         statement = connector.getStatement(query);
-        return drinkData.getDrinksArray(statement, 5);
+        return drinkData.getDrinksArray(statement, Constants.discoverPageItemPerRow);
     }
 }

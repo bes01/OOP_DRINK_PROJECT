@@ -1,0 +1,10 @@
+.list{
+    text-decoration: none;
+    color: black;
+    font-family: "French Script MT";
+    font-size: xx-large;
+}
+
+.list:active{
+    color: black;
+}
