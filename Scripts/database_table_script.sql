@@ -1,9 +1,9 @@
 DROP TABLE IF EXISTS ranking;
 DROP TABLE IF EXISTS favourites;
 DROP TABLE IF EXISTS drinks_ingredients;
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS drinks;
 DROP TABLE IF EXISTS ingredients;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE users(
 	user_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -23,6 +23,7 @@ CREATE TABLE drinks(
     instruction VARCHAR(4000),
     parent_id INT,
     author INT NOT NULL,
+	addition_time datetime,
     CONSTRAINT parent_id_fk FOREIGN KEY (parent_id)
     REFERENCES drinks(drink_id),
     CONSTRAINT author_fk FOREIGN KEY (author)
