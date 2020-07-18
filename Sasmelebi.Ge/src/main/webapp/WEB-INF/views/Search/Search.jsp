@@ -89,7 +89,7 @@
          <button onclick="remove()">Remove Ingredient</button>
          <hr>
          <c:forEach items="${drinks}" var="current_drink">
-            <a href="/Drinks/drink_id=${current_drink.getDrinkId()}"> "${current_drink.getDrinkName()}" </a>
+            <a href="/Drinks?drink_id=${current_drink.getDrinkId()}"> "${current_drink.getDrinkName()}" </a>
             <br>
          </c:forEach>
     </body>
