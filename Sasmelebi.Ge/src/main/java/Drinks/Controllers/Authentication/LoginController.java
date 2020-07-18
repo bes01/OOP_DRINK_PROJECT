@@ -16,7 +16,7 @@ import java.sql.SQLException;
 
 @Controller
 public class LoginController {
-    @GetMapping("/")
+    @GetMapping("")
     public ModelAndView openLoginPage(HttpServletRequest request,
                                       HttpServletResponse response,
                                       HttpSession session){
@@ -24,7 +24,7 @@ public class LoginController {
         return mav;
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public ModelAndView login(HttpServletRequest request,
                               HttpServletResponse response,
                               HttpSession session, @RequestParam String username, @RequestParam String password)
@@ -42,11 +42,8 @@ public class LoginController {
             mav.addObject("username", username);
             return mav;
         }
-        session.setAttribute("user", user);
+        session.setAttribute("user_id", user.getUserId());
         response.sendRedirect("/HomePage");
         return mav;
-
-
-
     }
 }
