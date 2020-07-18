@@ -1,4 +1,5 @@
 <%@ page import="Drinks.Model.DataBase.DrinkDao.TheDrinkData" %>
+<%@ page import="Drinks.Model.Containers.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -14,12 +15,33 @@
     <div style="position: absolute; top: 0; right: 70px; width: 100px; text-align:right;">
         <a href="/Search">Search</a>
     </div>
+    <div style="position: absolute; top: 0; right: 140px; width: 100px; text-align:right;">
+        <a href="/HomePage">Home Page</a>
+    </div>
     <div style="position: absolute; top: 40px; right: 0; width: 150px; text-align:right;">
         <h4>Date: ${drink.additionTime}</h4>
     </div>
 </div>
-<h1>${drink.drinkName}</h1>
-<img name="${drink.drinkName}" src="${drink.imagePath}" width=200 height=250/>
+<h1><b>${drink.drinkName}</b></h1>
+<% User user = (User)session.getAttribute("user");
+   request.setAttribute("user_id", user.getUserId());%>
+<div>
+    <div>
+    <c:choose>
+        <c:when test="${wrappedDrinkInfo.drinksAuthor.userId==user_id}">
+            <a href="/HomePage">By You </a>
+        </c:when>
+        <c:otherwise>
+            <a href="/User?user_id=${wrappedDrinkInfo.drinksAuthor.userId}">
+                By ${wrappedDrinkInfo.drinksAuthor.nickName}
+            </a>
+        </c:otherwise>
+    </c:choose>
+    </div>
+    <div>
+        <img name="${drink.drinkName}" src="${drink.imagePath}" width=200 height=250/>
+    </div>
+</div>
 
 <form action="/Drink/Image" method="POST">
     <input type="hidden" value="${drink.imagePath}" name="imagePath">
@@ -28,7 +50,8 @@
 <c:choose>
     <c:when test="${wrappedDrinkInfo.parentDrink.drinkId!=null}">
         <p>Extended from:</p>
-        <a href="/Drink?drink_id=${wrappedDrinkInfo.parentDrink.drinkId}"> ${wrappedDrinkInfo.parentDrink.drinkName}</a>
+        <a href="/Drink?drink_id=${wrappedDrinkInfo.parentDrink.drinkId}">
+                ${wrappedDrinkInfo.parentDrink.drinkName}</a>
     </c:when>
     <c:otherwise> <p>Original Post :)</p> </c:otherwise>
 </c:choose>
@@ -64,14 +87,18 @@
     </c:choose>
 </form>
 <br/>
-<form action="/Drink/extend" method="POST">
-    <input type="hidden" value="${drink.drinkId}" name="drink_id">
-    <input type="submit" value="Click To Extend Drink!">
-</form>
 <br/>
-<form action="/Drink/favourite" method="POST">
-    <input type="hidden" value="${drink.drinkId}" name="drink_id">
-    <input type="submit" value="Click To Add In Favourites!">
-</form>
+
+<div style="position: absolute; left: 60%; top:35%;">
+    <img src="/resources/materials/drinks.png" width=450; height=225;>
+    <form action="/Drink/extend" method="POST">
+        <input type="hidden" value="${drink.drinkId}" name="drink_id">
+        <input type="submit" value="Click To Extend Drink!">
+    </form>
+    <form action="/Drink/favourite" method="POST">
+        <input type="hidden" value="${drink.drinkId}" name="drink_id">
+        <input type="submit" value="Click To Add In Favourites!">
+    </form>
+</div>
 </body>
 </html>
