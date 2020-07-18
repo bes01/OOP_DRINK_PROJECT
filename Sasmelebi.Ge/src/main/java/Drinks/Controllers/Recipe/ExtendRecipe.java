@@ -98,11 +98,11 @@ public class ExtendRecipe {
     }
 
     private void handleExtendAddition(@RequestParam int drink_id, @RequestParam String name, @RequestParam String instruction, HttpServletRequest request, HttpServletResponse httpServletResponse, String path) throws IOException {
-        int author_id=1;
-//        User author = (User) request.getSession().getAttribute("user");
-//        int author_id=author.getUserId();
+        User author = (User) request.getSession().getAttribute("user");
+        int author_id=author.getUserId();
         String[] enumeration = request.getParameterValues("DynamicTextBox");
         ArrayList<Ingredient> ingredients = new ArrayList<>();
+        if (enumeration==null) enumeration=new String[0];
         if (checkExistence.checkExistance(enumeration,name,path,instruction, drink_id,author_id)) {
             request.getSession().setAttribute("exists",true);
             httpServletResponse.sendRedirect("/addDrink/extend?drink_id="+drink_id);

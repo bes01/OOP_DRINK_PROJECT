@@ -80,6 +80,7 @@ public class AddRecipeController {
 
     private void handleSubmitUrl(HttpServletRequest request, HttpServletResponse httpServletResponse, String s) throws IOException {
         String[] enumeration = request.getParameterValues("DynamicTextBox");
+        if (enumeration==null) enumeration=new String[0];
         ArrayList<Ingredient> ingredients = new ArrayList<>();
         String name = request.getParameter("name");
         String instruction = request.getParameter("instruction");
