@@ -37,7 +37,6 @@ public class ExistenceChecker {
             preparedStatement.setInt(4,authorId);
             if (parentId!=-1) preparedStatement.setInt(5,parentId);
             ResultSet resultSet=connector.executeQuery(preparedStatement);
-
             while (resultSet.next()){
                 ArrayList<Ingredient>  arrayList= new ArrayList<>();
                 boolean isSame=true;
@@ -71,7 +70,6 @@ public class ExistenceChecker {
                 }
                 if (isSame) return  true;
             }
-
             return false;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
