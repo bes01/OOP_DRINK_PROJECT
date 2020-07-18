@@ -38,7 +38,12 @@ public class ExtendRecipe {
     }
 
     @GetMapping("/addDrink/extend{drink_id}")
-    public ModelAndView renderDrinkExtension(@RequestParam int drink_id, HttpServletRequest request) throws SQLException {
+    public ModelAndView renderDrinkExtension(@RequestParam int drink_id, HttpServletRequest request,
+                                             HttpServletResponse httpServletResponse) throws SQLException, IOException {
+        if (request.getSession().getAttribute("user")==null){
+            httpServletResponse.sendRedirect("/");
+            return null;
+        }
         ModelAndView modelAndView = new ModelAndView("/AddRecipe/ExtendRecipe");
         Drink drink = drinkData.getDrink(drink_id) ;
         modelAndView.addObject("drink_id",drink_id);
@@ -59,7 +64,12 @@ public class ExtendRecipe {
     }
 
     @GetMapping("/addDrink/extend/photo")
-    public  ModelAndView renderWithPhoto(@RequestParam int drink_id,@RequestParam String image) throws SQLException {
+    public  ModelAndView renderWithPhoto(@RequestParam int drink_id,@RequestParam String image,
+                                         HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+        if (request.getSession().getAttribute("user")==null){
+            response.sendRedirect("/");
+            return null;
+        }
         ModelAndView modelAndView = new ModelAndView("/AddRecipe/ExtendRecipePhoto");
         Drink drink = drinkData.getDrink(drink_id);
         modelAndView.addObject("drink_id",drink_id);

@@ -34,7 +34,12 @@ public class AddRecipeController {
     }
 
     @GetMapping(value = "/addDrink")
-    public ModelAndView getMainJsp(HttpServletRequest request) throws IOException {
+    public ModelAndView getMainJsp(HttpServletRequest request,
+                                   HttpServletResponse httpServletResponse) throws IOException {
+        if (request.getSession().getAttribute("user")==null){
+            httpServletResponse.sendRedirect("/");
+            return null;
+        }
         ModelAndView modelAndView=new ModelAndView("/AddRecipe/AddRecipe");
         return attributeHandler.determineExistence(request, modelAndView);
     }
@@ -57,14 +62,19 @@ public class AddRecipeController {
     }
 
     @GetMapping (value = "/addDrink/photo{image}")
-    public ModelAndView getMainJspWithPhoto(@RequestParam("image") String image, HttpServletRequest request) throws IOException {
+    public ModelAndView getMainJspWithPhoto(@RequestParam("image") String image,
+                                            HttpServletRequest request,HttpServletResponse response) throws IOException {
+        if (request.getSession().getAttribute("user")==null){
+            response.sendRedirect("/");
+            return null;
+        }
+
         ModelAndView modelAndView=new ModelAndView("/AddRecipe/AddRecipePhoto");
         modelAndView.addObject("path","/resources/photos/"+image);
         return modelAndView;
     }
     @PostMapping(value = "/addDrink/photo/submit{image}")
     public void  handleSubmitWithPhoto(@RequestParam String image, HttpServletRequest request, HttpServletResponse httpServletResponse) throws IOException, ServletException {
-        System.out.println(image);
         handleSubmitUrl(request, httpServletResponse, image);
     }
 
@@ -73,7 +83,6 @@ public class AddRecipeController {
         ArrayList<Ingredient> ingredients = new ArrayList<>();
         String name = request.getParameter("name");
         String instruction = request.getParameter("instruction");
-        //aq redirec unda tu daloginebuli araa
         User user= (User) request.getSession().getAttribute("user");
         int parentId = -1;
         String path = s;
