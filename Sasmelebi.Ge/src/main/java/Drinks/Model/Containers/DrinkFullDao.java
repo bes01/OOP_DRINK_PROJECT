@@ -7,4 +7,6 @@ interface DrinkFullDao {
     int getCurrentUserRanking();
 
     Drink getParentDrink();
+
+    User getDrinksAuthor();
 }
