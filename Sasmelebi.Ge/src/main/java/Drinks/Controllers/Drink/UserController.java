@@ -17,7 +17,7 @@ public class UserController {
     @GetMapping(value = "/User")
     public ModelAndView getUserPage(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
-        User user = (User) request.getSession().getAttribute("user");
+        User user = (User) request.getSession().getAttribute("user_id");
         if(user == null) {
             response.sendRedirect("/");
             return null;
@@ -37,7 +37,7 @@ public class UserController {
 
     @GetMapping(value = "/Drink/UserNotFound")
     public ModelAndView getUserNotFoundPage(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        User user = (User) request.getSession().getAttribute("user");
+        User user = (User) request.getSession().getAttribute("user_id");
         if(user == null) {
             response.sendRedirect("/");
             return null;
