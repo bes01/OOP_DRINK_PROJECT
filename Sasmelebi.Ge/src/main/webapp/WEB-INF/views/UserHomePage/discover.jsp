@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/resources/css/homepage/wallColour.css">
     <link rel="stylesheet" href="/resources/css/discoverpage/columns.css">
     <link rel="stylesheet" href="/resources/css/discoverpage/headLines.css">
-    <link rel="stylesheet" href="/resources/css/discoverpage/li.css">
     <link rel="stylesheet" href="/resources/css/homepage/aTag.css">
 </head>
 <body>
@@ -37,14 +36,14 @@
         <div id=leftbox>
             <h2>Top Drinks</h2>
             <c:forEach items="${topDrinks}" var="drink">
-                <li><a href="" class="list"><item>${drink.drinkName}</item></a></li>
+                <li><a href="/Drink?drink_id=${drink.drinkId}" class="list"><item>${drink.drinkName}</item></a></li>
             </c:forEach>
         </div>
 
         <div id=middlebox>
             <h2>Random Drinks</h2>
             <c:forEach items="${randomDrinks}" var="drink">
-                <li><a href="" class="list"><item>${drink.drinkName}</item></a></li>
+                <li><a href="/Drink?drink_id=${drink.drinkId}" class="list"><item>${drink.drinkName}</item></a></li>
             </c:forEach>
         </div>
 
@@ -52,7 +51,7 @@
 
             <h2>Recently Added</h2>
             <c:forEach items="${recentlyAdded}" var="drink">
-                <li><a href="" class="list"><item>${drink.drinkName}</item></a> </li>
+                <li><a href="/Drink?drink_id=${drink.drinkId}" class="list"><item>${drink.drinkName}</item></a> </li>
             </c:forEach>
         </div>
     </div>

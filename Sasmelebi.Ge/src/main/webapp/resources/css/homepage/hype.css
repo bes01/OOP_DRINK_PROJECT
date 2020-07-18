@@ -3,13 +3,20 @@ li{
     list-style-type: none;
     transition: .3s;
     font-weight:bold;
-    text-decoration:none;
     color: black;
 }
 
-li:hover {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:active{
+    color: black;
+}
+
+a:hover{
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px
 }
 
 .featureLinks {

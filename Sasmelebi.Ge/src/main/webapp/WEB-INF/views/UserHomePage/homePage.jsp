@@ -46,7 +46,7 @@
         </p>
         <c:forEach items="${user.myDrinks}" var="drink">
             <ul>
-                <li><a href="/drink"><font size="+3" class="list"
+                <li><a href="/Drink?drink_id=${drink.drinkId}"><font size="+3" class="list"
                                            style="font-family: 'French Script MT'">${drink.drinkName}</font></a>
                 </li>
             </ul>
