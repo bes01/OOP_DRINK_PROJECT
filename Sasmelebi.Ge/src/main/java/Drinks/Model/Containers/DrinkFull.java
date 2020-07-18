@@ -1,7 +1,5 @@
 package Drinks.Model.Containers;
 
-import Drinks.Model.DataBase.DrinkDao.TheDrinkData;
-
 import java.sql.SQLException;
 
 public class DrinkFull {
@@ -10,11 +8,10 @@ public class DrinkFull {
     private double all_ranking;
     private Drink parent;
     
-    public DrinkFull(int drink_id, int user_id) throws SQLException {
-        TheDrinkData drData = new TheDrinkData();
-        all_ranking = drData.sumRated(drink_id);
-        user_ranking = drData.userRated(drink_id, user_id);
-        parent = drData.getParentDrink(drink_id);
+    public DrinkFull(double all_ranking, int user_ranking, Drink parent) throws SQLException {
+        this.all_ranking = all_ranking;
+        this.user_ranking = user_ranking;
+        this.parent = parent;
     }
     
     public double getCurrentRanking() {
