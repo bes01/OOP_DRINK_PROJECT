@@ -2,6 +2,27 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <html xmlns:th="https://www.thymeleaf.org">
     <head>
+         <script src="${pageContext.request.contextPath}/resources/js/DynamicTextBoxes.js"></script>
+         <script type="text/javascript">
+            function RecreateDynamicTextboxes() {
+                var values=new Array();
+                <% String[] codes=(String[])request.getAttribute("Values");
+                if(codes!=null){
+                    for(int i=0; i<codes.length; i++){ %>
+                        var code='<%= codes[i] %>';
+                        values[<%= i %>]=code;
+                    <%}
+                }%>
+                if (values != null) {
+                    var html = "";
+                    for (var i = 0; i < values.length; i++) {
+                        html += "<div>" + GetDynamicTextBox(values[i]) + "</div>";
+                    }
+                    document.getElementById("TextBoxContainer").innerHTML = html;
+                }
+            }
+            window.onload = RecreateDynamicTextboxes;
+         </script>
         <title>Add Recipe</title>
     </head>
     <body>
@@ -48,38 +69,6 @@
                    <label>Such Drink Already Exists</label>
                 </c:when>
              </c:choose>
-                    <script type="text/javascript">
-                        function GetDynamicTextBox(value){
-                            return '<input name = "DynamicTextBox" type="text" value = "' + value + '" />' +
-                                    '<input type="button" value="Remove" onclick = "RemoveTextBox(this)" />'
-                        }
-                        function AddTextBox() {
-                            var div = document.createElement('DIV');
-                            div.innerHTML = GetDynamicTextBox("");
-                            document.getElementById("TextBoxContainer").appendChild(div);
-                        }
-                        function RemoveTextBox(div) {
-                            document.getElementById("TextBoxContainer").removeChild(div.parentNode);
-                        }
-                        function RecreateDynamicTextboxes() {
-                            var values=new Array();
-                            <% String[] codes=(String[])request.getAttribute("Values");
-                            if(codes!=null){
-                                for(int i=0; i<codes.length; i++){ %>
-                                    var code='<%= codes[i] %>';
-                                    values[<%= i %>]=code;
-                                <%}
-                            }%>
-                            if (values != null) {
-                                var html = "";
-                                for (var i = 0; i < values.length; i++) {
-                                    html += "<div>" + GetDynamicTextBox(values[i]) + "</div>";
-                                }
-                                document.getElementById("TextBoxContainer").innerHTML = html;
-                            }
-                        }
-                        window.onload = RecreateDynamicTextboxes;
-                    </script>
-            </form>
+             </form>
         </body>
 <html>
