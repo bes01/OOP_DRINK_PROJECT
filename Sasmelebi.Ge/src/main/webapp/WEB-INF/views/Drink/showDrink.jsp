@@ -9,18 +9,22 @@
 <body>
 <div style="position: relative; width: ${window.width()} px;">
     <div style="position: absolute; top: 0; right: 0; width: 100px; text-align:right;">
-        <a href="/Login">Logout</a>
+        <a href="/logout">Logout</a>
     </div>
     <div style="position: absolute; top: 0; right: 70px; width: 100px; text-align:right;">
-        <a href="/Favourites">Favourites</a>
-    </div>
-    <div style="position: absolute; top: 0; right: 180px; width: 100px; text-align:right;">
         <a href="/Search">Search</a>
     </div>
+    <div style="position: absolute; top: 40px; right: 0; width: 150px; text-align:right;">
+        <h4>Date: ${drink.additionTime}</h4>
+    </div>
 </div>
-
-<h1>${drink.drinkName} </h1>
+<h1>${drink.drinkName}</h1>
 <img name="${drink.drinkName}" src="${drink.imagePath}" width=200 height=250/>
+
+<form action="/Drink/Image" method="POST">
+    <input type="hidden" value="${drink.imagePath}" name="imagePath">
+    <input type="submit" value="Open Image" name="Open">
+</form>
 <c:choose>
     <c:when test="${wrappedDrinkInfo.parentDrink.drinkId!=null}">
         <p>Extended from:</p>
@@ -30,7 +34,7 @@
 </c:choose>
 <pre>Instruction: ${drink.instruction}</pre>
 
-<pre>Drink's Current Rank: ${wrappedDrinkInfo.currentUserRanking}</pre>
+<pre>Drink's Current Rank: ${wrappedDrinkInfo.currentRanking}</pre>
 
 <h4>Ingredients:</h4>
 <ul>
@@ -45,7 +49,7 @@
     </c:when>
     <c:otherwise><p>Rate this drink:</p></c:otherwise>
 </c:choose>
-<form action="/Drink" method="GET">
+<form action="/Drink/Ranking" method="POST">
     <select name = "ranking_sc" id ="select">
         <c:forEach var = "i" begin = "1" end = "5">
             <option value = "${i}"><c:out value = "${i}"/></option>
@@ -58,6 +62,16 @@
         </c:when>
         <c:otherwise> <input type="submit" value="Save"> </c:otherwise>
     </c:choose>
+</form>
+<br/>
+<form action="/Drink/extend" method="POST">
+    <input type="hidden" value="${drink.drinkId}" name="drink_id">
+    <input type="submit" value="Click To Extend Drink!">
+</form>
+<br/>
+<form action="/Drink/favourite" method="POST">
+    <input type="hidden" value="${drink.drinkId}" name="drink_id">
+    <input type="submit" value="Click To Add In Favourites!">
 </form>
 </body>
 </html>
