@@ -37,7 +37,7 @@ public class ExtendRecipe {
         drinkData= new TheDrinkData();
     }
 
-    @GetMapping("/user/add_recipe/extend{drink_id}")
+    @GetMapping("/addDrink/extend{drink_id}")
     public ModelAndView renderDrinkExtension(@RequestParam int drink_id, HttpServletRequest request) throws SQLException {
         ModelAndView modelAndView = new ModelAndView("/AddRecipe/ExtendRecipe");
         Drink drink = drinkData.getDrink(drink_id) ;
@@ -49,16 +49,16 @@ public class ExtendRecipe {
     }
 
 
-    @PostMapping("/user/add_recipe/extend{drink_id}")
+    @PostMapping("/addDrink/extend{drink_id}")
     public void addPhoto(@RequestParam("file") MultipartFile part,
                          @RequestParam int drink_id,
                          HttpServletResponse httpServletResponse) throws IOException, SQLException {
         if (attributeHandler.handlePhotoUploadInProject(part).equals(""))
-            httpServletResponse.sendRedirect("/user/add_recipe/extend");
-        else httpServletResponse.sendRedirect("/user/add_recipe/extend/photo?drink_id="+Integer.toString(drink_id)+"&image="+part.getOriginalFilename());
+            httpServletResponse.sendRedirect("/addDrink/extend");
+        else httpServletResponse.sendRedirect("/addDrink/extend/photo?drink_id="+Integer.toString(drink_id)+"&image="+part.getOriginalFilename());
     }
 
-    @GetMapping("/user/add_recipe/extend/photo")
+    @GetMapping("/addDrink/extend/photo")
     public  ModelAndView renderWithPhoto(@RequestParam int drink_id,@RequestParam String image) throws SQLException {
         ModelAndView modelAndView = new ModelAndView("/AddRecipe/ExtendRecipePhoto");
         Drink drink = drinkData.getDrink(drink_id);
@@ -71,14 +71,14 @@ public class ExtendRecipe {
         return modelAndView;
     }
 
-    @PostMapping("/user/add_recipe/extend/photo/submit")
+    @PostMapping("/addDrink/extend/photo/submit")
     public void submitRecipe(@RequestParam int drink_id,@RequestParam String name,
                              @RequestParam String instruction,@RequestParam String image,
                              HttpServletRequest request,HttpServletResponse httpServletResponse) throws IOException {
         String path= "/resources/photos/"+image;
         handleExtendAddition(drink_id, name, instruction, request, httpServletResponse, path);
     }
-    @PostMapping("/user/add_recipe/extend/submit")
+    @PostMapping("/addDrink/extend/submit")
     public void submitRecipeWithPhoto(@RequestParam int drink_id,@RequestParam String name,
                                       @RequestParam String instruction,
                                       HttpServletRequest request,HttpServletResponse httpServletResponse) throws IOException, SQLException {
@@ -95,11 +95,11 @@ public class ExtendRecipe {
         ArrayList<Ingredient> ingredients = new ArrayList<>();
         if (checkExistence.checkExistance(enumeration,name,path,instruction, drink_id,author_id)) {
             request.getSession().setAttribute("exists",true);
-            httpServletResponse.sendRedirect("/user/add_recipe/extend?drink_id="+drink_id);
+            httpServletResponse.sendRedirect("/addDrink/extend?drink_id="+drink_id);
         } else {
             request.setAttribute("exists",false);
             handleRecipeAddition( enumeration, ingredients, name, path, instruction,author_id, drink_id);
-            httpServletResponse.sendRedirect("/homePage");
+            httpServletResponse.sendRedirect("/HomePage");
         }
     }
 

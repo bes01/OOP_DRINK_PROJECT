@@ -32,6 +32,7 @@ public class AddRecipeController {
         checkExistence=new ExistenceChecker();
         attributeHandler = new AttributeHandler();
     }
+
     @GetMapping(value = "/addDrink")
     public ModelAndView getMainJsp(HttpServletRequest request) throws IOException {
         ModelAndView modelAndView=new ModelAndView("/AddRecipe/AddRecipe");
@@ -50,7 +51,7 @@ public class AddRecipeController {
                                  HttpSession session,HttpServletRequest request,
                                  HttpServletResponse httpServletResponse) throws IOException {
         String path=attributeHandler.handlePhotoUploadInProject(part);
-        if (!path.equals(""))httpServletResponse.sendRedirect("/user/add_recipe/photo?image="+path);
+        if (!path.equals(""))httpServletResponse.sendRedirect("/addDrink/photo?image="+path);
         else httpServletResponse.sendRedirect("/addDrink");
 
     }
@@ -82,7 +83,7 @@ public class AddRecipeController {
         } else {
             request.setAttribute("exists", false);
             handleRecipeAddition(request, httpServletResponse, enumeration, ingredients, name, path, instruction,user.getUserId());
-            httpServletResponse.sendRedirect("/homePage");
+            httpServletResponse.sendRedirect("/HomePage");
         }
     }
 
