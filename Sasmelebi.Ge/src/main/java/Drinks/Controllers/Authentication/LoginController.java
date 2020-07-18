@@ -42,7 +42,7 @@ public class LoginController {
             mav.addObject("username", username);
             return mav;
         }
-        session.setAttribute("user", user);
+        session.setAttribute("user_id", user);
         response.sendRedirect("/HomePage");
         return mav;
 
