@@ -17,19 +17,32 @@ public class UserController {
     @GetMapping(value = "/User")
     public ModelAndView getUserPage(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
-        User user = (User) request.getSession().getAttribute("user");
+        User user = (User) request.getSession().getAttribute("user_id");
         if(user == null) {
             response.sendRedirect("/");
             return null;
         }
         String userId = request.getParameter("user_id");
         ModelAndView mw = new ModelAndView("/Drink/UserPage");
-        User otherUser = new UserData().searchUserById(Integer.valueOf(userId));
-        if(otherUser == null){
+        User otherUser = null;
+        try {
+            otherUser = new UserData().searchUserById(Integer.valueOf(userId));
+        } catch (SQLException e){
             response.sendRedirect("/Drink/UserNotFound");
             return null;
         }
         mw.addObject("user", otherUser);
+        return mw;
+    }
+
+    @GetMapping(value = "/Drink/UserNotFound")
+    public ModelAndView getUserNotFoundPage(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        User user = (User) request.getSession().getAttribute("user_id");
+        if(user == null) {
+            response.sendRedirect("/");
+            return null;
+        }
+        ModelAndView mw = new ModelAndView("/Drink/UserNotFound");
         return mw;
     }
 
