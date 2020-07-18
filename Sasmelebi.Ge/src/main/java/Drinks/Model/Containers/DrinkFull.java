@@ -1,15 +1,13 @@
 package Drinks.Model.Containers;
 
-import Drinks.Model.DataBase.DataRetrieve.UserData;
 import Drinks.Model.DataBase.DrinkDao.TheDrinkData;
 
-import java.sql.Array;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class DrinkFull {
     
-    private int user_ranking, all_ranking;
+    private int user_ranking;
+    private double all_ranking;
     private Drink parent;
     
     public DrinkFull(int drink_id, int user_id) throws SQLException {
@@ -19,7 +17,7 @@ public class DrinkFull {
         parent = drData.getParentDrink(drink_id);
     }
     
-    public int getCurrentRanking() {
+    public double getCurrentRanking() {
         return all_ranking;
     }
     
