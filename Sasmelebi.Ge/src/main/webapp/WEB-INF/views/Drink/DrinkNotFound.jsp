@@ -7,8 +7,7 @@
 </head>
 <body>
 <h1>Drink Not Found</h1>
-
-<form action="/Drink/favourite" method="POST">
+<form>
     <input type=button value="Back" onCLick="history.back()">
 </form>
 </body>
