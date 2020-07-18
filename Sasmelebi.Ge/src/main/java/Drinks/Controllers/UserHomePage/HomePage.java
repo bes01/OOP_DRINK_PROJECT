@@ -18,12 +18,13 @@ public class HomePage {
 
     @GetMapping("/HomePage")
     public ModelAndView renderHomePage(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-        if (request.getSession().getAttribute("user") == null) {
-            response.sendRedirect("/");
+        if (request.getSession().getAttribute("user_id") == null) {
+            response.sendRedirect("");
             return null;
         }
         ModelAndView mav = new ModelAndView("/UserHomePage/homePage");
-        User user = (User) request.getSession().getAttribute("user");
+        UserData userData = new UserData();
+        User user = userData.searchUserById((int) request.getSession().getAttribute("user_id"));
         mav.addObject("user", user);
         mav.addObject("favourites", user.getFavourites());
         return mav;
@@ -43,6 +44,6 @@ public class HomePage {
         if (request.getSession().getAttribute("user") != null)
             request.getSession().removeAttribute("user");
         System.out.println(request.getSession().getAttribute("user"));
-        response.sendRedirect("/");
+        response.sendRedirect("");
     }
 }
