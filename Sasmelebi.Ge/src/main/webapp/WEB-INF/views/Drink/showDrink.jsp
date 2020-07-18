@@ -23,7 +23,7 @@
     </div>
 </div>
 <h1><b>${drink.drinkName}</b></h1>
-<% User user = (User)session.getAttribute("user");
+<% User user = (User)session.getAttribute("user_id");
    request.setAttribute("user_id", user.getUserId());%>
 <div>
     <div>
