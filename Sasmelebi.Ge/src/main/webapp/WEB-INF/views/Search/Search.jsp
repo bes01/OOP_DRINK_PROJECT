@@ -62,14 +62,12 @@
                     <c:forEach items="${all_ingredients}"  var = "current_ingredient">
                         <option value="${current_ingredient.getIngredientId()}">"${current_ingredient.getIngredientName()}"</option>
                     </c:forEach>
-                     <option value="empty" selected ></option>
              </Select>
             </c:if>
             <c:if test ="${last_ingredients != null}">
                 <c:forEach items="${last_ingredients}" var = "current_selected">
                 <br>
                 <Select  name="ingredient" class="select" id="select">
-                    <option value="empty"></option>
                     <c:forEach items="${all_ingredients}"  var = "current_ingredient">
                     <c:if test ='${current_ingredient.getIngredientId() != current_selected}'>
                         <option value="${current_ingredient.getIngredientId()}">"${current_ingredient.getIngredientName()}"</option>
