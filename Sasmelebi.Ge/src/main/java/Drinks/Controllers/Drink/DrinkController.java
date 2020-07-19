@@ -72,7 +72,7 @@ public class DrinkController {
     public void postDrinkExtendPage(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         String drinkId = request.getParameter("drink_id");
-        response.sendRedirect("/addDrink/extend?=drink_id=" + drinkId);
+        response.sendRedirect("/addDrink/extend?drink_id=" + drinkId);
     }
 
     @PostMapping(value = "/Drink/favourite")
