@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="/resources/css/homepage/hyperLinks.css">
     <link rel="stylesheet" href="/resources/css/homepage/profile.css">
     <link rel="stylesheet" href="/resources/css/homepage/butts.css">
-    <link rel="stylesheet" href="/resources/css/homepage/wallColour.css">
+    <link rel="stylesheet" href="/resources/css/homepage/backImg.css">
     <link rel="stylesheet" href="/resources/css/homepage/listItem.css">
 </head>
-<body>
+<body >
 <div style="position: relative;  width: ${window.width()} px;">
     <div style="position: absolute; top: 0; right: 0; width: 100px; text-align:right;">
         <a href="/logout" class="featureLinks">

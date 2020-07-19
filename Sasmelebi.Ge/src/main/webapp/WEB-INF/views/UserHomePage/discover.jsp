@@ -5,7 +5,7 @@
     <title>Discover</title>
     <link rel="stylesheet" href="/resources/css/homepage/hyperLinks.css">
     <link rel="stylesheet" href="/resources/css/homepage/forLabels.css">
-    <link rel="stylesheet" href="/resources/css/homepage/wallColour.css">
+    <link rel="stylesheet" href="/resources/css/homepage/backImg.css">
     <link rel="stylesheet" href="/resources/css/discoverpage/columns.css">
     <link rel="stylesheet" href="/resources/css/discoverpage/headLines.css">
     <link rel="stylesheet" href="/resources/css/homepage/drinkLabel.css">
