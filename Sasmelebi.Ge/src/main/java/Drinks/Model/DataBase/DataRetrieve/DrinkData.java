@@ -76,6 +76,13 @@ public class DrinkData {
     }
 
     private String getQuery(String name, int[] ingredientIds) {
+        if(ingredientIds == null){
+            String query ="Select   d.drink_id , d.drink_name, d.image "+
+                    " from drinks d " +
+                    " where d.drink_name Like Concat(\"%\" , \"" + name + "\" , \"%\")";
+            return  query;
+
+        }
         String query = "select d.drink_id , d.drink_name, d.image  " +
                 " from drinks_ingredients di " +
                 " join ingredients i " +
