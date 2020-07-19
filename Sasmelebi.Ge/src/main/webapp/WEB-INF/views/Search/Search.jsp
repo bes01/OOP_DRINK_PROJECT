@@ -35,20 +35,27 @@
     }
     </style>
     <head>
+        <link rel="stylesheet" href="/resources/css/Search/hyperLinks.css">
         <title>Sasmelebi.ge </title>
     </head>
 
     <body>
-     <div style="position: relative; width: ${window.width()} px;">
-        <div style="position: absolute; top: 0; right: 0; width: 100px; text-align:right;">
-            <a href="/Login">Logout</a>
-        </div>
-        <div style="position: absolute; top: 0; right: 70px; width: 100px; text-align:right;">
-            <a href="/Favourites">Favourites</a>
-        </div>
-        <div style="position: absolute; top: 0; right: 180px; width: 100px; text-align:right;">
-            <a href="/HomePage">Home Page</a>
-        </div>
+  <div style="position: absolute; top: 0; right: 0; width: 100px; text-align:right;">
+         <a href="/logout" class="featureLinks">
+             <logout>Logout</logout>
+         </a>
+     </div>
+     <div style="position: absolute; top: 0; right: 70px; width: 100px; text-align:right;" class="featureLinks">
+         <a href="/Discover">
+             <Discover>Discover</Discover>
+         </a>
+     </div>
+     <div style="position: absolute; top: 0; right: 160px; width: 100px; text-align:right;" class="featureLinks">
+         <a href="/Search">
+             <search>Search</search>
+         </a>
+     </div>
+
         <form action="/Search" method="get">
             <div id="inputs">
 
@@ -59,6 +66,7 @@
             <c:if test ="${last_ingredients == null}">
             <br>
              <Select  name="ingredient" class ="select" id="select">
+                    <option value="empty" selected ></option>
                     <c:forEach items="${all_ingredients}"  var = "current_ingredient">
                         <option value="${current_ingredient.getIngredientId()}">"${current_ingredient.getIngredientName()}"</option>
                     </c:forEach>
@@ -68,6 +76,7 @@
                 <c:forEach items="${last_ingredients}" var = "current_selected">
                 <br>
                 <Select  name="ingredient" class="select" id="select">
+                <option value="empty"></option>
                     <c:forEach items="${all_ingredients}"  var = "current_ingredient">
                     <c:if test ='${current_ingredient.getIngredientId() != current_selected}'>
                         <option value="${current_ingredient.getIngredientId()}">"${current_ingredient.getIngredientName()}"</option>
