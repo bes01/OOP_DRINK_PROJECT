@@ -6,7 +6,7 @@ values("Beso", "Kapanadze", "bkapa18", "Male", 20, "bkapa18@freeuni.edu.ge", "12
 ("Luka", "Lortkipanidze", "llort18", "Male", 20, "llort18@freeuni.edu.ge", "12345678");
 
 insert into drinks(drink_name, image, instruction, parent_id, author, addition_time)
-values("Redbull-Vodka", null, "Mix up 16th and arayi.", null, 1, sysdate());
+values("Redbull-Vodka", "/resources/photos/redbull-vodka.jpg", "Mix up 16th and arayi.", null, 1, sysdate());
 
 insert into ingredients(ingredient_name)
 values("arayi"),
@@ -18,7 +18,7 @@ values (1,1),
 
 
 insert into drinks(drink_name, image, instruction, parent_id, author, addition_time)
-values("Beer", null, "Kasri", null, 2, sysdate());
+values("Beer", "/resources/photos/beer.jpg", "Kasri", null, 2, sysdate());
 
 insert into ingredients(ingredient_name)
 values("kasri");
@@ -28,7 +28,7 @@ values (2,3);
 
 
 insert into drinks(drink_name, image, instruction, parent_id, author, addition_time)
-values("Martini", null, "glass of martini.", null, 3, sysdate());
+values("Martini", "/resources/photos/martini.jpg", "glass of martini.", null, 3, sysdate());
 
 insert into ingredients(ingredient_name)
 values("Bottle of Martini"),
@@ -40,7 +40,7 @@ values (3,4),
 	
 
 insert into drinks(drink_name, image, instruction, parent_id, author, addition_time)
-values("Red Wine", null, "Just a red wine.", null, 4, sysdate());
+values("Red Wine", "/resources/photos/red_wine.jpg", "Just a red wine.", null, 4, sysdate());
 
 insert into ingredients(ingredient_name)
 values("Bottle of any wine which is red.");
@@ -50,11 +50,11 @@ values (4,6);
 	
 
 insert into drinks(drink_name, image, instruction, parent_id, author, addition_time)
-values("Boom-Chacha", null, "Boom and Chacha", null, 5, sysdate());
+values("Mojito", "/resources/photos/mojito.jpg", "Just a regular mojito", null, 5, sysdate());
 
 insert into ingredients(ingredient_name)
-values("Georgian Chacha"),
-("Boom");
+values("Glass for Mojito"),
+("Mojito itself");
       
 insert into drinks_ingredients(drink_id,ingredient_id)
 values (5,7),

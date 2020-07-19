@@ -4,13 +4,13 @@
 <head>
     <title>HomePage</title>
     <link rel="stylesheet" href="/resources/css/homepage/forLabels.css">
-    <link rel="stylesheet" href="/resources/css/homepage/hype.css">
+    <link rel="stylesheet" href="/resources/css/homepage/hyperLinks.css">
     <link rel="stylesheet" href="/resources/css/homepage/profile.css">
     <link rel="stylesheet" href="/resources/css/homepage/butts.css">
-    <link rel="stylesheet" href="/resources/css/homepage/wallColour.css">
+    <link rel="stylesheet" href="/resources/css/homepage/backImg.css">
     <link rel="stylesheet" href="/resources/css/homepage/listItem.css">
 </head>
-<body>
+<body >
 <div style="position: relative;  width: ${window.width()} px;">
     <div style="position: absolute; top: 0; right: 0; width: 100px; text-align:right;">
         <a href="/logout" class="featureLinks">
@@ -34,7 +34,7 @@
     </div>
 
     <div class="card" style="margin-top: 35px">
-        <p><font size="+1"><b>Nickname: ${user.nickName}</b></font> </p>
+        <p><font size="+1"><b>Nickname: ${user.nickName}</b></font></p>
         <p><b>eMail: ${user.mail}</b></p>
         <p><b>Sex: ${user.sex}</b></p>
         <p><b>Age: ${user.age}</b></p>
@@ -46,21 +46,25 @@
         </p>
         <c:forEach items="${user.myDrinks}" var="drink">
             <ul>
-                <li><a href="/drink"><font size="+3" class="list"
-                                           style="font-family: 'French Script MT'">${drink.drinkName}</font></a>
+
+                <li><img src="${drink.imagePath}" height="65" width="65" style="border-radius: 20px">
+                    <a href="/Drink?drink_id=${drink.drinkId}"><font size="+3" class="list"
+                                                                     style="font-family: 'French Script MT'">${drink.drinkName}</font></a>
                 </li>
             </ul>
         </c:forEach>
     </div>
-    <div style="position: absolute; left: 350px; top: 334px">
+    <div style="position: absolute; left: 420px; top: 334px">
         <p>
             <listHeader><b>Favourites:</b></ListHeader>
         </p>
         <ul>
             <c:forEach items="${favourites}" var="drink">
-                <li style="margin-top: 20px;">
+                <li >
                     <a href="/Drink?drink_id=${drink.drinkId}" class="list"><font size="+3"
-                                                                                  style="font-family: 'French Script MT'">${drink.drinkName}</font></a>
+                                                                                  style="font-family: 'French Script MT'">
+                        <img src="${drink.imagePath}" height="65" width="65" style="border-radius: 20px">
+                            ${drink.drinkName}</font></a>
                     <a href="/removeFavourite?drink_id=${drink.drinkId}" class="remFavButton">Remove</a>
                 </li>
             </c:forEach>

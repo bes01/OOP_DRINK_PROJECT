@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Discover {
     @GetMapping("/Discover")
     public ModelAndView renderDiscoverPage(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-        if (request.getSession().getAttribute("user") == null) {
+        if (request.getSession().getAttribute("user_id") == null) {
             response.sendRedirect("/logout");
             return null;
         }

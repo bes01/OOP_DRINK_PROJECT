@@ -6,9 +6,7 @@
     <title>Sasmelebi.ge</title>
 </head>
 <body>
-<h1>Drink Not Found</h1>
-
-<form action="/Drink/favourite" method="POST">
+<h1>User Not Found</h1>
 <form>
     <input type=button value="Back" onCLick="history.back()">
 </form>
