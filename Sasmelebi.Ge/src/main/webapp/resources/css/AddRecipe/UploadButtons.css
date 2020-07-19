@@ -1,0 +1,72 @@
+.photoButton{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background: #21D4FD linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+  border: none;
+  color: black;
+  padding: 30px 32px;
+  text-align: center;
+  text-shadow: 0 0 10px #FFFFFF;
+  text-decoration: helvitica;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 50px;
+  margin: 4px 2px;
+  font-family: Harrington;
+  cursor: pointer;
+}
+
+
+
+.photoButton:hover {
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+}
+
+.photoButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.photoButton:hover span {
+  padding-right: 25px;
+}
+
+.photoButton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.fileButton{
+  color: transparent;
+}
+.fileButton::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.fileButton::before {
+  content: 'SELECT PHOTO';
+  font-family: Harrington;
+  background: #21D4FD linear-gradient(19deg, #21D4FD 0%, #B721FF 100%) ;
+  border: none;
+  color: black;
+  padding: 30px 32px;
+  text-align: center;
+  text-shadow: 0 0 10px #FFFFFF;
+  text-decoration: helvitica;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 50px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.fileButton:hover::before {
+  border-color: black;
+}
+.fileButton:active {
+  outline: 0;
+}
+.fileButton:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}

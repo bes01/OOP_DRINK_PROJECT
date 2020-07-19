@@ -9,6 +9,10 @@ public class DrinkFull {
     private Drink parent;
     private User user;
     
+    public DrinkFull(double all_ranking, int user_ranking, Drink parent) throws SQLException {
+        this.all_ranking = all_ranking;
+        this.user_ranking = user_ranking;
+        this.parent = parent;
     public DrinkFull(double all_ranking, int user_ranking, User user, Drink parent) throws SQLException {
         this.all_ranking = all_ranking;
         this.user_ranking = user_ranking;

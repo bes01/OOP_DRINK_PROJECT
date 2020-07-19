@@ -59,8 +59,8 @@ public class ExtendRecipe {
                          @RequestParam int drink_id,
                          HttpServletResponse httpServletResponse) throws IOException, SQLException {
         if (attributeHandler.handlePhotoUploadInProject(part).equals(""))
-            httpServletResponse.sendRedirect("/addDrink/extend");
-        else httpServletResponse.sendRedirect("/addDrink/extend/photo?drink_id="+Integer.toString(drink_id)+"&image="+part.getOriginalFilename());
+            httpServletResponse.sendRedirect("/addDrink/extend?drink_id="+ drink_id);
+        else httpServletResponse.sendRedirect("/addDrink/extend/photo?drink_id="+ drink_id +"&image="+part.getOriginalFilename());
     }
 
     @GetMapping("/addDrink/extend/photo")

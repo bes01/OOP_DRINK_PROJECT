@@ -1,0 +1,13 @@
+div.photo {
+  width: 40%;
+  background:  #21D4FD linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  border-radius: 50px;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+  font-family: Harrington;
+}

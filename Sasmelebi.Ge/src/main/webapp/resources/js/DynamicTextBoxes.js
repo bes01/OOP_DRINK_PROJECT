@@ -1,6 +1,6 @@
 function GetDynamicTextBox(value){
-    return '<input name = "DynamicTextBox" type="text" value = "' + value + '" />' +
-            '<input type="button" value="Remove" onclick = "RemoveTextBox(this)" />'
+    return '<input class="dynamicCameText" name = "DynamicTextBox" type="text" value = "' + value + '" />' +
+            '<input class="removeBut" type="button" value="Remove" onclick = "RemoveTextBox(this)" /> <br></br>'
 }
 function AddTextBox() {
     var div = document.createElement('DIV');
