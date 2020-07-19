@@ -22,7 +22,7 @@ public class SearchController {
 
     @RequestMapping(value = "/Search", method = RequestMethod.GET)
     public ModelAndView getSearchPage(HttpServletRequest request , HttpServletResponse response) throws IOException {
-        if (request.getSession().getAttribute("user_id")==null){
+        if (request.getSession().getAttribute("user")==null){
             response.sendRedirect("/");
             return null;
         }
