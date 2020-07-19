@@ -44,7 +44,7 @@ public class DrinkData {
         int counter = 0;
         while (set.next()) {
             drinks.add(new Drink(set.getInt("drink_id"), set.getString("drink_name"),
-                    "", set.getString("instruction"), set.getInt("parent_id"),
+                    set.getString("image"), set.getString("instruction"), set.getInt("parent_id"),
                     set.getInt("author"), set.getDate("addition_time"),
                     getIngredients(set.getInt("drink_id"))));
             if(quantity != -1 && ++counter == quantity)

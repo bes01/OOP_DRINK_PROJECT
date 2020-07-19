@@ -1,7 +1,5 @@
 li{
-    margin-top:20px;
     list-style-type: none;
-    transition: .3s;
     font-weight:bold;
     color: black;
 }
