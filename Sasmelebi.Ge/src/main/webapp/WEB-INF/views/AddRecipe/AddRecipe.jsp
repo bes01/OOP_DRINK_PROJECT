@@ -9,9 +9,7 @@
         <link rel="stylesheet" href="/resources/css/AddRecipe/HeaderConf.css?1422585377">
         <link rel="stylesheet" href="/resources/css/AddRecipe/TextFieldConf.css?1422585377">
         <link rel="stylesheet" href="/resources/css/AddRecipe/dynamicButton.css?1422585377">
-
         <link rel="stylesheet" href="/resources/css/AddRecipe/hyperLink.css?1422585377">
-
         <script src="${pageContext.request.contextPath}/resources/js/DynamicTextBoxes.js"></script>
          <script type="text/javascript">
             function RecreateDynamicTextboxes() {
@@ -36,7 +34,7 @@
         <title>Add Recipe</title>
     </head>
     <body>
-        <h1 class="headerCL" style="display: block; margin-left: auto; margin-right: auto;">Good Choice! Add Recipe</h1>
+        <h1 class="headerCL" style="display: block; margin-left: auto; margin-right: auto;">Good Choice! Add Drink</h1>
 
             <div  style="position: absolute; top: 80px; right: 10px; width: 100px; text-align:right;">
                 <a class="hypLink" href="/HomePage">HomePage    </a>
@@ -45,28 +43,14 @@
                 <a class="hypLink" href="/Search">Search</a>
             </div>
             <div style="position: absolute; top: 140px; right: 10px; width: 100px; text-align:right;">
-                <a class="hypLink" href="/Login">Logout</a>
+                <a class="hypLink" href="/">Logout</a>
             </div>
 
-            <div>
-                <c:choose>
-                    <c:when test="${path==null}">
-                        <div class="photo" style="display: block; margin-left: auto; margin-right: auto;">
-                            <img  style="display: block; margin-left: auto; margin-right: auto;" src="/resources/photos/no_photo.png" width=200 height=250/>
-                            <div class="container">
-                                <p>CHOOSE AND UPLOAD PHOTO</p>
-                            </div>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="photo" style="display: block; margin-left: auto; margin-right: auto;">
-                            <img style="display: block; margin-top:auto; margin-left: auto; margin-right: auto;" name="myimage" src="${path}" width=200 height=250/>
-                            <div class="container">
-                                <p>GOOD ONE :)</p>
-                            </div>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
+            <div class="photo" style="display: block; margin-left: auto; margin-right: auto;">
+                <img  style="display: block; margin-left: auto; margin-right: auto;" src="/resources/photos/no_photo.png" width=200 height=250/>
+                <div class="container">
+                    <p>CHOOSE AND UPLOAD PHOTO</p>
+                </div>
             </div>
             <div>
             <form method="POST" enctype="multipart/form-data" action="/addDrink" >
@@ -77,14 +61,12 @@
             <form method="POST" enctype="multipart/form-data" action="/addDrink/submit" >
             <br></br>
             <div class="cart">
-            <br></br>
-
+                <br></br>
                 <p class="typeLabel">Enter Drink Name </p>
                 <input class="nameText"  id="name" type="text" name="name"/>
                 <p class="typeLabelInst">Type Instructions </p>
                 <input class="instructionText" name="instruction" type="text"/>
-            <br></br>
-
+                <br></br>
             </div>
             <div style="position: absolute; right: 30px; top: 50%;">
                 <input class="photoButton" id="btnAdd" type="button" value="ADD INGREDIENTS" onclick="AddTextBox()" />

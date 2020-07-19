@@ -42,7 +42,7 @@
                 <a class="hypLink" href="/Search">Search</a>
             </div>
             <div style="position: absolute; top: 140px; right: 10px; width: 100px; text-align:right;">
-                <a class="hypLink" href="/Login">Logout</a>
+                <a class="hypLink" href="/">Logout</a>
             </div>
 
             <div class="photo" style="display: block; margin-left: auto; margin-right: auto;">
