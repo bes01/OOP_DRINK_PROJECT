@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -19,7 +21,11 @@ import java.util.ArrayList;
 public class SearchController {
 
     @RequestMapping(value = "/Search", method = RequestMethod.GET)
-    public ModelAndView getSearchPage(HttpServletRequest request) {
+    public ModelAndView getSearchPage(HttpServletRequest request , HttpServletResponse response) throws IOException {
+        if (request.getSession().getAttribute("user")==null){
+            response.sendRedirect("/");
+            return null;
+        }
 
         ModelAndView ret = new ModelAndView("/Search/Search");
 
