@@ -82,7 +82,7 @@ public class DrinkController {
     public void postDrinkFavouritePage(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         String drinkId = request.getParameter("drink_id");
-        User user = (User) request.getSession().getAttribute("user");
+        User user = (User) request.getSession().getAttribute("user_id");
         new FavouritesData().addInFavourites(Integer.valueOf(drinkId), user.getUserId());
         response.sendRedirect("/HomePage");
     }
