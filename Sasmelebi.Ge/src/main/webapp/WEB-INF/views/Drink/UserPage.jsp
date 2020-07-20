@@ -4,19 +4,25 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Sasmelebi.ge</title>
+    <link rel="stylesheet" href="/resources/css/homepage/backImg.css">
+    <link rel="stylesheet" href="/resources/css/Drink/FixedBar.css">
 </head>
 <body>
-<div style="position: relative; width: ${window.width()} px;">
-    <div style="position: absolute; top: 0; right: 0; width: 100px; text-align:right;">
-        <a href="/logout">Logout</a>
-    </div>
-    <div style="position: absolute; top: 0; right: 70px; width: 100px; text-align:right;">
-        <a href="/Search">Search</a>
-    </div>
-    <div style="position: absolute; top: 0; right: 140px; width: 100px; text-align:right;">
-        <a href="/HomePage">Home Page</a>
-    </div>
-</div>
+<header class="my_header">
+    <img class="logo" src="/resources/materials/drinks.png" alt="logo">
+    <nav class="my_nav">
+        <ul class="nav_links">
+            <li><a href="/HomePage" >Home</a></li>
+            <li><a href="/Discover" >Discover</a></li>
+            <li><a href="/Search" >Search</a></li>
+            <li><a href="/About" >About</a></li>
+            <%-- About is not decided --%>
+            <div class="nav_links-right">
+                <li><a href="/logout" >LogOut</a></li>
+            </div>
+        </ul>
+    </nav>
+</header>
 <h1><b>${user.firstName} ${user.lastName}</b><br></h1>
 
 <div class="card" style="margin-top: 35px">
