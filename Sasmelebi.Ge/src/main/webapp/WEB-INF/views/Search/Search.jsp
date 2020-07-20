@@ -51,8 +51,8 @@
          </a>
      </div>
      <div style="position: absolute; top: 0; right: 160px; width: 100px; text-align:right;" class="featureLinks">
-         <a href="/Search">
-             <search>Search</search>
+         <a href="/HomePage">
+             <search>Home Page</search>
          </a>
      </div>
 
