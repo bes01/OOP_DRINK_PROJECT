@@ -15,12 +15,6 @@
     <div style="position: absolute; top: 0; right: 70px; width: 100px; text-align:right;">
         <a href="/Search">Search</a>
     </div>
-    <div style="position: absolute; top: 40px; right: 0; width: 150px; text-align:right;">
-        <h4>Date: ${drink.additionTime}</h4>
-    </div>
-</div>
-<h1>${drink.drinkName}</h1>
-<img name="${drink.drinkName}" src="${drink.imagePath}" width=200 height=250/>
     <div style="position: absolute; top: 0; right: 140px; width: 100px; text-align:right;">
         <a href="/HomePage">Home Page</a>
     </div>
@@ -29,8 +23,7 @@
     </div>
 </div>
 <h1><b>${drink.drinkName}</b></h1>
-<% User user = (User)session.getAttribute("user_id");
-   request.setAttribute("user_id", user.getUserId());%>
+<% request.setAttribute("user_id", session.getAttribute("user_id"));%>
 <div>
     <div>
     <c:choose>
@@ -92,17 +85,6 @@
         <c:otherwise> <input type="submit" value="Save"> </c:otherwise>
     </c:choose>
 </form>
-<br/>
-<form action="/Drink/extend" method="POST">
-    <input type="hidden" value="${drink.drinkId}" name="drink_id">
-    <input type="submit" value="Click To Extend Drink!">
-</form>
-<br/>
-<form action="/Drink/favourite" method="POST">
-    <input type="hidden" value="${drink.drinkId}" name="drink_id">
-    <input type="submit" value="Click To Add In Favourites!">
-</form>
-<br/>
 
 <div style="position: absolute; left: 60%; top:35%;">
     <img src="/resources/materials/drinks.png" width=450; height=225;>
