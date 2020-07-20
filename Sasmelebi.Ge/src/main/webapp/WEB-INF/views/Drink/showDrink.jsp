@@ -6,22 +6,25 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Sasmelebi.ge</title>
+    <link rel="stylesheet" href="/resources/css/homepage/backImg.css">
+    <link rel="stylesheet" href="/resources/css/Drink/FixedBar.css">
 </head>
 <body>
-<div style="position: relative; width: ${window.width()} px;">
-    <div style="position: absolute; top: 0; right: 0; width: 100px; text-align:right;">
-        <a href="/logout">Logout</a>
-    </div>
-    <div style="position: absolute; top: 0; right: 70px; width: 100px; text-align:right;">
-        <a href="/Search">Search</a>
-    </div>
-    <div style="position: absolute; top: 0; right: 140px; width: 100px; text-align:right;">
-        <a href="/HomePage">Home Page</a>
-    </div>
-    <div style="position: absolute; top: 40px; right: 0; width: 150px; text-align:right;">
-        <h4>Date: ${drink.additionTime}</h4>
-    </div>
-</div>
+<header class="my_header">
+    <img class="logo" src="/resources/materials/drinks.png" alt="logo">
+    <nav class="my_nav">
+        <ul class="nav_links">
+            <li><a href="/HomePage" >Home</a></li>
+            <li><a href="/Discover" >Discover</a></li>
+            <li><a href="/Search" >Search</a></li>
+            <li><a href="/About" >About</a></li>
+            <%-- About is not decided --%>
+            <div class="nav_links-right">
+                <li><a href="/logout" >LogOut</a></li>
+            </div>
+        </ul>
+    </nav>
+</header>
 <h1><b>${drink.drinkName}</b></h1>
 <% request.setAttribute("user_id", session.getAttribute("user_id"));%>
 <div>
@@ -87,7 +90,6 @@
 </form>
 
 <div style="position: absolute; left: 60%; top:35%;">
-    <img src="/resources/materials/drinks.png" width=450; height=225;>
     <form action="/Drink/extend" method="POST">
         <input type="hidden" value="${drink.drinkId}" name="drink_id">
         <input type="submit" value="Click To Extend Drink!">
