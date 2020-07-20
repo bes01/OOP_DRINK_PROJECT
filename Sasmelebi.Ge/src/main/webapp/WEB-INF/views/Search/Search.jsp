@@ -36,6 +36,9 @@
     </style>
     <head>
         <link rel="stylesheet" href="/resources/css/Search/hyperLinks.css">
+        <link rel="stylesheet" href="/resources/css/Search/buttons.css">
+        <link rel="stylesheet" href="/resources/css/Search/labels.css">
+        <link rel="stylesheet" href="/resources/css/Search/listItem.css">
         <title>Sasmelebi.ge </title>
     </head>
 
@@ -51,8 +54,8 @@
          </a>
      </div>
      <div style="position: absolute; top: 0; right: 160px; width: 100px; text-align:right;" class="featureLinks">
-         <a href="/Search">
-             <search>Search</search>
+         <a href="/HomePage">
+             <homepage>Home Page</homepage>
          </a>
      </div>
 
@@ -92,14 +95,27 @@
 
 
             </div>
-           <br> <input type="submit" , value = "Search"> <br>
+           <br> <input type="submit" class="searchButton"  value = "Search"> <br>
           </form>
-         <button onclick="add()">Add Ingredient</button>
-         <button onclick="remove()">Remove Ingredient</button>
+         <button onclick="add()" class="addIngredientButton">Add Ingredient</button>
+         <button onclick="remove()" class="removeIngredientButton">Remove Ingredient</button>
          <hr>
+         <ul>
          <c:forEach items="${drinks}" var="current_drink">
-            <a href="/Drink?drink_id=${current_drink.getDrinkId()}"> "${current_drink.getDrinkName()}" </a>
-            <br>
+         <li>
+            <img src="${current_drink.getImagePath()}" height="65" width="65" style="border-radius: 20px">
+            <a href="/Drink?drink_id=${current_drink.getDrinkId()}">
+             <font size="+3"   style="font-family: 'French Script MT'">
+            "${current_drink.getDrinkName()}"  </a>
+         </li>
          </c:forEach>
+        </ul>
+          <div style="position: absolute; left: 60%; top:190px;">
+                <img src="/resources/materials/drinks.png" width=450; height=225;>
+                <mixthings><p>Let's Mix Things Up!</p></mixthings>
+                <a href="/addDrink">
+                    <button class="addDrink">Add Drink</button>
+                </a>
+         </div>
     </body>
 </html>
