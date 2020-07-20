@@ -97,9 +97,13 @@
          <button onclick="add()">Add Ingredient</button>
          <button onclick="remove()">Remove Ingredient</button>
          <hr>
+         <ul>
          <c:forEach items="${drinks}" var="current_drink">
+         <li>
+            <img src="${current_drink.getImagePath()}" height="65" width="65" style="border-radius: 20px">
             <a href="/Drink?drink_id=${current_drink.getDrinkId()}"> "${current_drink.getDrinkName()}" </a>
-            <br>
+         </li>
          </c:forEach>
+        </ul?
     </body>
 </html>
