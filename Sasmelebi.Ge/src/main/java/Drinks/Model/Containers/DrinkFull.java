@@ -1,25 +1,26 @@
 package Drinks.Model.Containers;
 
-import Drinks.Model.DataBase.DataRetrieve.UserData;
-import Drinks.Model.DataBase.DrinkDao.TheDrinkData;
-
-import java.sql.Array;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class DrinkFull {
     
-    private int user_ranking, all_ranking;
+    private int user_ranking;
+    private double all_ranking;
     private Drink parent;
+    private User user;
     
-    public DrinkFull(int drink_id, int user_id) throws SQLException {
-        TheDrinkData drData = new TheDrinkData();
-        all_ranking = drData.sumRated(drink_id);
-        user_ranking = drData.userRated(drink_id, user_id);
-        parent = drData.getParentDrink(drink_id);
+    public DrinkFull(double all_ranking, int user_ranking, Drink parent) throws SQLException {
+        this.all_ranking = all_ranking;
+        this.user_ranking = user_ranking;
+        this.parent = parent;
+    public DrinkFull(double all_ranking, int user_ranking, User user, Drink parent) throws SQLException {
+        this.all_ranking = all_ranking;
+        this.user_ranking = user_ranking;
+        this.parent = parent;
+        this.user = user;
     }
     
-    public int getCurrentRanking() {
+    public double getCurrentRanking() {
         return all_ranking;
     }
     
@@ -28,4 +29,6 @@ public class DrinkFull {
     }
 
     public Drink getParentDrink(){ return parent; }
+
+    public User getDrinksAuthor(){ return user; }
 }

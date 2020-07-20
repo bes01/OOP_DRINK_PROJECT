@@ -44,19 +44,16 @@ public class UserData {
     }
 
     public double getRank(int user_id) throws SQLException {
-        Double sum = (double) getRankHelper(user_id, "sum(rank_score)");
-        Double quantity = (double) getRankHelper(user_id, "count(*)");
-        return (quantity == 0) ? 0 : sum / quantity;
-    }
-
-    private int getRankHelper(int user_id, String select) throws SQLException {
         Connector connector = Connector.getInstance();
-        PreparedStatement statement = connector.getStatement("select " + select + " from " + Constants.schema +
-                ".ranking where user_id = ?");
+        PreparedStatement statement = connector.getStatement("select sum(" + Constants.schema + ".ranking.rank_score)/count(*) " +
+                "from " + Constants.schema + ".ranking " +
+                "where " + Constants.schema + ".ranking.drink_id in " +
+                "(select " + Constants.schema + ".drinks.drink_id from " + Constants.schema + ".drinks " +
+                "where " + Constants.schema + ".drinks.author = ?)");
         statement.setInt(1, user_id);
         ResultSet set = connector.executeQuery(statement);
         set.next();
-        return set.getInt(1);
+        Double rank = set.getDouble(1);
+        return (rank == null) ? 0 : rank;
     }
-
 }

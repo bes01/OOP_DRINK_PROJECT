@@ -20,9 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="676ee5b3-0cb6-4fdb-a783-0eb7e49cb3a1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_07_2020_16_32__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_07_2020_16_32__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Drinks/Constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Drinks/Constants/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Drinks/Controllers/Recipe/AddRecipeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Drinks/Controllers/Recipe/AddRecipeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Drinks/Model/DataBase/RecipeDao/ExistenceChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Drinks/Model/DataBase/RecipeDao/ExistenceChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/AddRecipe/AddRecipe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/AddRecipe/AddRecipe.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/AddRecipe/AddRecipePhoto.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/AddRecipe/AddRecipePhoto.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/AddRecipe/ExtendRecipe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/AddRecipe/ExtendRecipe.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/AddRecipe/ExtendRecipePhoto.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/AddRecipe/ExtendRecipePhoto.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +45,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="1eibwYKFx1qTngfaLlUIxSqLAog" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -53,6 +61,15 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/Drinks/Model/DataBase/DrinkDao/TheDrinkData.java" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/main/java/Drinks/Model/DataBase/DrinkDao/TheDrinkData.java" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Tato\Desktop\PROJECT\OOP_DRINK_PROJECT\Sasmelebi.Ge\src\main\webapp\resources\js" />
+      <recent name="C:\Users\Tato\Desktop\PROJECT\OOP_DRINK_PROJECT\Sasmelebi.Ge\src\main\webapp\resources\js\AddRecipe" />
+      <recent name="C:\Users\Tato\Desktop\PROJECT\OOP_DRINK_PROJECT\Sasmelebi.Ge\src\main\webapp\resources" />
+      <recent name="C:\Users\Tato\Desktop\PROJECT\OOP_DRINK_PROJECT\Sasmelebi.Ge\src\main\resources" />
+      <recent name="C:\Users\Tato\Desktop\PROJECT\OOP_DRINK_PROJECT\Sasmelebi.Ge\src\main\webapp\static" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Sasmelebi.Ge [clean]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
@@ -78,7 +95,9 @@
           </MavenRunnerParameters>
         </option>
       </MavenSettings>
-      <method v="2" />
+      <method v="2">
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="clean" />
+      </method>
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -112,10 +131,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="128" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594986624321">
+    <state x="128" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595074984604">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="128" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1594986624321" />
+    <state x="128" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1595074984604" />
     <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1594808499793" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1594808155868">
       <screen x="0" y="0" width="1366" height="728" />
@@ -125,33 +144,57 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1594807850650" />
-    <state width="1281" height="625" key="GridCell.Tab.0.bottom" timestamp="1594986627131">
+    <state width="1281" height="625" key="GridCell.Tab.0.bottom" timestamp="1595074871286">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1281" height="625" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1594986627131" />
+    <state width="1281" height="625" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1595074871286" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594809307941" />
     <state width="1493" height="368" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594931085277" />
-    <state width="1281" height="625" key="GridCell.Tab.0.center" timestamp="1594986627131">
+    <state width="1281" height="625" key="GridCell.Tab.0.center" timestamp="1595074871286">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1281" height="625" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1594986627131" />
+    <state width="1281" height="625" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1595074871286" />
     <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1594809307941" />
     <state width="1493" height="368" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594931085277" />
-    <state width="1281" height="625" key="GridCell.Tab.0.left" timestamp="1594986627131">
+    <state width="1281" height="625" key="GridCell.Tab.0.left" timestamp="1595074871285">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1281" height="625" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1594986627131" />
+    <state width="1281" height="625" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1595074871285" />
     <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1594809307940" />
     <state width="1493" height="368" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594931085277" />
-    <state width="1281" height="625" key="GridCell.Tab.0.right" timestamp="1594986627131">
+    <state width="1281" height="625" key="GridCell.Tab.0.right" timestamp="1595074871286">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1281" height="625" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1594986627131" />
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1281" height="625" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1595074871286" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594809307941" />
+    <state width="1493" height="368" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594931085277" />
+    <state width="1281" height="625" key="GridCell.Tab.0.center" timestamp="1595074871286">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1281" height="625" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1595074871286" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1594809307941" />
+    <state width="1493" height="368" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594931085277" />
+    <state width="1281" height="625" key="GridCell.Tab.0.left" timestamp="1595074871285">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1281" height="625" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1595074871285" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1594809307940" />
+    <state width="1493" height="368" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594931085277" />
+    <state width="1281" height="625" key="GridCell.Tab.0.right" timestamp="1595074871286">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1281" height="625" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1595074871286" />
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1594809307941" />
     <state width="1493" height="368" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594931085277" />
     <state x="345" y="66" key="RollbackChangesDialog" timestamp="1594808322155">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="345" y="66" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1594808322155" />
+    <state x="450" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595082215093">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="450" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1595082215093" />
   </component>
 </project>

@@ -2,84 +2,97 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <html xmlns:th="https://www.thymeleaf.org">
     <head>
+     <script src="${pageContext.request.contextPath}/resources/js/DynamicTextBoxes.js"></script>
+     <link rel="stylesheet" href="/resources/css/AddRecipe/UploadButtons.css?1422585377">
+     <link rel="stylesheet" href="/resources/css/AddRecipe/SubmitButton.css?1422585377">
+     <link rel="stylesheet" href="/resources/css/AddRecipe/Background.css?1422585377">
+     <link rel="stylesheet" href="/resources/css/AddRecipe/ImageConf.css?1422585377">
+     <link rel="stylesheet" href="/resources/css/AddRecipe/HeaderConf.css?1422585377">
+     <link rel="stylesheet" href="/resources/css/AddRecipe/TextFieldConf.css?1422585377">
+     <link rel="stylesheet" href="/resources/css/AddRecipe/dynamicButton.css?1422585377">
+     <link rel="stylesheet" href="/resources/css/AddRecipe/hyperLink.css?1422585377">
+      <script type="text/javascript">
+         function RecreateDynamicTextboxes() {
+             var values=new Array();
+             <% String[] codes=(String[])request.getAttribute("Values");
+             if(codes!=null){
+                 for(int i=0; i<codes.length; i++){ %>
+                     var code='<%= codes[i] %>';
+                     values[<%= i %>]=code;
+                 <%}
+             }%>
+             if (values != null) {
+                 var html = "";
+                 for (var i = 0; i < values.length; i++) {
+                     html += "<div>" + GetDynamicTextBox(values[i]) + "</div>";
+                 }
+                 document.getElementById("TextBoxContainer").innerHTML = html;
+             }
+         }
+         window.onload = RecreateDynamicTextboxes;
+      </script>
         <title>Add Recipe</title>
     </head>
     <body>
-        <h1>Add Recipe</h1>
-
-        <div style="position: relative; width: ${window.width()} px;">
-            <div style="position: absolute; top: 0; right: 0; width: 100px; text-align:right;">
-                <a href="/Login">Logout</a>
-            </div>
-            <div style="position: absolute; top: 0; right: 70px; width: 100px; text-align:right;">
-                <a href="/Favourites">Favourites</a>
-            </div>
-            <div style="position: absolute; top: 0; right: 180px; width: 100px; text-align:right;">
-                <a href="/Search">Search</a>
-            </div>
+        <h1 class="headerCL" style="display: block; margin-left: auto; margin-right: auto;">Good Choice! Extend This Drink</h1>
+        <div  style="position: absolute; top: 80px; right: 10px; width: 100px; text-align:right;">
+            <a class="hypLink" href="/HomePage">HomePage    </a>
+        </div>
+        <div style="position: absolute; top: 110px; right: 10px; width: 100px; text-align:right;">
+            <a class="hypLink" href="/Search">Search</a>
+        </div>
+        <div style="position: absolute; top: 140px; right: 10px; width: 100px; text-align:right;">
+            <a class="hypLink" href="/">Logout</a>
+        </div>
 
             <c:choose>
                 <c:when test="${path==null}">
-                    <img src="/resources/photos/no_photo.png" width=200 height=250/>
+                    <div class="photo" style="display: block; margin-left: auto; margin-right: auto;">
+                        <img  style="display: block; margin-left: auto; margin-right: auto;" src="/resources/photos/no_photo.png" width=200 height=250/>
+                        <div class="container">
+                            <p>CHOOSE AND UPLOAD PHOTO</p>
+                        </div>
+                    </div>
                 </c:when>
                 <c:otherwise>
-                    <img name="myimage" src="${path}" width=200 height=250/>
+                    <div class="photo" style="display: block; margin-left: auto; margin-right: auto;">
+                        <img style="display: block; margin-top:auto; margin-left: auto; margin-right: auto;" name="myimage" src="${path}" width=200 height=250/>
+                        <div class="container">
+                            <p>CHOOSE AND UPLOAD PHOTO</p>
+                        </div>
+                    </div>
                 </c:otherwise>
             </c:choose>
-            <form method="POST" enctype="multipart/form-data" action="/user/add_recipe/extend?drink_id=${drink_id}" >
-            				<input type="file" name="file" />
-            				<input  type="submit" value="Upload" />
+
+            <form method="POST" enctype="multipart/form-data" action="/addDrink/extend?drink_id=${drink_id}" >
+               <input style="position: absolute; top:230px; left:20px;" class="fileButton" type="file" name="file" />
+               <input style="position: absolute; top:125px; left:20px;" class="photoButton" type="submit" value="UPLOAD PHOTO" />
             </form>
-            <form method="POST" enctype="multipart/form-data" action="/user/add_recipe/extend/submit?drink_id=${drink_id}" >
+            <form method="POST" enctype="multipart/form-data" action="/addDrink/extend/submit?drink_id=${drink_id}" >
             <br></br>
-                <label>Enter Name Of The Drink</label>
-            <input id="name" value=${name} type="text" name="name"/>
-            <br></br>
-            <label>Press add button to increase the number of textfields for ingredients</label>
-            <input id="btnAdd" type="button" value="add" onclick="AddTextBox()" />
-            <div name="TextBoxContainer" id="TextBoxContainer"></div>
-            <br></br>
-            <label>Type Instructions</label>
-            <input name="instruction" value=${instruction} type="text"/>
-            <br></br>
-            <input  type="submit" value="Add Recipe"  />
+            <div class="cart">
+                <br></br>
+                <p class="typeLabel">Enter Drink Name </p>
+                <input class="nameText"  id="name" type="text" name="name"/>
+                <p class="typeLabelInst">Type Instructions </p>
+                <input class="instructionText" name="instruction" type="text"/>
+                <br></br>
+            </div>
+            <div style="position: absolute; right: 30px; top: 50%;">
+                <input class="photoButton" id="btnAdd" type="button" value="ADD INGREDIENTS" onclick="AddTextBox()" />
+                <br></br>
+                <br></br>
+
+                <div name="TextBoxContainer" id="TextBoxContainer"></div>
+                <br></br>
+                <br></br>
+            </div>
+            <input class="submitButton" style="display: block; margin-left: auto; margin-right: auto;" type="submit" value="Add Recipe"  />
              <c:choose>
                 <c:when test="${exists==true}">
                    <label>Such Drink Already Exists</label>
                 </c:when>
              </c:choose>
-                    <script type="text/javascript">
-                        function GetDynamicTextBox(value){
-                            return '<input name = "DynamicTextBox" type="text" value = "' + value + '" />' +
-                                    '<input type="button" value="Remove" onclick = "RemoveTextBox(this)" />'
-                        }
-                        function AddTextBox() {
-                            var div = document.createElement('DIV');
-                            div.innerHTML = GetDynamicTextBox("");
-                            document.getElementById("TextBoxContainer").appendChild(div);
-                        }
-                        function RemoveTextBox(div) {
-                            document.getElementById("TextBoxContainer").removeChild(div.parentNode);
-                        }
-                        function RecreateDynamicTextboxes() {
-                            var values=new Array();
-                            <% String[] codes=(String[])request.getAttribute("Values");
-                            if(codes!=null){
-                                for(int i=0; i<codes.length; i++){ %>
-                                    var code='<%= codes[i] %>';
-                                    values[<%= i %>]=code;
-                                <%}
-                            }%>
-                            if (values != null) {
-                                var html = "";
-                                for (var i = 0; i < values.length; i++) {
-                                    html += "<div>" + GetDynamicTextBox(values[i]) + "</div>";
-                                }
-                                document.getElementById("TextBoxContainer").innerHTML = html;
-                            }
-                        }
-                        window.onload = RecreateDynamicTextboxes;
-                    </script>
             </form>
         </body>
 <html>

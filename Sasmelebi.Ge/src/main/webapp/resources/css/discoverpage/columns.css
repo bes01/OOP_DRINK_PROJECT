@@ -1,0 +1,20 @@
+#leftbox {
+    float:left;
+    width:33%;
+    text-align: center;
+}
+#middlebox{
+    float:left;
+    width:33%;
+    text-align: center;
+}
+#rightbox{
+    float:right;
+    width:33%;
+    text-align: center;
+}
+
+li{
+    margin-top: 20px;
+    list-style-type: none;
+}

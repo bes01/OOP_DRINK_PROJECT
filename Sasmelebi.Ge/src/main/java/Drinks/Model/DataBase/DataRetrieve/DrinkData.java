@@ -24,24 +24,32 @@ public class DrinkData {
                         "join " + Constants.schema + ".drinks on " + Constants.schema +
                         ".favourites.drink_id = " + Constants.schema + ".drinks.drink_id " +
                         "where user_id = ?");
-        return getDrinks(user_id, connector, statement);
+        return getDrinks(user_id, statement);
     }
 
     public ArrayList<Drink> userDrinks(int user_id) throws SQLException {
         PreparedStatement statement = connector.getStatement("select * from " + Constants.schema + ".drinks " +
                 "where author = ?");
-        return getDrinks(user_id, connector, statement);
+        return getDrinks(user_id, statement);
     }
 
-    private ArrayList<Drink> getDrinks(int user_id, Connector connector, PreparedStatement statement) throws SQLException {
-        ArrayList<Drink> drinks = new ArrayList<>();
+    private ArrayList<Drink> getDrinks(int user_id, PreparedStatement statement) throws SQLException {
         statement.setInt(1, user_id);
+        return getDrinksArray(statement, -1);
+    }
+
+    public ArrayList<Drink> getDrinksArray(PreparedStatement statement, int quantity) throws SQLException {
+        ArrayList<Drink> drinks = new ArrayList<>();
         ResultSet set = connector.executeQuery(statement);
-        while (set.next())
+        int counter = 0;
+        while (set.next()) {
             drinks.add(new Drink(set.getInt("drink_id"), set.getString("drink_name"),
-                    "", set.getString("instruction"), set.getInt("parent_id"),
+                    set.getString("image"), set.getString("instruction"), set.getInt("parent_id"),
                     set.getInt("author"), set.getDate("addition_time"),
                     getIngredients(set.getInt("drink_id"))));
+            if(quantity != -1 && ++counter == quantity)
+                break;
+        }
         return drinks;
     }
 
@@ -68,6 +76,13 @@ public class DrinkData {
     }
 
     private String getQuery(String name, int[] ingredientIds) {
+        if(ingredientIds == null){
+            String query ="Select   d.drink_id , d.drink_name, d.image "+
+                    " from drinks d " +
+                    " where d.drink_name Like Concat(\"%\" , \"" + name + "\" , \"%\")";
+            return  query;
+
+        }
         String query = "select d.drink_id , d.drink_name, d.image  " +
                 " from drinks_ingredients di " +
                 " join ingredients i " +

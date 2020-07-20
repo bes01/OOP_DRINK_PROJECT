@@ -1,0 +1,28 @@
+li{
+    list-style-type: none;
+    font-weight:bold;
+    color: black;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:active{
+    color: black;
+}
+
+a:hover{
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px
+}
+
+.featureLinks {
+    display: inline-block;
+    transition: .3s;
+    text-decoration: none;
+}
+.featureLinks:hover {
+    transform: rotate(15deg);
+    color: green;
+}
