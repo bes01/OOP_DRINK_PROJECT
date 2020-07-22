@@ -60,9 +60,9 @@
          <div class="cart">
              <br></br>
              <p class="typeLabel">Enter Drink Name </p>
-             <input class="nameText"  id="name" type="text" name="name"/>
+             <input class="nameText"  value=${name} id="name" type="text" name="name"/>
              <p class="typeLabelInst">Type Instructions </p>
-             <input class="instructionText" name="instruction" type="text"/>
+             <input class="instructionText" value=${instruction} name="instruction" type="text"/>
              <br></br>
          </div>
          <div style="position: absolute; right: 30px; top: 50%;">

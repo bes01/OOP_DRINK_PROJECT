@@ -40,7 +40,7 @@ public class ExtendRecipe {
     @GetMapping("/addDrink/extend{drink_id}")
     public ModelAndView renderDrinkExtension(@RequestParam int drink_id, HttpServletRequest request,
                                              HttpServletResponse httpServletResponse) throws SQLException, IOException {
-        if (request.getSession().getAttribute("user")==null){
+        if (request.getSession().getAttribute("user_id")==null){
             httpServletResponse.sendRedirect("/");
             return null;
         }
@@ -66,7 +66,7 @@ public class ExtendRecipe {
     @GetMapping("/addDrink/extend/photo")
     public  ModelAndView renderWithPhoto(@RequestParam int drink_id,@RequestParam String image,
                                          HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-        if (request.getSession().getAttribute("user")==null){
+        if (request.getSession().getAttribute("user_id")==null){
             response.sendRedirect("/");
             return null;
         }
@@ -98,8 +98,7 @@ public class ExtendRecipe {
     }
 
     private void handleExtendAddition(@RequestParam int drink_id, @RequestParam String name, @RequestParam String instruction, HttpServletRequest request, HttpServletResponse httpServletResponse, String path) throws IOException {
-        User author = (User) request.getSession().getAttribute("user");
-        int author_id=author.getUserId();
+        int author_id = (int) request.getSession().getAttribute("user_id");
         String[] enumeration = request.getParameterValues("DynamicTextBox");
         ArrayList<Ingredient> ingredients = new ArrayList<>();
         if (enumeration==null) enumeration=new String[0];

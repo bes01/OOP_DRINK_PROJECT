@@ -36,7 +36,7 @@ public class AddRecipeController {
     @GetMapping(value = "/addDrink")
     public ModelAndView getMainJsp(HttpServletRequest request,
                                    HttpServletResponse httpServletResponse) throws IOException {
-        if (request.getSession().getAttribute("user")==null){
+        if (request.getSession().getAttribute("user_id")==null){
             httpServletResponse.sendRedirect("/");
             return null;
         }
@@ -64,7 +64,7 @@ public class AddRecipeController {
     @GetMapping (value = "/addDrink/photo{image}")
     public ModelAndView getMainJspWithPhoto(@RequestParam("image") String image,
                                             HttpServletRequest request,HttpServletResponse response) throws IOException {
-        if (request.getSession().getAttribute("user")==null){
+        if (request.getSession().getAttribute("user_id")==null){
             response.sendRedirect("/");
             return null;
         }
@@ -84,15 +84,16 @@ public class AddRecipeController {
         ArrayList<Ingredient> ingredients = new ArrayList<>();
         String name = request.getParameter("name");
         String instruction = request.getParameter("instruction");
-        User user= (User) request.getSession().getAttribute("user");
+        int user= (int) request.getSession().getAttribute("user_id");
         int parentId = -1;
         String path = s;
-        if (checkExistence.checkExistance(enumeration, name, path, instruction, parentId, user.getUserId())) {
+        if (checkExistence.checkExistance(enumeration, name, path, instruction, parentId, user)) {
             request.getSession().setAttribute("exists", true);
             httpServletResponse.sendRedirect("/addDrink");
         } else {
             request.setAttribute("exists", false);
-            handleRecipeAddition(request, httpServletResponse, enumeration, ingredients, name, path, instruction,user.getUserId());
+            handleRecipeAddition(request, httpServletResponse, enumeration, ingredients,
+                    name, path, instruction,user);
             httpServletResponse.sendRedirect("/HomePage");
         }
     }
