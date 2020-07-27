@@ -12,7 +12,6 @@
         <link rel="stylesheet" href="/resources/css/AddRecipe/dynamicButton.css?1422585377">
         <link rel="stylesheet" href="/resources/css/AddRecipe/hyperLink.css?1422585377">
         <link rel="stylesheet" href="/resources/css/AddRecipe/Suggested.css?1422585377">
-        <script src="${pageContext.request.contextPath}/resources/js/DynamicTextBoxes.js"></script>
          <script type="text/javascript">
             function RecreateDynamicTextboxes() {
                 var values=new Array();
@@ -40,25 +39,10 @@
                  <%
                  }
              %>;
-             function ListIngredients(prefix){
-                if (values != null) {
-                    var html = "";
-                    html+="<div>";
-                    html+="<label class="+"header"+">Suggested Drinks</label><br></br>";
-
-                    for (var i = 0; i < values.length; i++) {
-                        if (i<8){
-                            if (values[i].includes(prefix) == true){
-                                html += "<label class="+"element"+">" + values[i] +  "</label><br></br>";
-                            }
-                        }
-                    }
-                    html+="</div>";
-                    document.getElementById("PossibleIngredients").innerHTML = html;
-                }
-            }
             window.onload = RecreateDynamicTextboxes;
          </script>
+        <script src="${pageContext.request.contextPath}/resources/js/DynamicTextBoxes.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/SuggestedIngredients.js"></script>
         <title>Add Recipe</title>
     </head>
     <body>
