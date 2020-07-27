@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/resources/css/homepage/backImg.css">
     <link rel="stylesheet" href="/resources/css/Drink/FixedBar.css">
     <link rel="stylesheet" href="/resources/css/Drink/Labels.css">
+    <link rel="stylesheet" href="/resources/css/Drink/Buttons.css">
+    <link rel="stylesheet" href="/resources/css/Drink/Image.css">
 </head>
 <body>
 <header class="my_header">
