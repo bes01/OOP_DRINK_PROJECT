@@ -12,7 +12,7 @@
     <title>Login</title>
 </head>
 <body>
-<a href="/register">Register</a>
+<a href="/Register">Register</a>
 <c:if test="${error != null}">
     Authentication failed: ${error}
 </c:if>
@@ -22,6 +22,7 @@
     <label>Password</label>
     <input type="password" name="password" /><br/>
     <button type="submit">Login</button>
+    <a href = "/ForgotPassword">Forgot your password?</a>
 </form>
 </body>
 </html>
