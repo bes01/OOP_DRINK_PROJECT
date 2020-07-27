@@ -8,6 +8,7 @@
     <title>Sasmelebi.ge</title>
     <link rel="stylesheet" href="/resources/css/homepage/backImg.css">
     <link rel="stylesheet" href="/resources/css/Drink/FixedBar.css">
+    <link rel="stylesheet" href="/resources/css/Drink/Labels.css">
 </head>
 <body>
 <header class="my_header">
@@ -25,21 +26,21 @@
         </ul>
     </nav>
 </header>
-<h1><b>${drink.drinkName}</b></h1>
-<% request.setAttribute("user_id", session.getAttribute("user_id"));%>
-<div>
-    <div>
-    <c:choose>
-        <c:when test="${wrappedDrinkInfo.drinksAuthor.userId==user_id}">
-            <a href="/HomePage">By You </a>
-        </c:when>
-        <c:otherwise>
-            <a href="/User?user_id=${wrappedDrinkInfo.drinksAuthor.userId}">
-                By ${wrappedDrinkInfo.drinksAuthor.nickName}
-            </a>
-        </c:otherwise>
-    </c:choose>
+<div class="first_layer">
+    <div class="drink_info_center">
+        <c:choose>
+            <c:when test="${wrappedDrinkInfo.drinksAuthor.userId==user_id}">
+                <a href="/HomePage" class="user_name"><h6> Your </h6></a>
+            </c:when>
+            <c:otherwise>
+                <a href="/User?user_id=${wrappedDrinkInfo.drinksAuthor.userId}" class="user_name">
+                    <h6>${wrappedDrinkInfo.drinksAuthor.nickName}'s</h6>
+                </a>
+            </c:otherwise>
+        </c:choose>
     </div>
+    <div class="drink_info_center"><h1 class="drink_name"><b>${drink.drinkName}</b></h1></div>
+    <% request.setAttribute("user_id", session.getAttribute("user_id"));%>
     <div>
         <img name="${drink.drinkName}" src="${drink.imagePath}" width=200 height=250/>
     </div>

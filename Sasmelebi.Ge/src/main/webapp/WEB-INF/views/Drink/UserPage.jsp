@@ -6,6 +6,7 @@
     <title>Sasmelebi.ge</title>
     <link rel="stylesheet" href="/resources/css/homepage/backImg.css">
     <link rel="stylesheet" href="/resources/css/Drink/FixedBar.css">
+    <link rel="stylesheet" href="/resources/css/Drink/Labels.css">
 </head>
 <body>
 <header class="my_header">
@@ -23,7 +24,7 @@
         </ul>
     </nav>
 </header>
-<h1><b>${user.firstName} ${user.lastName}</b><br></h1>
+<h1 class="user_name"><b>${user.firstName} ${user.lastName}</b><br></h1>
 
 <div class="card" style="margin-top: 35px">
     <p><b>Nickname:</b> ${user.nickName}</p>
