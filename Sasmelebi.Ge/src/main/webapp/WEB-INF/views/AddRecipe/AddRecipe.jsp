@@ -1,5 +1,6 @@
 <meta charset="utf-8">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="Drinks.Model.DataBase.RecipeDao.IngredientPrefix" %>
  <html  lang="en">
     <head>
         <link rel="stylesheet" href="/resources/css/AddRecipe/UploadButtons.css?1422585377">
@@ -10,6 +11,7 @@
         <link rel="stylesheet" href="/resources/css/AddRecipe/TextFieldConf.css?1422585377">
         <link rel="stylesheet" href="/resources/css/AddRecipe/dynamicButton.css?1422585377">
         <link rel="stylesheet" href="/resources/css/AddRecipe/hyperLink.css?1422585377">
+        <link rel="stylesheet" href="/resources/css/AddRecipe/Suggested.css?1422585377">
         <script src="${pageContext.request.contextPath}/resources/js/DynamicTextBoxes.js"></script>
          <script type="text/javascript">
             function RecreateDynamicTextboxes() {
@@ -27,6 +29,32 @@
                         html += "<div>" + GetDynamicTextBox(values[i]) + "</div>";
                     }
                     document.getElementById("TextBoxContainer").innerHTML = html;
+                }
+            }
+            var values=new Array();
+             <% IngredientPrefix data= (IngredientPrefix)pageContext.getServletContext().getAttribute("IngredientPrefix") ;
+             String [] ingredients=(String []) data.getIngredientsByPrefix();
+                 for(int i=0; i<ingredients.length; i++){ %>
+                     var code='<%= ingredients[i] %>';
+                     values[<%= i %>]=code;
+                 <%
+                 }
+             %>;
+             function ListIngredients(prefix){
+                if (values != null) {
+                    var html = "";
+                    html+="<div>";
+                    html+="<label class="+"header"+">Suggested Drinks</label><br></br>";
+
+                    for (var i = 0; i < values.length; i++) {
+                        if (i<8){
+                            if (values[i].includes(prefix) == true){
+                                html += "<label class="+"element"+">" + values[i] +  "</label><br></br>";
+                            }
+                        }
+                    }
+                    html+="</div>";
+                    document.getElementById("PossibleIngredients").innerHTML = html;
                 }
             }
             window.onload = RecreateDynamicTextboxes;
@@ -68,6 +96,7 @@
                 <input class="instructionText" name="instruction" type="text"/>
                 <br></br>
             </div>
+             <div name="PossibleIngredients" style="position: absolute; left: 550px; top: 450px;" id="PossibleIngredients"></div>
             <div style="position: absolute; right: 30px; top: 50%;">
                 <input class="photoButton" id="btnAdd" type="button" value="ADD INGREDIENTS" onclick="AddTextBox()" />
                 <br></br>
@@ -77,6 +106,7 @@
                 <br></br>
                 <br></br>
             </div>
+
             <input class="submitButton" style="display: block; margin-left: auto; margin-right: auto;" type="submit" value="Add Recipe"  />
              <c:choose>
                 <c:when test="${exists==true}">
