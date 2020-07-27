@@ -17,22 +17,6 @@ public class UserData {
         drinkData = new DrinkData();
     }
 
-    public void addUser(String firstName, String lastName, String nickname, String sex, int age, String mail,
-                       String password) throws SQLException {
-        Connector connector = Connector.getInstance();
-        String query = "insert into " + Constants.schema +
-                ".users(first_name, last_name, nickname, sex, age, mail, password) values (?,?,?,?,?,?,?);";
-        PreparedStatement statement = connector.getStatement(query);
-        statement.setString(1, firstName);
-        statement.setString(2, lastName);
-        statement.setString(3, nickname);
-        statement.setString(4, sex);
-        statement.setInt(5, age);
-        statement.setString(6, mail);
-        statement.setString(7, password);
-        connector.execute(statement);
-    }
-
     public User searchUserByNickname(String nickname) throws SQLException {
         Connector connector = Connector.getInstance();
         PreparedStatement statement = connector.getStatement("select * from " + Constants.schema +
