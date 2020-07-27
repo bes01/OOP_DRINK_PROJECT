@@ -1,6 +1,8 @@
 <meta charset="utf-8">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <html xmlns:th="https://www.thymeleaf.org">
+ <%@ page import="Drinks.Model.DataBase.RecipeDao.IngredientPrefix" %>
+
     <head>
         <link rel="stylesheet" href="/resources/css/AddRecipe/UploadButtons.css?1422585377">
         <link rel="stylesheet" href="/resources/css/AddRecipe/SubmitButton.css?1422585377">
@@ -10,6 +12,7 @@
         <link rel="stylesheet" href="/resources/css/AddRecipe/TextFieldConf.css?1422585377">
         <link rel="stylesheet" href="/resources/css/AddRecipe/dynamicButton.css?1422585377">
         <link rel="stylesheet" href="/resources/css/AddRecipe/hyperLink.css?1422585377">
+        <link rel="stylesheet" href="/resources/css/AddRecipe/Suggested.css?1422585377">
         <script src="${pageContext.request.contextPath}/resources/js/DynamicTextBoxes.js"></script>
          <script type="text/javascript">
             function RecreateDynamicTextboxes() {
@@ -29,8 +32,18 @@
                     document.getElementById("TextBoxContainer").innerHTML = html;
                 }
             }
+            var values=new Array();
+             <% IngredientPrefix data= (IngredientPrefix)pageContext.getServletContext().getAttribute("IngredientPrefix") ;
+             String [] ingredients=(String []) data.getIngredientsByPrefix();
+                 for(int i=0; i<ingredients.length; i++){ %>
+                     var code='<%= ingredients[i] %>';
+                     values[<%= i %>]=code;
+                 <%
+                 }
+             %>;
             window.onload = RecreateDynamicTextboxes;
          </script>
+         <script src="${pageContext.request.contextPath}/resources/js/SuggestedIngredients.js"></script>
         <title>Add Recipe</title>
     </head>
     <body>
@@ -65,6 +78,7 @@
                     <p class="typeLabelInst">Type Instructions </p>
                     <input class="instructionText" name="instruction" type="text"/>
                 <br></br>
+             <div name="PossibleIngredients" style="position: absolute; left: 550px; top: 450px;" id="PossibleIngredients"></div>
 
                 </div>
                 <div style="position: absolute; right: 30px; top: 50%;">

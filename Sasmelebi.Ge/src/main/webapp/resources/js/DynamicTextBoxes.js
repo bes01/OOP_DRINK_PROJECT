@@ -1,5 +1,5 @@
 function GetDynamicTextBox(value){
-    return '<input class="dynamicCameText" name = "DynamicTextBox" type="text" value = "' + value + '" />' +
+    return '<input class="dynamicCameText" name = "DynamicTextBox" onkeyup="ListIngredients(value)" onkeydown = "ListIngredients(value)" type="text" value = "' + value + '" />' +
             '<input class="removeBut" type="button" value="Remove" onclick = "RemoveTextBox(this)" /> <br></br>'
 }
 function AddTextBox() {
