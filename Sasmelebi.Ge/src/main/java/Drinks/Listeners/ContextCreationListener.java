@@ -4,6 +4,7 @@ import Drinks.Model.DataBase.Connector;
 import Drinks.Model.DataBase.DataRetrieve.DrinkData;
 import Drinks.Model.DataBase.DataRetrieve.IngredientData;
 import Drinks.Model.DataBase.DataRetrieve.UserData;
+import Drinks.Model.DataBase.RecipeDao.IngredientPrefix;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -17,6 +18,7 @@ public class ContextCreationListener implements ServletContextListener {
         servletContextEvent.getServletContext().setAttribute("userData", new UserData());
         servletContextEvent.getServletContext().setAttribute("ingredientData", new IngredientData());
         servletContextEvent.getServletContext().setAttribute("drinkData",new DrinkData());
+        servletContextEvent.getServletContext().setAttribute("IngredientPrefix",new IngredientPrefix());
     }
 
     @Override
