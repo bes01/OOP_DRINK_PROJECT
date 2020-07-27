@@ -1,0 +1,25 @@
+.first_layer{
+    margin-top: 40px;
+}
+
+.drink_name{
+    font-family: Harrington;
+    font-size: xx-large;
+    color: #FFFFFF;
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px,
+    blue 0px 0px 20px, blue 0px 0px 30px, blue 0px 0px 40px, blue 0px 0px 50px;
+}
+
+.drink_info_center{
+    text-align: center;
+}
+
+.user_name{
+    font-family: Harrington;
+    font-size: xx-large;
+    color: #FFFFFF;
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px,
+    rebeccapurple 0px 0px 20px, rebeccapurple 0px 0px 30px,
+    rebeccapurple 0px 0px 40px, rebeccapurple 0px 0px 50px;
+    margin-bottom: 30px;
+}
