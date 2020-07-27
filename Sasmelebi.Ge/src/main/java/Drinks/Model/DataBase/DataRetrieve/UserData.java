@@ -72,4 +72,18 @@ public class UserData {
         Double rank = set.getDouble(1);
         return (rank == null) ? 0 : rank;
     }
+
+    public User searchUserByMail(String mail) throws SQLException {
+        Connector connector = Connector.getInstance();
+        PreparedStatement statement = connector.getStatement("select * from " + Constants.schema +
+                ".users where mail = ?");
+        statement.setString(1, mail);
+        ResultSet set = connector.executeQuery(statement);
+        if (!set.next()) return null;
+
+        int user_id = set.getInt("user_id");
+        return new User(user_id, set.getString("first_name"), set.getString("last_name"),
+                set.getString("nickname"), set.getString("sex"), set.getInt("age"),
+                set.getString("mail"), set.getString("password"), getRank(user_id), drinkData.userDrinks(user_id), drinkData.favourites(user_id));
+    }
 }
