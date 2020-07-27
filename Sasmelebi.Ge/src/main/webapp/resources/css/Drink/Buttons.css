@@ -1,0 +1,13 @@
+.common-btn{
+    padding: 5px 15px;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid #FFFFFF;
+    border-radius: 12px;
+    mso-border-shadow: yes;
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px,
+    blue 0px 0px 20px;
+    font-weight: bold;
+    color: #FFFFFF;
+    cursor: pointer;
+}

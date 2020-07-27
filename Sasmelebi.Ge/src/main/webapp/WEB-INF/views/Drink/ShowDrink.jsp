@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/resources/css/homepage/backImg.css">
     <link rel="stylesheet" href="/resources/css/Drink/FixedBar.css">
     <link rel="stylesheet" href="/resources/css/Drink/Labels.css">
+    <link rel="stylesheet" href="/resources/css/Drink/Buttons.css">
+    <link rel="stylesheet" href="/resources/css/Drink/Image.css">
 </head>
 <body>
 <header class="my_header">
@@ -42,14 +44,35 @@
     <div class="drink_info_center"><h1 class="drink_name"><b>${drink.drinkName}</b></h1></div>
     <% request.setAttribute("user_id", session.getAttribute("user_id"));%>
     <div>
-        <img name="${drink.drinkName}" src="${drink.imagePath}" width=200 height=250/>
+        <img id="myImg" name="${drink.drinkName}" src="${drink.imagePath}" width=200 height=250/>
     </div>
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+    <script>
+        var modal = document.getElementById('myModal');
+        var img = document.getElementById('myImg');
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    </script>
 </div>
-
+<%--
 <form action="/Drink/Image" method="POST">
     <input type="hidden" value="${drink.imagePath}" name="imagePath">
     <input type="submit" value="Open Image" name="Open">
 </form>
+--%>
 <c:choose>
     <c:when test="${wrappedDrinkInfo.parentDrink.drinkId!=null}">
         <p>Extended from:</p>
@@ -84,20 +107,20 @@
     <input type="hidden" value="${drink.drinkId}" name="drink_id">
     <c:choose>
         <c:when test="${wrappedDrinkInfo.currentUserRanking!=0}">
-            <input type="submit" value="Update">
+            <input class="common-btn" type="submit" value="Update">
         </c:when>
-        <c:otherwise> <input type="submit" value="Save"> </c:otherwise>
+        <c:otherwise> <input class="common-btn" type="submit" value="Save"> </c:otherwise>
     </c:choose>
 </form>
 
 <div style="position: absolute; left: 60%; top:35%;">
     <form action="/Drink/extend" method="POST">
         <input type="hidden" value="${drink.drinkId}" name="drink_id">
-        <input type="submit" value="Click To Extend Drink!">
+        <input class="common-btn" type="submit" value="Click To Extend Drink!">
     </form>
     <form action="/Drink/favourite" method="POST">
         <input type="hidden" value="${drink.drinkId}" name="drink_id">
-        <input type="submit" value="Click To Add In Favourites!">
+        <input class="common-btn" type="submit" value="Click To Add In Favourites!">
     </form>
 </div>
 </body>
