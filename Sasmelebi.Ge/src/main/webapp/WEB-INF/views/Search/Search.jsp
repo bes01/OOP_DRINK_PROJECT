@@ -33,6 +33,7 @@
         text-decoration: none;
 
     }
+
     </style>
     <head>
         <link rel="stylesheet" href="/resources/css/Search/hyperLinks.css">
@@ -40,6 +41,8 @@
         <link rel="stylesheet" href="/resources/css/Search/labels.css">
         <link rel="stylesheet" href="/resources/css/Search/listItem.css">
         <link rel="stylesheet" href="/resources/css/Search/background.css">
+        <link rel="stylesheet" href="/resources/css/Search/searchTextField.css">
+        <link rel="stylesheet" href="/resources/css/Search/select.css">
         <title>Sasmelebi.ge </title>
     </head>
 
@@ -63,10 +66,10 @@
         <form action="/Search" method="get">
             <div id="inputs">
 
-             <label> Drink Name : </label>
+             <searchNameLabel> Drink Name : </searchNameLabel>
 
-            <input type="text" name="drink_name" , value="${last_search_name}"> <br>
-            <label> Ingredients :  </label> <br>
+            <input type="text" name="drink_name" , value="${last_search_name}" > <br>
+            <ingredientsLabel> Ingredients :  </IngredientsLabel> <br>
             <c:if test ="${last_ingredients == null}">
             <br>
              <Select  name="ingredient" class ="select" id="select">
