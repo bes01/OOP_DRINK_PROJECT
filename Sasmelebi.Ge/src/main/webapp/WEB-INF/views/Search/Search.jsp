@@ -33,6 +33,7 @@
         text-decoration: none;
 
     }
+
     </style>
     <head>
         <link rel="stylesheet" href="/resources/css/Search/hyperLinks.css">
@@ -40,6 +41,7 @@
         <link rel="stylesheet" href="/resources/css/Search/labels.css">
         <link rel="stylesheet" href="/resources/css/Search/listItem.css">
         <link rel="stylesheet" href="/resources/css/Search/background.css">
+         <link rel="stylesheet" href="/resources/css/Search/searchTextField.css">
         <title>Sasmelebi.ge </title>
     </head>
 
