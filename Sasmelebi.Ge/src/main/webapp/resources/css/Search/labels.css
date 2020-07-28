@@ -10,6 +10,14 @@ logout {
     text-shadow: 0 0 10px #FFFFFF;
 }
 
+searchNameLabel , ingredientsLabel{
+    font-size: x-large;
+    text-align: center;
+    color: #bc2e1e;
+}
+
+
+
 
 
 
