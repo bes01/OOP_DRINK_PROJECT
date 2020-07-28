@@ -91,8 +91,9 @@ public class DrinkData {
                 " on d.drink_id = di.drink_id " +
                 " where d.drink_name Like Concat(\"%\" , \"" + name + "\" , \"%\")" +
                 " and i.ingredient_id in " + getConcatStringIds(ingredientIds) +
-                " group by d.drink_name " +
-                " having count(d.drink_name) >= " + ingredientIds.length + " ;";
+                " group by d.drink_name " ;
+                //+
+                //" having count(d.drink_name) >= " + ingredientIds.length + " ;";
         return query;
     }
 

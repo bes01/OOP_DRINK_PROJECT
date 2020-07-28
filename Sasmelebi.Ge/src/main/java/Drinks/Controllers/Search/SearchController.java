@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Controller
@@ -65,9 +67,15 @@ public class SearchController {
         ArrayList<String> filteredParameters = new ArrayList<>();
         if (parameters == null)
             return filteredParameters;
+        Set<String> usedIds = new HashSet<>();
+
         for (int i = 0; i < parameters.length; i++) {
-            if (!parameters[i].equals("empty"))
+            if (!parameters[i].equals("empty") && ! usedIds.contains(parameters[i])){
                 filteredParameters.add(parameters[i]);
+                usedIds.add(parameters[i]);
+
+            }
+
 
         }
         return filteredParameters;
