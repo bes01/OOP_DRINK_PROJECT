@@ -41,7 +41,8 @@
         <link rel="stylesheet" href="/resources/css/Search/labels.css">
         <link rel="stylesheet" href="/resources/css/Search/listItem.css">
         <link rel="stylesheet" href="/resources/css/Search/background.css">
-         <link rel="stylesheet" href="/resources/css/Search/searchTextField.css">
+        <link rel="stylesheet" href="/resources/css/Search/searchTextField.css">
+        <link rel="stylesheet" href="/resources/css/Search/select.css">
         <title>Sasmelebi.ge </title>
     </head>
 
