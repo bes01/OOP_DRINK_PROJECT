@@ -26,9 +26,13 @@
     <label>Username</label>
     <input type="text" name="username" value="${username}" /><br/>
     <label>Sex</label>
-    <input type="text" name="sex" value="${sex}" /><br/>
+    <select name="sex" id="sex" value="${sex}">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select><br/>
     <label>Age</label>
-    <input type="number" name="age" value="${age}" /><br/>
+    <input type="number" name="age" min="1" value="${age}" /><br/>
     <label>Mail</label>
     <input type="email" name="mail" value="${mail}" /><br/>
     <label>Password</label>
