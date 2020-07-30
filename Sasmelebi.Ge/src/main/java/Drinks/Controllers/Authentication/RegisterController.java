@@ -38,21 +38,28 @@ public class RegisterController {
         ModelAndView mav = new ModelAndView("/Authentication/RegisterPage");
         UserData userdt = new UserData();
         User user = userdt.searchUserByNickname(username);
+        User userByMail = userdt.searchUserByMail(mail);
         if (!password.equals(repeat_password)) {
-            mav.addObject("error", "Passwords don't match");
+            mav.addObject("error", "Registration failed: Passwords don't match");
             mav.addObject("name", name);
             mav.addObject("last_name", last_name);
             mav.addObject("username", username);
-            mav.addObject("sex", sex);
             mav.addObject("age", age);
             mav.addObject("mail", mail);
             return mav;
         }
         if (user != null) {
-            mav.addObject("error", "Username " + username + " already taken");
+            mav.addObject("error", "Registration failed: Username " + username + " already taken");
             mav.addObject("name", name);
             mav.addObject("last_name", last_name);
-            mav.addObject("sex", sex);
+            mav.addObject("age", age);
+            mav.addObject("mail", mail);
+            return mav;
+        }
+        if (userByMail != null) {
+            mav.addObject("error", "Registration failed: This mail " + mail + " already registered");
+            mav.addObject("name", name);
+            mav.addObject("last_name", last_name);
             mav.addObject("age", age);
             mav.addObject("mail", mail);
             return mav;
