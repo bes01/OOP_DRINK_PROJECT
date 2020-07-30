@@ -1,0 +1,44 @@
+.div_ls {
+    width: 200px;
+    margin: 30px;
+}
+
+.h2_ls {
+    font: 400 40px/1.5 Helvetica, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.ul_ls {
+    list-style-type: "- ";
+    margin: 0;
+    padding: 0;
+    margin-left: 20%;
+}
+
+.ul_ls li {
+    font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+    border-bottom: 1px solid #ccc;
+}
+
+.ul_ls li:last-child {
+    border: none;
+}
+
+.ul_ls li a {
+    text-decoration: none;
+    color: purple;
+    font-weight: bold;
+    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+    display: block;
+    width: 200px;
+}
+
+.ul_ls li a:hover {
+    font-size: 30px;
+    background: #f6f6f6;
+}

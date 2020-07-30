@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Sasmelebi.ge</title>
-    <link rel="stylesheet" href="/resources/css/homepage/backImg.css">
+    <link rel="stylesheet" href="/resources/css/Drink/Background.css">
     <link rel="stylesheet" href="/resources/css/Drink/FixedBar.css">
     <link rel="stylesheet" href="/resources/css/Drink/Labels.css">
     <link rel="stylesheet" href="/resources/css/Drink/Buttons.css">
