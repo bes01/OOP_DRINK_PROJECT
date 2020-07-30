@@ -3,10 +3,12 @@
 }
 
 .drink_name{
-    font-size: 50px;
+    font-size: 40px;
     font-family: Harrington;
-    text-shadow: 0 0 5px #F4F4F4, 0 0 10px grey;
-    margin-bottom: 40px;
+    color: midnightblue;
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px,
+    black 0px 0px 20px;
+    margin-top: 10px;
 }
 
 .drink_info_center{
@@ -16,17 +18,21 @@
 .user_name{
     font-family: Harrington;
     font-size: xx-large;
-    color: #FFFFFF;
+    color: rebeccapurple;
     text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px,
-    rebeccapurple 0px 0px 20px, rebeccapurple 0px 0px 30px,
-    rebeccapurple 0px 0px 40px, rebeccapurple 0px 0px 50px;
+    rebeccapurple 0px 0px 20px;
     margin-bottom: 30px;
 }
 
 .link_stf{
-    font-family: Harrington;
-    font-size: xx-large;
     color: #F2C4CE;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    margin-bottom: 30px;
+    margin-left: 5px;
+}
+
+.link_stf_green{
+    color: mediumspringgreen;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     margin-bottom: 30px;
     margin-left: 5px;
@@ -42,7 +48,6 @@
 }
 
 .instruction{
-    margin-top: 50px;
     font-family: Helvetica, sans-serif;
     font-size: 30px;
 }
@@ -50,12 +55,13 @@
 .instruction_text{
     font-size: 23px;
     font-family: Helvetica, sans-serif;
-    color: #0088a9;
+    color: purple;
     display: inline-block;
-    max-width: 40%;
+    max-width: 100%;
     text-overflow: ellipsis;
     word-wrap: break-spaces;
     overflow: hidden;
     max-height: 280px;
 }
+
 
