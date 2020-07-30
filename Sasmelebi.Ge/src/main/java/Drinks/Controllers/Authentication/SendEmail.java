@@ -31,7 +31,6 @@ public class SendEmail {
                     "\nAs you have requested for your password, here is your password\n" + "Username: " + username +
                     "\nPassword: " + password);
             Transport.send(message);
-            System.out.println("Message sent successfully");
         }catch (MessagingException e) {
             e.printStackTrace();
         }

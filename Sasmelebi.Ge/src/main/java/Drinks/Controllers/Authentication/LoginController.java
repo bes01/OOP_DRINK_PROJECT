@@ -33,12 +33,12 @@ public class LoginController {
         UserData userdt = new UserData();
         User user = userdt.searchUserByNickname(username);
         if (user == null) {
-            mav.addObject("error", "User not found");
+            mav.addObject("error", "Authentication failed: User not found");
             mav.addObject("username", username);
             return mav;
         }
         if (!user.getPassword().equals(password)) {
-            mav.addObject("error", "Incorrect password provided");
+            mav.addObject("error", "Authentication failed: Incorrect password provided");
             mav.addObject("username", username);
             return mav;
         }
