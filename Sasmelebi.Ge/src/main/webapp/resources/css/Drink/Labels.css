@@ -3,11 +3,10 @@
 }
 
 .drink_name{
+    font-size: 50px;
     font-family: Harrington;
-    font-size: xx-large;
-    color: #FFFFFF;
-    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px,
-    blue 0px 0px 20px, blue 0px 0px 30px, blue 0px 0px 40px, blue 0px 0px 50px;
+    text-shadow: 0 0 5px #F4F4F4, 0 0 10px grey;
+    margin-bottom: 40px;
 }
 
 .drink_info_center{
@@ -23,3 +22,40 @@
     rebeccapurple 0px 0px 40px, rebeccapurple 0px 0px 50px;
     margin-bottom: 30px;
 }
+
+.link_stf{
+    font-family: Harrington;
+    font-size: xx-large;
+    color: #F2C4CE;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    margin-bottom: 30px;
+    margin-left: 5px;
+}
+
+.more_info{
+    margin-top: 30px;
+}
+
+.drink_des{
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.instruction{
+    margin-top: 50px;
+    font-family: Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+.instruction_text{
+    font-size: 23px;
+    font-family: Helvetica, sans-serif;
+    color: #0088a9;
+    display: inline-block;
+    max-width: 40%;
+    text-overflow: ellipsis;
+    word-wrap: break-spaces;
+    overflow: hidden;
+    max-height: 280px;
+}
+
