@@ -57,8 +57,8 @@
     font-size: 12px;
     color: #62717a;
     text-shadow: 0 1px white;
-    background: #f2f2f2; /* Fallback for IE 8 */
-    background: rgba(0, 0, 0, 0) !important; /* "transparent" doesn't work with Opera */
+    background: #f2f2f2;
+    background: rgba(0, 0, 0, 0) !important;
     border: 0;
     border-radius: 0;
     -webkit-appearance: none;
@@ -82,8 +82,6 @@
     cursor: pointer;
 }
 
-/* Fix for IE 8 putting the arrows behind the select element. */
-
 .lt-ie9 .dropdown {
     z-index: 1;
 }
@@ -95,8 +93,6 @@
 .lt-ie9 .dropdown-select:focus {
     z-index: 3;
 }
-
-/* Dirty fix for Firefox adding padding where it shouldn't. */
 
 @-moz-document url-prefix() {
     .dropdown-select {
@@ -126,7 +122,7 @@
 .dropdown-dark .dropdown-select {
     color: #aaa;
     text-shadow: 0 1px black;
-    background: #444;  /* Fallback for IE 8 */
+    background: #444;
 }
 
 .dropdown-dark .dropdown-select:focus {
