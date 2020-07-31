@@ -1,22 +1,22 @@
 .photoButton{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-background: -webkit-linear-gradient(right, #8392AE, #8DC26F);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background: -webkit-linear-gradient(right, #8392AE, #8DC26F);
     background: -moz-linear-gradient(right, #8392AE, #8DC26F);
     background: -o-linear-gradient(right, #8392AE, #8DC26F);
     background: linear-gradient(to left, #8392AE, #8DC26F);
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border: none;
-  color: black;
-  padding: 30px 32px;
-  text-align: center;
-  text-shadow: 0 0 10px #FFFFFF;
-  text-decoration: helvitica;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 50px;
-  margin: 4px 2px;
-  font-family: Harrington;
-  cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: none;
+    color: black;
+    padding: 30px 32px;
+    text-align: center;
+    text-shadow: 0 0 10px #FFFFFF;
+    text-decoration: helvitica;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50px;
+    margin: 4px 2px;
+    font-family: Harrington;
+    cursor: pointer;
 }
 
 
@@ -29,51 +29,51 @@ background: -webkit-linear-gradient(right, #8392AE, #8DC26F);
 }
 
 .photoButton span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
 }
 .photoButton:hover span {
-  padding-right: 25px;
+    padding-right: 25px;
 }
 
 .photoButton:hover span:after {
-  opacity: 1;
-  right: 0;
+    opacity: 1;
+    right: 0;
 }
 
 .fileButton{
-  color: transparent;
+    color: transparent;
 }
 .fileButton::-webkit-file-upload-button {
-  visibility: hidden;
+    visibility: hidden;
 }
 .fileButton::before {
-  content: 'SELECT PHOTO';
-  font-family: Harrington;
-background: -webkit-linear-gradient(right, #8392AE, #8DC26F);
+    content: 'SELECT PHOTO';
+    font-family: Harrington;
+    background: -webkit-linear-gradient(right, #8392AE, #8DC26F);
     background: -moz-linear-gradient(right, #8392AE, #8DC26F);
     background: -o-linear-gradient(right, #8392AE, #8DC26F);
     background: linear-gradient(to left, #8392AE, #8DC26F);
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  border: none;
-  color: black;
-  padding: 30px 32px;
-  text-align: center;
-  text-shadow: 0 0 10px #FFFFFF;
-  text-decoration: helvitica;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 50px;
-  margin: 4px 2px;
-  cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  border: none;
+    color: black;
+    padding: 30px 32px;
+    text-align: center;
+    text-shadow: 0 0 10px #FFFFFF;
+    text-decoration: helvitica;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 .fileButton:hover::before {
-  border-color: black;
+    border-color: black;
 }
 .fileButton:active {
-  outline: 0;
+    outline: 0;
 }
 .fileButton:active::before {
-  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }

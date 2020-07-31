@@ -1,9 +1,9 @@
 .header{
-    margin: 40px 2px;
     font-family: Harrington;
     font-size: 25px;
     position: relative;
-    left:55px;
+    display: block;
+    text-align: center;
 }
 
 .element{
@@ -13,14 +13,14 @@
 }
 .cartSug{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-background: -webkit-linear-gradient(right, #8392AE, #8DC26F);
+    background: -webkit-linear-gradient(right, #8392AE, #8DC26F);
     background: -moz-linear-gradient(right, #8392AE, #8DC26F);
     background: -o-linear-gradient(right, #8392AE, #8DC26F);
     background: linear-gradient(to left, #8392AE, #8DC26F);
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        width: 300px;
-        border-radius: 54px 54px 54px 54px;
-        -moz-border-radius: 54px 54px 54px 54px;
-        -webkit-border-radius: 54px 54px 54px 54px;
-        border: 0px solid #000000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 30%;
+    border-radius: 54px 54px 54px 54px;
+    -moz-border-radius: 54px 54px 54px 54px;
+    -webkit-border-radius: 54px 54px 54px 54px;
+    border: 0px solid #000000;
 }

@@ -1,26 +1,25 @@
 .submitButton{
-    position: absolute;
-    top: 900px;
-    left: 560px;
+position: absolute;
+left: 45%;
+top: 900px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-background: -webkit-linear-gradient(right, #8392AE, #8DC26F);
+    background: -webkit-linear-gradient(right, #8392AE, #8DC26F);
     background: -moz-linear-gradient(right, #8392AE, #8DC26F);
     background: -o-linear-gradient(right, #8392AE, #8DC26F);
     background: linear-gradient(to left, #8392AE, #8DC26F);
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            border: none;
-      color: black;
-      padding: 30px 32px;
-      text-align: center;
-      text-shadow: 0 0 10px #FFFFFF;
-      text-decoration: helvitica;
-      display: inline-block;
-      font-size: 16px;
-      border-radius: 50px;
-      margin: 4px 2px;
-      cursor: pointer;
-            font-family: Harrington;
-
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: none;
+    color: black;
+    padding: 30px 32px;
+    text-align: center;
+    text-shadow: 0 0 10px #FFFFFF;
+    text-decoration: helvitica;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: Harrington;
 }
 .submitButton:hover {
     text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);

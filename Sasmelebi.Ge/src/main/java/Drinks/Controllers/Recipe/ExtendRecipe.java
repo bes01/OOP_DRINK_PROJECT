@@ -102,6 +102,11 @@ public class ExtendRecipe {
         String[] enumeration = request.getParameterValues("DynamicTextBox");
         ArrayList<Ingredient> ingredients = new ArrayList<>();
         if (enumeration==null) enumeration=new String[0];
+        if (name.equals("")){
+            request.getSession().setAttribute("empty", true);
+            httpServletResponse.sendRedirect("/addDrink/extend?drink_id="+drink_id);
+            return;
+        }
         if (checkExistence.checkExistance(enumeration,name,path,instruction, drink_id,author_id)) {
             request.getSession().setAttribute("exists",true);
             httpServletResponse.sendRedirect("/addDrink/extend?drink_id="+drink_id);
