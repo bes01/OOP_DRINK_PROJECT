@@ -23,7 +23,7 @@ CREATE TABLE drinks(
     instruction VARCHAR(4000),
     parent_id INT,
     author INT NOT NULL,
-	addition_time datetime,
+	addition_time   DATETIME DEFAULT   CURRENT_TIMESTAMP,
     CONSTRAINT parent_id_fk FOREIGN KEY (parent_id)
     REFERENCES drinks(drink_id),
     CONSTRAINT author_fk FOREIGN KEY (author)
