@@ -74,21 +74,20 @@
                 <br></br>
                 <div class="cart">
                 <br></br>
-
                     <p class="typeLabel">Enter Drink Name </p>
                     <input class="nameText"  id="name" type="text" name="name"/>
                     <p class="typeLabelInst">Type Instructions </p>
                     <input class="instructionText" name="instruction" type="text"/>
                 <br></br>
-            <div class="cartSug" style="position: absolute; left: 480px; top: 450px;">
+            <div class="cartSug" style="position: absolute; left: 35%; top: 450px;">
                 <br></br>
-                <label class="header">         Suggested Drinks    </label><br></br>
+                <label class="header">Suggested Ingredients</label><br></br>
                 <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
             </div>
-             <div  name="PossibleIngredients" style="position: absolute; left: 540px; top: 530px;" id="PossibleIngredients"></div>
+             <div  name="PossibleIngredients" style="position: absolute; left: 40%; top: 530px;" id="PossibleIngredients"></div>
 
                 </div>
-                <div style="position: absolute; right: 30px; top: 50%;">
+            <div style="position: absolute; right: 1%; top: 50%;">
                     <input class="photoButton" id="btnAdd" type="button" value="ADD INGREDIENTS" onclick="AddTextBox()" />
                     <br></br>
                     <br></br>
@@ -97,7 +96,7 @@
                     <br></br>
                     <br></br>
                 </div>
-                <input class="submitButton" style="display: block; margin-left: auto; margin-right: auto;" type="submit" value="Add Recipe"  />
+                <input class="submitButton"  type="submit" value="Add Recipe"  />
             </form>
         </body>
 <html>

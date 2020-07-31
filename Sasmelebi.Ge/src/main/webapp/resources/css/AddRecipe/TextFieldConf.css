@@ -1,49 +1,47 @@
 .instructionText{
-  position: relative;
-    left: 20px;
- background-color: #ffcfdf;
+    position: relative;
+    left: 5%;
+    background-color: #ffcfdf;
     background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
     width:90%;
     font-size:16px;
     height:10%;
     padding: 30px 32px;
-
 }
 
 .nameText{
-  position: relative;
-  left: 20px;
-  background-color: #ffcfdf;
-  background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
-  width: 90%;
-  transition: width 0.4s ease-in-out;
-  font-size:16px;
-  padding: 10px 10px;
-
+    position: relative;
+    left: 5%;
+    background-color: #ffcfdf;
+    background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
+    width: 90%;
+    transition: width 0.4s ease-in-out;
+    font-size:16px;
+    padding: 10px 10px;
 }
 
 .typeLabel{
-    position: relative;
-    left: 110px;
-     font-size: x-large;
-     font-family: Harrington;
+    display: block;
+    text-align: center;
+    font-size: x-large;
+    font-family: Harrington;
 }
 .typeLabelInst{
-    position: relative;
-    left: 110px;
-     font-size: x-large;
-     font-family: Harrington;
+    display: block;
+    text-align: center;
+    font-size: x-large;
+    font-family: Harrington;
 }
 .cart{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-background: -webkit-linear-gradient(right, #8392AE, #8DC26F);
+    background: -webkit-linear-gradient(right, #8392AE, #8DC26F);
     background: -moz-linear-gradient(right, #8392AE, #8DC26F);
     background: -o-linear-gradient(right, #8392AE, #8DC26F);
     background: linear-gradient(to left, #8392AE, #8DC26F);
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        max-width: 32%;
-        border-radius: 54px 54px 54px 54px;
-        -moz-border-radius: 54px 54px 54px 54px;
-        -webkit-border-radius: 54px 54px 54px 54px;
-        border: 0px solid #000000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    max-width: 32%;
+    border-radius: 54px 54px 54px 54px;
+    -moz-border-radius: 54px 54px 54px 54px;
+    -webkit-border-radius: 54px 54px 54px 54px;
+    border: 0px solid #000000;
 }
