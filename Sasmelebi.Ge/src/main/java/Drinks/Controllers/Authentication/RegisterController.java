@@ -17,8 +17,14 @@ import java.sql.SQLException;
 @Controller
 public class RegisterController {
     @GetMapping("/Register")
-    public ModelAndView openRegisterPage(){
+    public ModelAndView openRegisterPage(HttpServletRequest request,
+                                         HttpServletResponse response,
+                                         HttpSession session) throws IOException {
         ModelAndView mav = new ModelAndView("/Authentication/RegisterPage");
+        if (request.getSession().getAttribute("user_id") != null) {
+            response.sendRedirect("/HomePage");
+            return null;
+        }
         return mav;
     }
 

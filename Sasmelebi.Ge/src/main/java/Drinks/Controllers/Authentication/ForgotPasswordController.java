@@ -18,8 +18,14 @@ import java.sql.SQLException;
 @Controller
 public class ForgotPasswordController {
     @GetMapping("/ForgotPassword")
-    public ModelAndView openForgotPasswordPage(){
+    public ModelAndView openForgotPasswordPage(HttpServletRequest request,
+                                               HttpServletResponse response,
+                                               HttpSession session) throws IOException {
         ModelAndView mav = new ModelAndView("/Authentication/ForgotPasswordPage");
+        if (request.getSession().getAttribute("user_id") != null) {
+            response.sendRedirect("/HomePage");
+            return null;
+        }
         return mav;
     }
 
