@@ -34,6 +34,15 @@ public class LoginController {
                               HttpSession session, @RequestParam String username, @RequestParam String password)
             throws SQLException, IOException {
         ModelAndView mav = new ModelAndView("/Authentication/LoginPage");
+        if (username.equals("")) {
+            mav.addObject("error", "Authentication failed: Username should not be empty");
+            return mav;
+        }
+        if (password.equals("")) {
+            mav.addObject("error", "Authentication failed: Password should not be empty");
+            mav.addObject("username", username);
+            return mav;
+        }
         UserData userdt = new UserData();
         User user = userdt.searchUserByNickname(username);
         if (user == null) {
