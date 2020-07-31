@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DrinkData {
     private Connector connector;
@@ -47,15 +49,33 @@ public class DrinkData {
                     set.getString("image"), set.getString("instruction"), set.getInt("parent_id"),
                     set.getInt("author"), set.getDate("addition_time"),
                     getIngredients(set.getInt("drink_id"))));
-            if(quantity != -1 && ++counter == quantity)
+            if (quantity != -1 && ++counter == quantity)
                 break;
         }
         return drinks;
     }
 
     public ArrayList<Drink> getDrinksByNameAndIngredients(String name, int[] ingredientIds) {
-        ArrayList<Drink> drinks = new ArrayList<>();
+
+        if (ingredientIds == null) {
+            String query = getNoIngredientQuery(name);
+            return getDrinksByQuery(query);
+
+        }
         String query = getQuery(name, ingredientIds);
+        ArrayList<Drink> allDrinksWithIngredients = getDrinksByQuery(query);
+        ArrayList<Drink> drinks = new ArrayList<>();
+        for (int i = 0; i < allDrinksWithIngredients.size(); i++) {
+            if (areIngredientEnough(allDrinksWithIngredients.get(i), ingredientIds))
+                drinks.add(allDrinksWithIngredients.get(i));
+
+        }
+        return drinks;
+
+    }
+
+    private ArrayList<Drink> getDrinksByQuery(String query) {
+        ArrayList<Drink> drinks = new ArrayList<>();
         try {
             PreparedStatement stmt = connector.getStatement(query);
             ResultSet rs = connector.executeQuery(stmt);
@@ -70,19 +90,45 @@ public class DrinkData {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return drinks;
+
 
     }
 
-    private String getQuery(String name, int[] ingredientIds) {
-        if(ingredientIds == null){
-            String query ="Select   d.drink_id , d.drink_name, d.image "+
-                    " from drinks d " +
-                    " where d.drink_name Like Concat(\"%\" , \"" + name + "\" , \"%\")";
-            return  query;
+    private boolean areIngredientEnough(Drink drink, int[] ingredientIds) {
+        IngredientData ingData = new IngredientData();
+        ArrayList<Ingredient> ingredients = ingData.getIngredientsByDrinkId(drink.getDrinkId());
+        Set<Integer> ingredientIdSet = getIngredientIdSet(ingredientIds);
+        for (int i = 0; i < ingredients.size(); i++) {
+            if (!ingredientIdSet.contains(ingredients.get(i).getIngredientId()))
+                return false;
 
         }
+        return true;
+    }
+
+    private Set<Integer> getIngredientIdSet(int[] ingredientIds) {
+        Set<Integer> ids = new HashSet<>();
+        for (int i = 0; i < ingredientIds.length; i++) {
+            ids.add(ingredientIds[i]);
+
+        }
+        return ids;
+    }
+
+    private String getNoIngredientQuery(String name) {
+
+        String query = "Select   d.drink_id , d.drink_name, d.image " +
+                " from drinks d " +
+                " where d.drink_name Like Concat(\"%\" , \"" + name + "\" , \"%\")";
+        return query;
+
+
+    }
+
+
+    private String getQuery(String name, int[] ingredientIds) {
+
         String query = "select d.drink_id , d.drink_name, d.image  " +
                 " from drinks_ingredients di " +
                 " join ingredients i " +
@@ -91,8 +137,9 @@ public class DrinkData {
                 " on d.drink_id = di.drink_id " +
                 " where d.drink_name Like Concat(\"%\" , \"" + name + "\" , \"%\")" +
                 " and i.ingredient_id in " + getConcatStringIds(ingredientIds) +
-                " group by d.drink_name " +
-                " having count(d.drink_name) >= " + ingredientIds.length + " ;";
+                " group by d.drink_name ";
+        //+
+        //" having count(d.drink_name) >= " + ingredientIds.length + " ;";
         return query;
     }
 
