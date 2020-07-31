@@ -24,20 +24,24 @@
 
 .typeLabel{
     position: relative;
-    left: 150px;
+    left: 110px;
      font-size: x-large;
      font-family: Harrington;
 }
 .typeLabelInst{
     position: relative;
-    left: 150px;
+    left: 110px;
      font-size: x-large;
      font-family: Harrington;
 }
 .cart{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        background: #21D4FD linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
-        max-width: 40%;
+background: -webkit-linear-gradient(right, #8392AE, #8DC26F);
+    background: -moz-linear-gradient(right, #8392AE, #8DC26F);
+    background: -o-linear-gradient(right, #8392AE, #8DC26F);
+    background: linear-gradient(to left, #8392AE, #8DC26F);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        max-width: 32%;
         border-radius: 54px 54px 54px 54px;
         -moz-border-radius: 54px 54px 54px 54px;
         -webkit-border-radius: 54px 54px 54px 54px;

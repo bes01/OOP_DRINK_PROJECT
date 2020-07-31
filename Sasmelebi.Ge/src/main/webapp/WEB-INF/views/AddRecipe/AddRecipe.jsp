@@ -43,6 +43,7 @@
          </script>
         <script src="${pageContext.request.contextPath}/resources/js/DynamicTextBoxes.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/SuggestedIngredients.js"></script>
+
         <title>Add Recipe</title>
     </head>
     <body>
@@ -80,7 +81,12 @@
                 <input class="instructionText" name="instruction" type="text"/>
                 <br></br>
             </div>
-             <div name="PossibleIngredients" style="position: absolute; left: 550px; top: 450px;" id="PossibleIngredients"></div>
+            <div class="cartSug" style="position: absolute; left: 470px; top: 450px;">
+                <br></br>
+                <label class="header">         Suggested Drinks    </label><br></br>
+                <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+            </div>
+             <div  name="PossibleIngredients" style="position: absolute; left: 550px; top: 530px;" id="PossibleIngredients"></div>
             <div style="position: absolute; right: 30px; top: 50%;">
                 <input class="photoButton" id="btnAdd" type="button" value="ADD INGREDIENTS" onclick="AddTextBox()" />
                 <br></br>

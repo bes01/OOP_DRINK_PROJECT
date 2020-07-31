@@ -78,7 +78,12 @@
                     <p class="typeLabelInst">Type Instructions </p>
                     <input class="instructionText" name="instruction" type="text"/>
                 <br></br>
-             <div name="PossibleIngredients" style="position: absolute; left: 550px; top: 450px;" id="PossibleIngredients"></div>
+            <div class="cartSug" style="position: absolute; left: 470px; top: 450px;">
+                <br></br>
+                <label class="header">         Suggested Drinks    </label><br></br>
+                <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+            </div>
+             <div  name="PossibleIngredients" style="position: absolute; left: 550px; top: 530px;" id="PossibleIngredients"></div>
 
                 </div>
                 <div style="position: absolute; right: 30px; top: 50%;">
