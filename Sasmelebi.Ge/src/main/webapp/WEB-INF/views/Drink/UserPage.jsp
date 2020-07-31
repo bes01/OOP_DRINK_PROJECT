@@ -22,7 +22,7 @@
             <li><a href="/HomePage" >Home</a></li>
             <li><a href="/Discover" >Discover</a></li>
             <li><a href="/Search" >Search</a></li>
-            <li><a href="/About" >About</a></li>
+            <%-- <li><a href="/About" >About</a></li> --%>
             <div class="nav_right">
                 <li><a href="/logout" >LogOut</a></li>
             </div>
@@ -59,15 +59,46 @@
         </div>
     </div>
 </div>
-<div class="container second" style="margin-bottom: 40px">
-    <p><b>${user.firstName}'s Drinks:</b></p>
-    <c:forEach items="${user.myDrinks}" var="drink">
-        <ul>
-            <li><a href="/Drink?drink_id=${drink.drinkId}">${drink.drinkName}</a></li>
-        </ul>
-    </c:forEach>
+<% request.setAttribute("noImage", "/resources/photos/no_photo.png"); %>
+<div class="container second" style="margin-bottom: 40px;">
+    <h1 class="drink_info_center user_name" style="padding-top: 60px"><b>${user.firstName}'s Drinks:</b><br></h1>
+    <div class="text" style="padding: 10%; padding-top: 35px; padding-bottom: 7%;">
+        <div class="row">
+            <c:forEach items="${user.myDrinks}" var="drink">
+                <ul>
+                    <li style="list-style-type: none; ">
+                        <a href="/Drink?drink_id=${drink.drinkId}">
+                            <div class="column5">
+                                <div style="position: relative; text-align: center; color: white;">
+                                    <c:choose>
+                                        <c:when test="${drink.imagePath==noImage}">
+                                            <div class="img_child" style="border: 1px solid grey"></div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <img class="img_child" id="2" name="${drink.drinkName}" src="${drink.imagePath}"/>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <div class="centered">${drink.drinkName}</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </c:forEach>
+        </div>
+    </div>
 </div>
 <div class="black_cont">
 </div>
 </body>
+<script>
+    <%-- refreshs page after changing web sizes --%>
+    window.addEventListener('resize', function () {
+        "use strict";
+        window.location.reload();
+    });
+</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.js"></script>
+<script type="text/javascript" src="resources/js/Drink/SquareImage.js">
+</script>
 </html>

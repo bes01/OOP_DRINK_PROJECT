@@ -25,7 +25,7 @@
                 <li><a href="/HomePage" >Home</a></li>
                 <li><a href="/Discover" >Discover</a></li>
                 <li><a href="/Search" >Search</a></li>
-                <li><a href="/About" >About</a></li>
+                <%-- <li><a href="/About" >About</a></li> --%>
                 <div class="nav_right">
                     <li><a href="/logout" >LogOut</a></li>
                 </div>
@@ -33,7 +33,7 @@
         </nav>
     </header>
     <div class="container-fluid">
-        <div class="container">
+        <div class="container" style="padding-bottom: 4%">
             <h1 class="drink_info_center drink_name" style="padding-top: 10px"><b>${drink.drinkName}</b></h1>
             <div class="row">
                 <div class="column1">
@@ -74,6 +74,7 @@
                             <c:otherwise><p class="drink_des">Rate this drink: </p></c:otherwise>
                         </c:choose>
                     </div>
+                    <div style="padding-left: 30px;">
                         <form action="/Drink/Ranking" method="POST">
                             <div class="dropdown dropdown-dark">
                                 <select name = "ranking_sc" class="dropdown-select">
@@ -90,6 +91,7 @@
                                 <c:otherwise> <input class="common-btn" type="submit" value="Save"> </c:otherwise>
                             </c:choose>
                         </form>
+                    </div>
                 </div>
                 <div class="column2" style="margin-left: 7%">
                     <div style="padding-top: 40px">

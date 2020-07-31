@@ -52,3 +52,13 @@
     width: 100%;
     background-color: #24252A;
 }
+
+.column5 {
+    float: left;
+    width: 20%;
+}
+
+.img_child{
+    width: 100%;
+    border: 3px solid white;
+}
