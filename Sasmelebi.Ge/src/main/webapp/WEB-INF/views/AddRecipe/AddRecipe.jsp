@@ -82,12 +82,12 @@
                 <input class="instructionText" name="instruction" type="text"/>
                 <br></br>
             </div>
-            <div class="cartSug" style="position: absolute; left: 550px; top: 450px;">
+            <div class="cartSug" style="position: absolute; left: 480px; top: 450px;">
                 <br></br>
                 <label class="header">         Suggested Drinks    </label><br></br>
                 <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
             </div>
-             <div  name="PossibleIngredients" style="position: absolute; left: 550px; top: 530px;" id="PossibleIngredients"></div>
+             <div  name="PossibleIngredients" style="position: absolute; left: 540px; top: 530px;" id="PossibleIngredients"></div>
             <div style="position: absolute; right: 30px; top: 50%;">
                 <input class="photoButton" id="btnAdd" type="button" value="ADD INGREDIENTS" onclick="AddTextBox()" />
                 <br></br>
