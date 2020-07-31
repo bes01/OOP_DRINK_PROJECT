@@ -15,7 +15,20 @@ public class AttributeHandler {
     public ModelAndView determineExistence(HttpServletRequest request, ModelAndView modelAndView) {
         if (request.getSession().getAttribute("exists")==null){
             modelAndView.addObject("exists",false);
+            if (request.getSession().getAttribute("empty")!=null) {
+                boolean empty = (boolean) request.getSession().getAttribute("empty");
+                if (empty) {
+                    modelAndView.addObject("emptyLn", true);
+                } else {
+                    modelAndView.addObject("emptyLn", false);
+                }
+                request.getSession().removeAttribute("empty");
+            }else{
+                modelAndView.addObject("emptyLn", false);
+            }
         }else {
+            modelAndView.addObject("emptyLn", false);
+
             boolean exists = (boolean) request.getSession().getAttribute("exists");
             if (exists) {
                 modelAndView.addObject("exists", true);

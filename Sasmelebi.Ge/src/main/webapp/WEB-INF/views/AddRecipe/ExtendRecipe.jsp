@@ -47,6 +47,7 @@
             window.onload = RecreateDynamicTextboxes;
          </script>
          <script src="${pageContext.request.contextPath}/resources/js/SuggestedIngredients.js"></script>
+         <script src="${pageContext.request.contextPath}/resources/js/Logout/Logout.js"> </script>
         <title>Add Recipe</title>
     </head>
     <body>
@@ -58,7 +59,7 @@
             <a class="hypLink" href="/Search">Search</a>
         </div>
         <div style="position: absolute; top: 140px; right: 10px; width: 100px; text-align:right;">
-            <a class="hypLink" href="/">Logout</a>
+            <a class="hypLink" onclick="logout()" style="cursor:pointer;">Logout</a>
         </div>
 
             <c:choose>
@@ -113,6 +114,9 @@
              <c:choose>
                 <c:when test="${exists==true}">
                    <label class="existsLabel">Such Drink Already Exists</label>
+                </c:when>
+                <c:when test="${emptyLn==true}">
+                   <label class="existsLabel">Fill The Name Text Field</label>
                 </c:when>
              </c:choose>
             </form>

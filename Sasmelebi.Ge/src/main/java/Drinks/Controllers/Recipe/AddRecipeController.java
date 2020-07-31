@@ -87,6 +87,11 @@ public class AddRecipeController {
         int user= (int) request.getSession().getAttribute("user_id");
         int parentId = -1;
         String path = s;
+        if (name.equals("")){
+            request.getSession().setAttribute("empty", true);
+            httpServletResponse.sendRedirect("/addDrink");
+            return;
+        }
         if (checkExistence.checkExistance(enumeration, name, path, instruction, parentId, user)) {
             request.getSession().setAttribute("exists", true);
             httpServletResponse.sendRedirect("/addDrink");
