@@ -24,7 +24,6 @@ public class DrinkController {
     @GetMapping(value = "/Drink")
     public ModelAndView getDrinkPage(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
-        User user = (User) request.getSession().getAttribute("user");
         User user = (User) request.getSession().getAttribute("user_id");
         if(user == null) {
             response.sendRedirect("/");
@@ -33,7 +32,6 @@ public class DrinkController {
         String drinkId = request.getParameter("drink_id");
         ModelAndView mw = new ModelAndView("/Drink/showDrink");
         TheDrinkData dt = new TheDrinkData();
-        Drink dr = dt.getDrink(Integer.valueOf(drinkId));
         TheDrinkData drinkDt = new TheDrinkData();
         Drink dr = drinkDt.getDrink(Integer.valueOf(drinkId));
         if(dr == null){
@@ -41,8 +39,6 @@ public class DrinkController {
             return null;
         }
         mw.addObject("drink", dr);
-        DrinkFull drFull = new DrinkFull(dt.sumRated(dr.getDrinkId()),
-                dt.userRated(dr.getDrinkId(), user.getUserId()), dt.getParentDrink(dr.getDrinkId()));
         RankingData rankingDt = new RankingData();
         DrinkFull drFull = new DrinkFull(rankingDt.sumRated(dr.getDrinkId()),
                 rankingDt.userRated(dr.getDrinkId(), user.getUserId()),
@@ -54,7 +50,6 @@ public class DrinkController {
 
     @GetMapping(value = "/Drink/DrinkNotFound")
     public ModelAndView getNotFoundPage(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        User user = (User) request.getSession().getAttribute("user");
         User user = (User) request.getSession().getAttribute("user_id");
         if(user == null) {
             response.sendRedirect("/");
@@ -67,10 +62,8 @@ public class DrinkController {
     @PostMapping(value = "/Drink/Ranking")
     public void postDrinkRankingPage(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
-        User user = (User) request.getSession().getAttribute("user");
-        String drinkId = request.getParameter("drink_id");
+
         TheDrinkData dt = new TheDrinkData();
-        Drink dr = dt.getDrink(Integer.valueOf(drinkId));
         User user = (User) request.getSession().getAttribute("user_id");
         String drinkId = request.getParameter("drink_id");
         Drink dr = new TheDrinkData().getDrink(Integer.valueOf(drinkId));
@@ -98,7 +91,6 @@ public class DrinkController {
         TheDrinkData dt = new TheDrinkData();
         User user = (User) request.getSession().getAttribute("user");
         dt.addInFavourites(Integer.valueOf(drinkId), user.getUserId());
-        User user = (User) request.getSession().getAttribute("user");
         new FavouritesData().addInFavourites(Integer.valueOf(drinkId), user.getUserId());
         response.sendRedirect("/HomePage");
     }
@@ -106,7 +98,6 @@ public class DrinkController {
     @GetMapping(value = "/Drink/Image")
     public ModelAndView getDrinkImagePage(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        User user = (User) request.getSession().getAttribute("user");
         User user = (User) request.getSession().getAttribute("user_id");
         if(user == null) {
             response.sendRedirect("/");

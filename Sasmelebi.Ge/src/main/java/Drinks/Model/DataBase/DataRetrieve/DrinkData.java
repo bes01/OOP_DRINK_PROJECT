@@ -9,6 +9,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
 
 public class DrinkData {
     private Connector connector;
@@ -47,15 +51,33 @@ public class DrinkData {
                     set.getString("image"), set.getString("instruction"), set.getInt("parent_id"),
                     set.getInt("author"), set.getDate("addition_time"),
                     getIngredients(set.getInt("drink_id"))));
-            if(quantity != -1 && ++counter == quantity)
+            if (quantity != -1 && ++counter == quantity)
                 break;
         }
         return drinks;
     }
 
-    public ArrayList<Drink> getDrinksByNameAndIngredients(String name, int[] ingredientIds) {
-        ArrayList<Drink> drinks = new ArrayList<>();
-        String query = getQuery(name, ingredientIds);
+    public HashSet<Drink> getDrinksByNameAndIngredients(String name, int[] ingredientIds) {
+        if(ingredientIds == null)
+            return getDrinksByName(name);
+
+        HashSet<Drink> allDrinks = new HashSet<>();
+
+        Set<ArrayList<Integer>> allPossibleSubsets = getAllPossibleSubsets(ingredientIds);
+
+        for (ArrayList<Integer> currSubSet : allPossibleSubsets) {
+            if(currSubSet.size() == 0)
+                continue;
+            String query = getQuery(name, currSubSet);
+            allDrinks.addAll(getDrinksByQuery(query));
+
+        }
+
+        return allDrinks;
+
+    }
+    private HashSet<Drink> getDrinksByQuery(String query){
+        HashSet<Drink> drinks = new HashSet<>();
         try {
             PreparedStatement stmt = connector.getStatement(query);
             ResultSet rs = connector.executeQuery(stmt);
@@ -70,19 +92,50 @@ public class DrinkData {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return drinks;
+
 
     }
 
-    private String getQuery(String name, int[] ingredientIds) {
-        if(ingredientIds == null){
-            String query ="Select   d.drink_id , d.drink_name, d.image "+
-                    " from drinks d " +
-                    " where d.drink_name Like Concat(\"%\" , \"" + name + "\" , \"%\")";
-            return  query;
+    private HashSet<Drink> getDrinksByName(String name) {
+        String query = getNoIngredientQuery(name);
+        return getDrinksByQuery(query);
+    }
+
+    private HashSet<ArrayList<Integer>> getAllPossibleSubsets( int[] ingredientIds) {
+        HashSet<ArrayList<Integer>> subsets = new HashSet<>();
+        ArrayList<Integer> emptyArrayList = new ArrayList<>();
+        subsets.add(emptyArrayList);
+        return getAllPossibleSubsetsHelper(subsets, ingredientIds, 0);
+    }
+
+    private HashSet<ArrayList<Integer>> getAllPossibleSubsetsHelper(HashSet<ArrayList<Integer>> subsets, int[] ingredientIds, int index) {
+        if(index >= ingredientIds.length)
+            return subsets;
+
+        HashSet<ArrayList<Integer>> newSubSets = new HashSet<>(subsets);
+        for (ArrayList<Integer> currElem : subsets) {
+            ArrayList<Integer> newElem = new ArrayList<>(currElem);
+            newElem.add(ingredientIds[index]);
+            newSubSets.add(newElem);
 
         }
+        return getAllPossibleSubsetsHelper(newSubSets, ingredientIds, index + 1);
+
+    }
+
+    private String getNoIngredientQuery(String name) {
+
+        String query = "Select   d.drink_id , d.drink_name, d.image " +
+                " from drinks d " +
+                " where d.drink_name Like Concat(\"%\" , \"" + name + "\" , \"%\")";
+        return query;
+
+
+    }
+
+    private String getQuery(String name, ArrayList<Integer> ingredientIds) {
+
         String query = "select d.drink_id , d.drink_name, d.image  " +
                 " from drinks_ingredients di " +
                 " join ingredients i " +
@@ -91,18 +144,17 @@ public class DrinkData {
                 " on d.drink_id = di.drink_id " +
                 " where d.drink_name Like Concat(\"%\" , \"" + name + "\" , \"%\")" +
                 " and i.ingredient_id in " + getConcatStringIds(ingredientIds) +
-                " group by d.drink_name " ;
-                //+
-                //" having count(d.drink_name) >= " + ingredientIds.length + " ;";
+                " group by d.drink_name " +
+                " having count(d.drink_name) = " + ingredientIds.size() + " ;";
         return query;
     }
 
-    private String getConcatStringIds(int[] ingredientIds) {
+    private String getConcatStringIds(ArrayList<Integer> ingredientIds) {
         String str = "(";
-        str += ingredientIds[0];
-        for (int i = 1; i < ingredientIds.length; i++) {
+        str += ingredientIds.get(0);
+        for (int i = 1; i < ingredientIds.size(); i++) {
 
-            str += " , " + ingredientIds[i];
+            str += " , " + ingredientIds.get(i);
 
         }
         str += ")";
