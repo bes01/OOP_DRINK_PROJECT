@@ -5,9 +5,9 @@
 .drink_name{
     font-size: 40px;
     font-family: Harrington;
-    color: midnightblue;
-    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px,
-    black 0px 0px 20px;
+    color: red;
+    text-shadow: mediumspringgreen 0px 0px 5px, mediumspringgreen 0px 0px 10px, #FFF 0px 0px 15px,
+    #FFF 0px 0px 20px, #FFF 0px 0px 25px, mediumspringgreen 0px 0px 30px;
     margin-top: 10px;
 }
 
@@ -64,4 +64,10 @@
     max-height: 280px;
 }
 
-
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
