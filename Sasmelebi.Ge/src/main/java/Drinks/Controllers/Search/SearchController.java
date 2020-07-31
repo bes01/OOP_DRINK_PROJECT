@@ -37,7 +37,7 @@ public class SearchController {
         ArrayList<Ingredient> ingredients = ingredientDB.getAllIngredients();
         if (drinkName != null) {
             DrinkData drinkDb = (DrinkData) request.getServletContext().getAttribute("drinkData");
-            HashSet<Drink> drinks = drinkDb.getDrinksByNameAndIngredients(drinkName, ingredientIds);
+            ArrayList<Drink> drinks = drinkDb.getDrinksByNameAndIngredients(drinkName, ingredientIds);
             ret.addObject("drinks", drinks);
         }
 
