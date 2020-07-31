@@ -14,6 +14,7 @@
      <link rel="stylesheet" href="/resources/css/AddRecipe/dynamicButton.css?1422585377">
      <link rel="stylesheet" href="/resources/css/AddRecipe/hyperLink.css?1422585377">
      <link rel="stylesheet" href="/resources/css/AddRecipe/Suggested.css?1422585377">
+     <link rel="stylesheet" href="/resources/css/AddRecipe/Exists.css?1422585377">
       <script type="text/javascript">
          function RecreateDynamicTextboxes() {
              var values=new Array();
@@ -91,7 +92,7 @@
                 <input class="instructionText" value=${instruction} name="instruction" type="text"/>
                 <br></br>
             </div>
-            <div class="cartSug" style="position: absolute; left: 470px; top: 450px;">
+            <div class="cartSug" style="position: absolute; left: 550px; top: 450px;">
                 <br></br>
                 <label class="header">         Suggested Drinks    </label><br></br>
                 <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
@@ -109,7 +110,7 @@
             <input class="submitButton" style="display: block; margin-left: auto; margin-right: auto;" type="submit" value="Add Recipe"  />
              <c:choose>
                 <c:when test="${exists==true}">
-                   <label>Such Drink Already Exists</label>
+                   <label class="existsLabel">Such Drink Already Exists</label>
                 </c:when>
              </c:choose>
             </form>

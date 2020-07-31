@@ -1,7 +1,7 @@
 .submitButton{
     position: absolute;
     top: 900px;
-    left: 550px;
+    left: 630px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 background: -webkit-linear-gradient(right, #8392AE, #8DC26F);
     background: -moz-linear-gradient(right, #8392AE, #8DC26F);
