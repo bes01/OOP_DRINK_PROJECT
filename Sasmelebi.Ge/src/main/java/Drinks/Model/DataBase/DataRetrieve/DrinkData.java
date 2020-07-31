@@ -5,10 +5,14 @@ import Drinks.Model.Containers.Drink;
 import Drinks.Model.Containers.Ingredient;
 import Drinks.Model.DataBase.Connector;
 
+import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DrinkData {
     private Connector connector;
@@ -64,7 +68,8 @@ public class DrinkData {
                 String drinkName = rs.getString(2);
                 String image = rs.getString(3);
                 Drink drink = new Drink(drinkId, drinkName, image, "", -1, -1, null);
-                drinks.add(drink);
+                if(areIngredientEnough(drink,ingredientIds))
+                    drinks.add(drink);
 
             }
         } catch (SQLException e) {
@@ -73,6 +78,27 @@ public class DrinkData {
 
         return drinks;
 
+    }
+
+    private boolean areIngredientEnough(Drink drink, int[] ingredientIds) {
+        IngredientData ingData = new IngredientData();
+        ArrayList<Ingredient> ingredients = ingData.getIngredientsByDrinkId(drink.getDrinkId());
+        Set<Integer> ingredientIdSet = getIngredientIdSet(ingredientIds);
+        for(int i=0;i<ingredients.size();i++){
+            if(!ingredientIdSet.contains(ingredients.get(i).getIngredientId()))
+                return  false;
+
+        }
+        return  true;
+    }
+
+    private Set<Integer> getIngredientIdSet(int[] ingredientIds) {
+        Set<Integer> ids = new HashSet<>();
+        for(int i=0;i<ingredientIds.length;i++){
+            ids.add(ingredientIds[i]);
+
+        }
+        return  ids;
     }
 
     private String getQuery(String name, int[] ingredientIds) {
