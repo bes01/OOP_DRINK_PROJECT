@@ -1,5 +1,7 @@
 <meta charset="utf-8">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
  <html xmlns:th="https://www.thymeleaf.org">
  <%@ page import="Drinks.Model.DataBase.RecipeDao.IngredientPrefix" %>
 
@@ -14,6 +16,7 @@
      <link rel="stylesheet" href="/resources/css/AddRecipe/dynamicButton.css?1422585377">
      <link rel="stylesheet" href="/resources/css/AddRecipe/hyperLink.css?1422585377">
      <link rel="stylesheet" href="/resources/css/AddRecipe/Suggested.css?1422585377">
+     <link rel="stylesheet" href="/resources/css/AddRecipe/Exists.css?1422585377">
       <script type="text/javascript">
          function RecreateDynamicTextboxes() {
              var values=new Array();
@@ -91,7 +94,12 @@
                 <input class="instructionText" value=${instruction} name="instruction" type="text"/>
                 <br></br>
             </div>
-             <div name="PossibleIngredients" style="position: absolute; left: 550px; top: 450px;" id="PossibleIngredients"></div>
+            <div class="cartSug" style="position: absolute; left: 480px; top: 450px;">
+                <br></br>
+                <label class="header">         Suggested Drinks    </label><br></br>
+                <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+            </div>
+             <div  name="PossibleIngredients" style="position: absolute; left: 540px; top: 530px;" id="PossibleIngredients"></div>
             <div style="position: absolute; right: 30px; top: 50%;">
                 <input class="photoButton" id="btnAdd" type="button" value="ADD INGREDIENTS" onclick="AddTextBox()" />
                 <br></br>
@@ -104,7 +112,7 @@
             <input class="submitButton" style="display: block; margin-left: auto; margin-right: auto;" type="submit" value="Add Recipe"  />
              <c:choose>
                 <c:when test="${exists==true}">
-                   <label>Such Drink Already Exists</label>
+                   <label class="existsLabel">Such Drink Already Exists</label>
                 </c:when>
              </c:choose>
             </form>

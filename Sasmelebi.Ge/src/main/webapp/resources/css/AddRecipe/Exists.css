@@ -1,0 +1,10 @@
+.existsLabel{
+    position: absolute;
+    top: 400px;
+    left: 50px;
+    font-family: Harrington;
+    color: white;
+    font-size: xx-large;
+    height: 60px;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 30px white;
+}

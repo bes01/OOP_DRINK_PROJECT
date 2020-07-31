@@ -13,6 +13,7 @@
          <link rel="stylesheet" href="/resources/css/AddRecipe/dynamicButton.css?1422585377">
          <link rel="stylesheet" href="/resources/css/AddRecipe/hyperLink.css?1422585377">
          <link rel="stylesheet" href="/resources/css/AddRecipe/Suggested.css?1422585377">
+         <link rel="stylesheet" href="/resources/css/AddRecipe/Exists.css?1422585377">
          <script src="${pageContext.request.contextPath}/resources/js/DynamicTextBoxes.js"></script>
          <script type="text/javascript">
             function RecreateDynamicTextboxes() {
@@ -78,7 +79,12 @@
              <input class="instructionText" value=${instruction} name="instruction" type="text"/>
              <br></br>
          </div>
-         <div name="PossibleIngredients" style="position: absolute; left: 550px; top: 450px;" id="PossibleIngredients"></div>
+            <div class="cartSug" style="position: absolute; left: 480px; top: 450px;">
+                <br></br>
+                <label class="header">         Suggested Drinks    </label><br></br>
+                <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+            </div>
+             <div  name="PossibleIngredients" style="position: absolute; left: 540px; top: 530px;" id="PossibleIngredients"></div>
          <div style="position: absolute; right: 30px; top: 50%;">
              <input class="photoButton" id="btnAdd" type="button" value="ADD INGREDIENTS" onclick="AddTextBox()" />
              <br></br>
