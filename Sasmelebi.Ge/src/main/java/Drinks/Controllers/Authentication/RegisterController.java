@@ -32,16 +32,60 @@ public class RegisterController {
     @PostMapping("/Register")
     public ModelAndView post(HttpServletRequest request,
                              HttpServletResponse response,
-                             HttpSession session,
-                             @RequestParam String name,
-                             @RequestParam String last_name,
-                             @RequestParam String username,
-                             @RequestParam String sex,
-                             @RequestParam int age,
-                             @RequestParam String mail,
-                             @RequestParam String password,
-                             @RequestParam String repeat_password) throws SQLException, IOException {
+                             HttpSession session) throws SQLException, IOException {
         ModelAndView mav = new ModelAndView("/Authentication/RegisterPage");
+        String name = request.getParameter("name");
+        String last_name = request.getParameter("last_name");
+        String username = request.getParameter("username");
+        String sex = request.getParameter("sex");
+        String ageString = request.getParameter("age");
+        int age = 0;
+        if (!ageString.equals("")) {
+            age = Integer.parseInt(ageString);
+        }
+        String mail = request.getParameter("mail");
+        String password = request.getParameter("password");
+        String repeat_password = request.getParameter("repeat_password");
+        if (name.equals("")) {
+            mav.addObject("error", "Registration failed: First name should not be empty");
+            fillAgain(name, last_name, username, age, mail, mav);
+            return mav;
+        }
+        if (last_name.equals("")) {
+            mav.addObject("error", "Registration failed: Last name should not be empty");
+            fillAgain(name, last_name, username, age, mail, mav);
+            return mav;
+        }
+        if (username.equals("")) {
+            mav.addObject("error", "Registration failed: Username should not be empty");
+            fillAgain(name, last_name, username, age, mail, mav);
+            return mav;
+        }
+        if (sex == null) {
+            mav.addObject("error", "Registration failed: Sex should not be empty");
+            fillAgain(name, last_name, username, age, mail, mav);
+            return mav;
+        }
+        if (age == 0) {
+            mav.addObject("error", "Registration failed: Age should not be empty");
+            fillAgain(name, last_name, username, age, mail, mav);
+            return mav;
+        }
+        if (mail.equals("")) {
+            mav.addObject("error", "Registration failed: Mail should not be empty");
+            fillAgain(name, last_name, username, age, mail, mav);
+            return mav;
+        }
+        if (password.equals("")) {
+            mav.addObject("error", "Registration failed: Password should not be empty");
+            fillAgain(name, last_name, username, age, mail, mav);
+            return mav;
+        }
+        if (repeat_password.equals("")) {
+            mav.addObject("error", "Registration failed: Repeat password should not be empty");
+            fillAgain(name, last_name, username, age, mail, mav);
+            return mav;
+        }
         UserData userdt = new UserData();
         User user = userdt.searchUserByNickname(username);
         User userByMail = userdt.searchUserByMail(mail);
@@ -73,5 +117,23 @@ public class RegisterController {
         userdt.addUser(name, last_name, username, sex, age, mail, password);
         response.sendRedirect("/");
         return mav;
+    }
+
+    private void fillAgain(String name, String last_name, String username, int age, String mail, ModelAndView mav) {
+        if (!name.equals("")) {
+            mav.addObject("name", name);
+        }
+        if (!last_name.equals("")) {
+            mav.addObject("last_name", last_name);
+        }
+        if (!username.equals("")) {
+            mav.addObject("username", username);
+        }
+        if (age != 0) {
+            mav.addObject("age", age);
+        }
+        if (!mail.equals("")) {
+            mav.addObject("mail", mail);
+        }
     }
 }

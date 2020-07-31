@@ -36,6 +36,10 @@ public class ForgotPasswordController {
                              HttpSession session,
                              @RequestParam String mail) throws SQLException, IOException {
         ModelAndView mav = new ModelAndView("/Authentication/ForgotPasswordPage");
+        if (mail.equals("")) {
+            mav.addObject("error", "Authentication failed: Mail should not be empty");
+            return mav;
+        }
         UserData userdt = new UserData();
         User user = userdt.searchUserByMail(mail);
         if (user == null) {
