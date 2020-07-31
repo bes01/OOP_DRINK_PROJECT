@@ -19,8 +19,12 @@ public class LoginController {
     @GetMapping("")
     public ModelAndView openLoginPage(HttpServletRequest request,
                                       HttpServletResponse response,
-                                      HttpSession session){
+                                      HttpSession session) throws IOException {
         ModelAndView mav = new ModelAndView("/Authentication/LoginPage");
+        if (request.getSession().getAttribute("user_id") != null) {
+            response.sendRedirect("/HomePage");
+            return null;
+        }
         return mav;
     }
 
