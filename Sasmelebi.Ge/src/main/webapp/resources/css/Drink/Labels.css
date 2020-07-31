@@ -1,0 +1,73 @@
+.first_layer{
+    margin-top: 40px;
+}
+
+.drink_name{
+    font-size: 40px;
+    font-family: Harrington;
+    color: red;
+    text-shadow: mediumspringgreen 0px 0px 5px, mediumspringgreen 0px 0px 10px, #FFF 0px 0px 15px,
+    #FFF 0px 0px 20px, #FFF 0px 0px 25px, mediumspringgreen 0px 0px 30px;
+    margin-top: 10px;
+}
+
+.drink_info_center{
+    text-align: center;
+}
+
+.user_name{
+    font-family: Harrington;
+    font-size: xx-large;
+    color: rebeccapurple;
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px,
+    rebeccapurple 0px 0px 20px;
+    margin-bottom: 30px;
+}
+
+.link_stf{
+    color: #F2C4CE;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    margin-bottom: 30px;
+    margin-left: 5px;
+}
+
+.link_stf_green{
+    color: mediumspringgreen;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    margin-bottom: 30px;
+    margin-left: 5px;
+}
+
+.more_info{
+    margin-top: 30px;
+}
+
+.drink_des{
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.instruction{
+    font-family: Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+.instruction_text{
+    font-size: 23px;
+    font-family: Helvetica, sans-serif;
+    color: purple;
+    display: inline-block;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    word-wrap: break-spaces;
+    overflow: hidden;
+    max-height: 280px;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}

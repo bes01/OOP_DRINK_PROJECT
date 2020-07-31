@@ -31,7 +31,7 @@ public class DrinkController {
         User user = new UserData().searchUserById
                 ((Integer)request.getSession().getAttribute("user_id"));
         String drinkId = request.getParameter("drink_id");
-        ModelAndView mw = new ModelAndView("/Drink/showDrink");
+        ModelAndView mw = new ModelAndView("/Drink/ShowDrink");
         TheDrinkData drinkDt = new TheDrinkData();
         Drink dr = drinkDt.getDrink(Integer.valueOf(drinkId));
         if(dr == null){

@@ -1,0 +1,35 @@
+.common-btn{
+    padding: 5px 15px;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid dimgray;
+    border-radius: 12px;
+    mso-border-shadow: yes;
+    text-shadow: white 0px 0px 10px, white 0px 0px 15px,
+    #F58F7C 0px 0px 20px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    float: left;
+}
+
+.common-btn-blue{
+    padding: 5px 15px;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid dimgray;
+    border-radius: 12px;
+    mso-border-shadow: yes;
+    text-shadow: white 0px 0px 10px, white 0px 0px 15px,
+    #0088a9 0px 0px 20px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    float: left;
+}
+
+.btn_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
