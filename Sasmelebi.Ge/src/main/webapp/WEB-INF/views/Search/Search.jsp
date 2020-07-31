@@ -43,14 +43,15 @@
         <link rel="stylesheet" href="/resources/css/Search/background.css">
         <link rel="stylesheet" href="/resources/css/Search/searchTextField.css">
         <link rel="stylesheet" href="/resources/css/Search/select.css">
-        <title>Sasmelebi.ge </title>
+        <script src="${pageContext.request.contextPath}/resources/js/Logout/Logout.js"> </script>
+        <title>Search </title>
     </head>
 
     <body>
   <div style="position: absolute; top: 0; right: 0; width: 100px; text-align:right;">
-         <a href="/logout" class="featureLinks">
+      <a class="featureLinks" onclick="logout()" style="cursor:pointer;">
              <logout>Logout</logout>
-         </a>
+      </a>
      </div>
      <div style="position: absolute; top: 0; right: 70px; width: 100px; text-align:right;" class="featureLinks">
          <a href="/Discover">
@@ -75,7 +76,7 @@
              <Select  name="ingredient" class ="select" id="select">
                     <option value="empty" selected ></option>
                     <c:forEach items="${all_ingredients}"  var = "current_ingredient">
-                        <option value="${current_ingredient.getIngredientId()}">"${current_ingredient.getIngredientName()}"</option>
+                        <option value="${current_ingredient.getIngredientId()}">${current_ingredient.getIngredientName()}</option>
                     </c:forEach>
              </Select>
             </c:if>
@@ -86,11 +87,11 @@
                 <option value="empty"></option>
                     <c:forEach items="${all_ingredients}"  var = "current_ingredient">
                     <c:if test ='${current_ingredient.getIngredientId() != current_selected}'>
-                        <option value="${current_ingredient.getIngredientId()}">"${current_ingredient.getIngredientName()}"</option>
+                        <option value="${current_ingredient.getIngredientId()}">${current_ingredient.getIngredientName()}</option>
                     </c:if>
 
                     <c:if test ='${current_ingredient.getIngredientId() == current_selected}'>
-                        <option value="${current_ingredient.getIngredientId()}" selected >"${current_ingredient.getIngredientName()}"</option>
+                        <option value="${current_ingredient.getIngredientId()}" selected >${current_ingredient.getIngredientName()}</option>
                     </c:if>
                     </c:forEach>
                 </Select>
@@ -110,7 +111,7 @@
             <img src="${current_drink.getImagePath()}" height="65" width="65" style="border-radius: 20px">
             <a href="/Drink?drink_id=${current_drink.getDrinkId()}">
              <font size="+3"   style="font-family: 'French Script MT'">
-            "${current_drink.getDrinkName()}"  </a>
+            ${current_drink.getDrinkName()}  </a>
          </li>
          </c:forEach>
         </ul>

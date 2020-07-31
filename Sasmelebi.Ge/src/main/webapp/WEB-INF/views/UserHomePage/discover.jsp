@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="/resources/css/discoverpage/columns.css">
     <link rel="stylesheet" href="/resources/css/discoverpage/headLines.css">
     <link rel="stylesheet" href="/resources/css/homepage/drinkLabel.css">
+    <script src="${pageContext.request.contextPath}/resources/js/Logout/Logout.js"> </script>
 </head>
 <body>
 <div style="position: relative;  width: ${window.width()} px;">
     <div style="position: absolute; top: 0; right: 0; width: 100px; text-align:right;">
-        <a href="/logout" class="featureLinks">
+        <a class="featureLinks" onclick="logout()" style="cursor:pointer;">
             <logout>Logout</logout>
         </a>
     </div>
