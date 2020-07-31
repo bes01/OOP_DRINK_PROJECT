@@ -1,0 +1,16 @@
+.not_found_back_btn{
+    padding: 5px 15px;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid red;
+    border-radius: 12px;
+    mso-border-shadow: yes;
+    text-shadow: white 0px 0px 10px, white 0px 0px 15px,
+    #F58F7C 0px 0px 20px;
+    font-weight: bold;
+    color: red;
+    cursor: pointer;
+    float: left;
+    width: 250px;
+    padding: 15px;
+}
