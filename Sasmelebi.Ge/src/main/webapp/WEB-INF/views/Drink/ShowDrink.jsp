@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/resources/css/Drink/ComboBox.css">
     <link rel="stylesheet" href="/resources/css/Drink/ReadMore.css">
     <link rel="stylesheet" href="/resources/css/Drink/IngredientsList.css">
+    <script src="${pageContext.request.contextPath}/resources/js/Logout/Logout.js"> </script>
 </head>
 <body>
 <div class="grid">
@@ -27,7 +28,7 @@
                 <li><a href="/Search" >Search</a></li>
                 <%-- <li><a href="/About" >About</a></li> --%>
                 <div class="nav_right">
-                    <li><a href="/logout" >LogOut</a></li>
+                    <li><a class="featureLinks" onclick="logout()" style="cursor:pointer;">LogOut</a></li>
                 </div>
             </ul>
         </nav>
