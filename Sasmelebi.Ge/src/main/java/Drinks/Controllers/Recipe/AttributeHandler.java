@@ -54,8 +54,8 @@ public class AttributeHandler {
     public ModelAndView fillViewData(ModelAndView modelAndView, String drinkName, String imagePath,
                                      String instruction, String [] ingredientNames) {
 
-        modelAndView.addObject("name",drinkName);
-        modelAndView.addObject("instruction",instruction);
+        modelAndView.addObject("name","\""+drinkName+"\"");
+        modelAndView.addObject("instruction","\""+instruction+"\"");
         modelAndView.addObject("Values",ingredientNames);
         if (!imagePath.equals(""))modelAndView.addObject("path",imagePath);
         return modelAndView;
@@ -73,7 +73,6 @@ public class AttributeHandler {
         if(!part.getOriginalFilename().equals("")) {
             File f = new File("AddRecipeController.java");
             String path = f.getCanonicalPath();
-            System.out.println(part.getOriginalFilename().equals(""));
             String finalPath = path.substring(0, path.indexOf("AddRecipeController.java"));
             finalPath += "src\\main\\webapp\\resources\\photos\\" + part.getOriginalFilename();
             Files.write(Paths.get(finalPath), part.getBytes());
