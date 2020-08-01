@@ -13,8 +13,8 @@
         <link rel="stylesheet" href="/resources/css/AddRecipe/dynamicButton.css?1422585377">
         <link rel="stylesheet" href="/resources/css/AddRecipe/hyperLink.css?1422585377">
         <link rel="stylesheet" href="/resources/css/AddRecipe/Suggested.css?1422585377">
-                <link rel="stylesheet" href="/resources/css/AddRecipe/Exists.css?1422585377">
-        <script src="${pageContext.request.contextPath}/resources/js/DynamicTextBoxes.js"></script>
+        <link rel="stylesheet" href="/resources/css/AddRecipe/Exists.css?1422585377">
+        <script src="${pageContext.request.contextPath}/resources/js/AddDrink/DynamicTextBoxes.js"></script>
          <script type="text/javascript">
             function RecreateDynamicTextboxes() {
                 var values=new Array();
@@ -44,7 +44,7 @@
              %>;
             window.onload = RecreateDynamicTextboxes;
          </script>
-         <script src="${pageContext.request.contextPath}/resources/js/SuggestedIngredients.js"></script>
+         <script src="${pageContext.request.contextPath}/resources/js/AddDrink/SuggestedIngredients.js"></script>
          <script src="${pageContext.request.contextPath}/resources/js/Logout/Logout.js"> </script>
         <title>Add Recipe</title>
     </head>

@@ -42,8 +42,8 @@
              %>;
             window.onload = RecreateDynamicTextboxes;
          </script>
-        <script src="${pageContext.request.contextPath}/resources/js/DynamicTextBoxes.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/SuggestedIngredients.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/AddDrink/DynamicTextBoxes.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/AddDrink/SuggestedIngredients.js"></script>
          <script src="${pageContext.request.contextPath}/resources/js/Logout/Logout.js"> </script>
         <title>Add Recipe</title>
     </head>
