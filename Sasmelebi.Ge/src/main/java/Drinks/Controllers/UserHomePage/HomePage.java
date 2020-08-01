@@ -43,7 +43,6 @@ public class HomePage {
     public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
         if (request.getSession().getAttribute("user_id") != null)
             request.getSession().removeAttribute("user_id");
-        System.out.println(request.getSession().getAttribute("user"));
         response.sendRedirect("");
     }
 }
