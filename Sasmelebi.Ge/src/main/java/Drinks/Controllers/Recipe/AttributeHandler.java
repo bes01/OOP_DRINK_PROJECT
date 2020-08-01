@@ -54,8 +54,8 @@ public class AttributeHandler {
     public ModelAndView fillViewData(ModelAndView modelAndView, String drinkName, String imagePath,
                                      String instruction, String [] ingredientNames) {
 
-        modelAndView.addObject("name",drinkName);
-        modelAndView.addObject("instruction",instruction);
+        modelAndView.addObject("name","\""+drinkName+"\"");
+        modelAndView.addObject("instruction","\""+instruction+"\"");
         modelAndView.addObject("Values",ingredientNames);
         if (!imagePath.equals(""))modelAndView.addObject("path",imagePath);
         return modelAndView;
